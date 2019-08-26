@@ -9,9 +9,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <!--CSS-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean" rel="stylesheet">
-        <title></title>
-        <script></script>
+        <link href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean" rel="stylesheet">
         <style>
             .color{
                 background-color :blueviolet;
@@ -24,9 +22,14 @@
             .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
             .d {font-family: 'Cute Font', cursive; font-size: 20px;}
             .e {font-family: 'Poor Story', cursive;}
+            .f {font-family: 'Anton', sans-serif;}
+            .g{font-family: 'Sunflower', sans-serif;}
         </style>
+        <title></title>
+        <script></script>
     </head>
     <body>
+        <!--modal-->
         <form action="/signin">
           <div class="modal fade" id="login" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -52,38 +55,43 @@
             </div>
           </div>
         </form>
+        <!--modal-->
 
-
-
-
-
+    <!--Header-->
     <header class = "blog-header py-3">
+    <!--제가 만든 제과  제목-->
       <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
-      style="background: url(/images/header/header.PNG) no-repeat; background-position: center center;">
+      style="background: url(/study/public/images/header/header.PNG) no-repeat; background-position: center center;">
           <div class = "col-md-8 px-0">
-            <a href="/" class = "a"><h1 class= "text-dark display-4">제가 만든 제과</h1></a>
+                <a href="/" class = "a"><h1 class= "text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
             <p class = "my-3 a">
-                    made by JBBK
+            made by JBBK
             </p>
           </div>
       </div>
       <div class="container">
+          </div>
+      </div>
+    <!--제가 만든 제과  제목-->
+     <!--nav bar-->
+      <div class="container b ">
           <div class = "row flex-nowrap justify-content-between align-items-center">
             <div class = "col-8">
-                <a class = "text-muted p-1" href="#">회사 소개</a>
-                <a class = "text-muted p-1" href="/small_pro/Introduction_item">제품 소개</a>
-                <a class = "text-muted p-1" href="#"> 이벤트 </a>
-                <a class = "text-muted p-1" href="#"> 고객센터 </a>
-                <a class = "text-muted p-1" href="#"> 인재채용 </a>
+                <a class = "text-muted p-1 " href="#">회사 소개</a>
+                <a class = "text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
+                <a class = "text-muted p-1 " href="#"> 이벤트 </a>
+                <a class = "text-muted p-1 " href="#"> 고객센터 </a>
+                <a class = "text-muted p-1 " href="#"> 인재채용 </a>
             </div>
 
             <div class = "col-4 d-flex justify-content-end align-items-center">
-              <button class="text-muted bg-white border-0" data-toggle="modal" data-target = "#login">Sign In </button>/
+              <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target = "#login">Sign In </button>/
               <!--로그인 팝업창-->
-              <a class="text-muted bg-white border-0" href="/small_pro/SignUp" role="button">Sign Up</a>
-            </div>
+              <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
+            </div> 
           </div>
       </div>
+    <!--nav bar-->
     </header>
 
     <!--Carousel div 시작-->
@@ -104,8 +112,8 @@
             <div class="mask rgba-black-light"></div>
           </div>
           <div class="carousel-caption text-left mb-5">
-            <h3 class="h3-responsive display-3"><strong>Safety</strong></h3>
-            <p>믿고 안심할 수 있는 유기농 먹거리 입니다.</p>
+            <h3 class="h3-responsive display-3 f"><strong>Safety</strong></h3>
+            <p class= "g">믿고 안심할 수 있는 유기농 먹거리 입니다.</p>
           </div>
         </div>
         <div class="carousel-item">
@@ -116,8 +124,8 @@
             <div class="mask rgba-black-strong"></div>
           </div>
           <div class="carousel-caption  text-left mb-5">
-            <h3 class="h3-responsive display-3"><strong>Cost-effective</strong></h3>
-            <p>엄선된 재료로 만든 먹거리를 합리적인 가격에 즐기세요.</p>
+            <h3 class="h3-responsive display-3 f"><strong>Cost-effective</strong></h3>
+            <p class= "g">엄선된 재료로 만든 먹거리를 합리적인 가격에 즐기세요.</p>
           </div>
         </div>
         <div class="carousel-item">
@@ -128,8 +136,8 @@
             <div class="mask rgba-black-slight"></div>
           </div>
           <div class="carousel-caption  text-left mb-5">
-            <h3 class="h3-responsive display-3"><strong>Fast shipping</strong></h3>
-            <p>주문하신 제품을 바로 즐기세요.</p>
+            <h3 class="h3-responsive display-3 f"><strong>Fast shipping</strong></h3>
+            <p class= "g">주문하신 제품을 바로 즐기세요.</p>
           </div>
         </div>
       </div>
@@ -147,8 +155,8 @@
     </div>
     <!--/.Carousel 끝-->
     <div>
-        <h1 class = "container mt-4 text-">Popular Item</h1>
-        <div class= "container d-flex justify-content-center pt-4">
+        <h1 class = "container mt-4 c">Popular Item</h1>
+        <div class= "container d-flex justify-content-center pt-4 d">
             <div class="row d-flex justify-content-center">
                     <div class="">
                         <ul class="nav nav-tabs">
@@ -505,8 +513,8 @@
     </div>
 
     <div>
-            <h1 class = "container mt-4 text-">New Item</h1>
-            <div class= "container d-flex justify-content-center pt-4">
+            <h1 class = "container mt-4 c">New Item</h1>
+            <div class= "container d-flex justify-content-center pt-4 d">
                 <div class="row d-flex justify-content-center">
                         <div class="">
                             <ul class="nav nav-tabs">
