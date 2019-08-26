@@ -1,24 +1,37 @@
 ﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
 
--- NC_Board Table Create SQL
-CREATE TABLE NC_Board
+-- ORDER_PAGE Table Create SQL
+CREATE TABLE ORDER_PAGE
 (
-    `NUMBER`        INT            NULL        AUTO_INCREMENT COMMENT '번호', 
-    `IMFORMATION`   VARCHAR(45)    NOT NULL    COMMENT '분류(상품정보)', 
-    `TITLE`         VARCHAR(45)    NOT NULL    COMMENT '제목', 
-    `DATE`          VARCHAR(45)    NOT NULL    COMMENT '작성날짜(주문일)', 
-    `INQUERY_TYPE`  VARCHAR(45)    NOT NULL    COMMENT '문의종류', 
-    `ORDERNUMBER`   INT            NOT NULL    COMMENT '구매번호', 
-    `PRODUCT_NAME`  VARCHAR(45)    NOT NULL    COMMENT '제품명', 
-    `CONTENT`       VARCHAR(45)    NOT NULL    COMMENT '내용', 
-    `CONDITION`     VARCHAR(45)    NOT NULL    COMMENT '상태', 
-    `NAME`          VARCHAR(45)    NOT NULL    COMMENT '이름'
+    `ID`             VARCHAR(45)    NOT NULL    COMMENT '아이디', 
+    `NUMBER`         INT            NOT NULL    AUTO_INCREMENT COMMENT '번호', 
+    `PRODUCT_NAME`   VARCHAR(45)    NOT NULL    COMMENT '제품이름', 
+    `PRODUCT_PRICE`  VARCHAR(45)    NOT NULL    COMMENT '제품가격', 
+    `DIVIDE`         VARCHAR(45)    NOT NULL    COMMENT '분류', 
+    PRIMARY KEY (ID)
 );
 
-ALTER TABLE NC_Board COMMENT '게시판';
+ALTER TABLE ORDER_PAGE COMMENT '주문페이지';
 
 
--- NC_Board Table Create SQL
+-- ORDER_PAGE Table Create SQL
+CREATE TABLE CART
+(
+    `ID`             VARCHAR(45)    NOT NULL    COMMENT '아이디', 
+    `PRODUCT_NAME`   VARCHAR(45)    NULL        COMMENT '제품이름', 
+    `NUMBER`         INT            NULL        COMMENT '수량', 
+    `PRODUCT_PRICE`  VARCHAR(45)    NULL        COMMENT '제품가격', 
+    PRIMARY KEY (ID)
+);
+
+ALTER TABLE CART COMMENT '장바구니';
+
+ALTER TABLE CART
+    ADD CONSTRAINT FK_CART_ID_ORDER_PAGE_ID FOREIGN KEY (ID)
+        REFERENCES ORDER_PAGE (ID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- ORDER_PAGE Table Create SQL
 CREATE TABLE Sign_Up
 (
     `ID`           VARCHAR(45)    NOT NULL    COMMENT '아이디', 
@@ -37,5 +50,7 @@ CREATE TABLE Sign_Up
 ALTER TABLE Sign_Up COMMENT '로그인';
 
 ALTER TABLE Sign_Up
-    ADD CONSTRAINT FK_Sign_Up_NAME_NC_Board_NAME FOREIGN KEY (NAME)
-        REFERENCES NC_Board (NAME) ON DELETE RESTRICT ON UPDATE RESTRICT;
+    ADD CONSTRAINT FK_Sign_Up_ID_CART_ID FOREIGN KEY (ID)
+        REFERENCES CART (ID) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+

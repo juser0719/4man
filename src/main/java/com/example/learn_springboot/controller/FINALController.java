@@ -7,6 +7,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class FINALController {
 	@RequestMapping(value = {"/final/home"})
 	public void actionMethod() {
-		//return "Hellow";
 	}
 }
