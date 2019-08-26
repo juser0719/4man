@@ -31,7 +31,7 @@ public class OrganizationController {
 
 	@Autowired
 	private OrganizationService service;
-    
+
 	// Receive Parameters from Html Using @RequestParam Map with @PathVariable
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
@@ -56,7 +56,7 @@ public class OrganizationController {
 		} else if ("delete".equals(action)) {
 			resultMap = service.deleteObject(paramMap);
 			action = "list";
-		} 
+		}
 
 		String viewName = MAPPING + action;
 
