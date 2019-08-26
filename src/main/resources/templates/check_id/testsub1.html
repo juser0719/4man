@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+
+<head>
+    <script scr="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script scr="../../static/css/jquery.min.js"></script>
+</head>
+
+<body>
+    <p>!!!!asd!!!!!!!!</p>
+    <form th:action="@{/testproject/testsub2}">
+        <input hidden name="ID" th:value="${resultMap.ID}">
+        <span th:text="${resultMap.ID}"></span>
+        <button type="submit" id="BUTTON">BUTTON</button>
+    </form>
+
+
+
+
+</body>
+
+</html>
