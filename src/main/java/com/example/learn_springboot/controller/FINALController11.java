@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class FINALController {
+public class FINALController11 {
 
     String hidden="";
     boolean A = false;
@@ -38,7 +38,7 @@ public class FINALController {
         // }
 
         if(A){
-
+            
         }
         if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", "false");
@@ -50,6 +50,8 @@ public class FINALController {
         
             modelandView.addObject("resultMap", resultMap);
             return modelandView;
+        
+
     }
 
     @RequestMapping(value = "/final/{action}", method = { RequestMethod.GET, RequestMethod.POST })
