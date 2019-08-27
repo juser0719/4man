@@ -49,7 +49,7 @@
                         <a class = "text-muted p-1 " href="#">회사 소개</a>
                         
                         <form method="POST" th:action="@{/final/Introduction_item}">
-                            <a type="submit" class = "text-muted p-1 " href="">제품 소개</a>
+                            <button type="submit" class = "text-muted p-white border-bottom bg-white ">제품 소개</button>
                         </form>
                        
                         <a class = "text-muted p-1 " href="#"> 이벤트 </a>
@@ -58,15 +58,18 @@
                     </div>
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
-                        <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
-                            <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
+                        <!--
+                        <form method="POST" th:action="@{/final/SignIn}">
+                            <button type="submit" name="ID" class="text-muted bg-white border-0">Sign In</button>/
                         </form>
 
                         <form method="POST" th:action="@{/final/SignUP}">
-                            <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
-                        </form><!--SignIn/SignUP form-->
-                        <!-- <button name="ID"></button> -->
+                            <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button>
+                        </form>
+                        -->
                         <a th:utext="${resultMap.VIEW}"></a>
+                        <input type="hidden" value="${resultMap.ID}">
+                        
                     </div>
 
                 </div>
