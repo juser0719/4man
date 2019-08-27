@@ -21,43 +21,35 @@ public class Check_Id {
             ModelAndView modelandView) {
         String viewName = "/check_id/";
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        
-        String hidden = (String) paramMap.get("ID");
-       
 
-        if(hidden.equals("") || hidden.equals(false)){
+        String hidden = (String) paramMap.get("ID");
+
+        if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", false);
-            
+
             resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>값없다</button>");
-        }
-        else{
-            if (action.equals("testhome")||action.equals("testsub1")) {
+        } else {
+            if (action.equals("testhome") || action.equals("testsub1")) {
                 resultMap.put("ID", hidden);
                 resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>값있당</button>");
+                resultMap.put("WELCOME", "<p class='btn btn-primary'>환영합니다</p>");
             }
         }
 
         viewName += action;
 
-
-
-
         // if (action.equals("testsub1")) {
-        //     viewName += action;
-        //     resultMap.put("ID", hidden);
+        // viewName += action;
+        // resultMap.put("ID", hidden);
 
         // } else if (action.equals("testsub2")) {
-        //     if (((String) paramMap.get("ID")).equals("qq")) {
-        //         viewName += action;
-        //         resultMap.put("ID", hidden);
-        //     } else {
-        //         viewName += "testsub1";
-        //     }
+        // if (((String) paramMap.get("ID")).equals("qq")) {
+        // viewName += action;
+        // resultMap.put("ID", hidden);
+        // } else {
+        // viewName += "testsub1";
         // }
-        
-        
-
-
+        // }
 
         /*
          * hidden = (String) paramMap.get("ID"); if (((String)
