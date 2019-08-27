@@ -19,7 +19,7 @@ public class FINALController11 {
 
     String hidden="";
     boolean A = false;
-    @RequestMapping(value = "/final/home")
+    @RequestMapping(value = "/final/home1")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
@@ -54,7 +54,7 @@ public class FINALController11 {
 
     }
 
-    @RequestMapping(value = "/final/{action}", method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/final/{action}1", method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView action01(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
             ModelAndView modelandView) {
         String viewName = "/final/";
