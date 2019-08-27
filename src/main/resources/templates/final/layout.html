@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--layout 가운데 메인과 네비게이션-->
 <meta charset="UTF-8">
-<html>
+<html xmlns:th="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
         <!--JS-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -90,7 +90,7 @@
             </div>
             <!--nav bar-->
             <!--main layout-->
-            <th:block layout:fragment="layout.content"></th:block>
+            <th:block layout:fragment="layout.home"></th:block>
             <!--main layout-->
         </header>
     </body>
