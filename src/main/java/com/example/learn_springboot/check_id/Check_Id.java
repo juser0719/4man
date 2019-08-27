@@ -21,21 +21,41 @@ public class Check_Id {
             ModelAndView modelandView) {
         String viewName = "/check_id/";
         Map<String, Object> resultMap = new HashMap<String, Object>();
-        String hidden;
-        hidden = (String) paramMap.get("ID");
+        String hidden = (String) paramMap.get("ID");
+       
 
-        if (action.equals("testsub1")) {
+        if(hidden.equals("")){
             viewName += action;
-            resultMap.put("ID", hidden);
-
-        } else if (action.equals("testsub2")) {
-            if (((String) paramMap.get("ID")).equals("qq")) {
+            resultMap.put("ID", false);
+        }
+        else{
+            if (action.equals("testsub1")) {
                 viewName += action;
                 resultMap.put("ID", hidden);
-            } else {
-                viewName += "testsub1";
+    
             }
         }
+
+
+
+
+        // if (action.equals("testsub1")) {
+        //     viewName += action;
+        //     resultMap.put("ID", hidden);
+
+        // } else if (action.equals("testsub2")) {
+        //     if (((String) paramMap.get("ID")).equals("qq")) {
+        //         viewName += action;
+        //         resultMap.put("ID", hidden);
+        //     } else {
+        //         viewName += "testsub1";
+        //     }
+        // }
+        
+        
+
+
+
         /*
          * hidden = (String) paramMap.get("ID"); if (((String)
          * paramMap.get("ID")).equals("qq")) { resultMap.put("AUTHORIZATION", true); }
