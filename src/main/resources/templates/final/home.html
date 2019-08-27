@@ -1,999 +1,909 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html>
-    <head>
-        <!--JS-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!--CSS-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean" rel="stylesheet">
-        <style>
-            .color{
-                background-color :blueviolet;
-            }
-            .color:hover{
-                background-color: rebeccapurple;
-            }
-            .a { font-family: 'Stylish', sans-serif; }
-            .b { font-family: 'Hi Melody', cursive; font-size: 23px;}
-            .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
-            .d {font-family: 'Cute Font', cursive; font-size: 20px;}
-            .e {font-family: 'Poor Story', cursive;}
-            .f {font-family: 'Anton', sans-serif;}
-            .g{font-family: 'Sunflower', sans-serif;}
-        </style>
-        <title></title>
-        <script></script>
-    </head>
-    <body>
-        <!--modal-->
-        <form action="/signin">
-          <div class="modal fade" id="login" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center bg-secondary text-white">
-                    <h4 class="modal-title w-100 ">Sign in</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                    <label data-error="wrong" data-success="right" for="defaultForm-email"><strong>ID</strong></label>
-                    <input type="email" id="defaultForm-email" class="form-control validate" name ="logid">
-                  </div>
-                  <div class="md-form mb-4">
-                    <label data-error="wrong" data-success="right" for="defaultForm-pass"><strong>PW</strong></label>
-                    <input type="password" id="defaultForm-pass" class="form-control validate " name = "logpw">
-                  </div>
-                    </div>
-                  <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-default btn-outline-secondary">Login</button>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </form>
-        <!--modal-->
-
-    <!--Header-->
-    <header class = "blog-header py-3">
-    <!--제가 만든 제과  제목-->
-        <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
-        style="background: url(/images/header/header.PNG) no-repeat; background-position: center center;">
-            <div class = "col-md-8 px-0">
-                <a href="/" class = "a text-dark text-decoration-none"></a><h1 class= "display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
-                <p class = "my-3 a">
-                    made by JBBK
-                </p>
-            </div>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/Layout">
+    <th:block layout:fragment="layout.home">
+  <!--Carousel div 시작-->
+  <div id="carousel-example-2" class="carousel slide carousel-fade container" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <div class="view">
+          <img class="d-block w-100" src="../../static/image/h2-1.jpg" th:src="@{/image/h2-1.jpg}"
+            alt="First slide">
+          <div class="mask rgba-black-light"></div>
         </div>
-    <!--제가 만든 제과  제목-->
-     <!--nav bar-->
-      <div class="container b ">
-          <div class = "row flex-nowrap justify-content-between align-items-center">
-            <div class = "col-8">
-                <a class = "text-muted p-1 " href="#">회사 소개</a>
-                <a class = "text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
-                <a class = "text-muted p-1 " href="#"> 이벤트 </a>
-                <a class = "text-muted p-1 " href="#"> 고객센터 </a>
-                <a class = "text-muted p-1 " href="#"> 인재채용 </a>
-            </div>
-
-            <div class = "col-4 d-flex justify-content-end align-items-center">
-              <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target = "#login">Sign In </button>/
-              <!--로그인 팝업창-->
-              <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
-            </div>
-          </div>
-      </div>
-    <!--nav bar-->
-    </header>
-
-    <!--Carousel div 시작-->
-    <div id="carousel-example-2" class="carousel slide carousel-fade container" data-ride="carousel">
-      <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-2" data-slide-to="1"></li>
-        <li data-target="#carousel-example-2" data-slide-to="2"></li>
-      </ol>
-      <!--/.Indicators-->
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <div class="view">
-            <img class="d-block w-100" src="../../static/image/h2-1.jpg" th:src="@{/image/h2-1.jpg}"
-              alt="First slide">
-            <div class="mask rgba-black-light"></div>
-          </div>
-          <div class="carousel-caption text-left mb-5">
-            <h3 class="h3-responsive display-3 f"><strong>Safety</strong></h3>
-            <p class= "g">믿고 안심할 수 있는 유기농 먹거리 입니다.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <!--Mask color-->
-          <div class="view">
-            <img class="d-block w-100" src="../../static/image/h2-2.jpg" th:src="@{/image/h2-2.jpg}"
-              alt="Second slide">
-            <div class="mask rgba-black-strong"></div>
-          </div>
-          <div class="carousel-caption  text-left mb-5">
-            <h3 class="h3-responsive display-3 f"><strong>Cost-effective</strong></h3>
-            <p class= "g">엄선된 재료로 만든 먹거리를 합리적인 가격에 즐기세요.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <!--Mask color-->
-          <div class="view">
-            <img class="d-block w-100" src="../../static/image/h2-3.jpg" th:src="@{/image/h2-2.jpg}"
-              alt="Third slide">
-            <div class="mask rgba-black-slight"></div>
-          </div>
-          <div class="carousel-caption  text-left mb-5">
-            <h3 class="h3-responsive display-3 f"><strong>Fast shipping</strong></h3>
-            <p class= "g">주문하신 제품을 바로 즐기세요.</p>
-          </div>
+        <div class="carousel-caption text-left mb-5">
+          <h3 class="h3-responsive display-3 f"><strong>Safety</strong></h3>
+          <p class= "g">믿고 안심할 수 있는 유기농 먹거리 입니다.</p>
         </div>
       </div>
-      <!--/.Slides-->
-      <!--Controls-->
-      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      <!--/.Controls-->
-    </div>
-    <!--/.Carousel 끝-->
-    <div>
-        <h1 class = "container mt-4 c">Popular Item</h1>
-        <div class= "container d-flex justify-content-center pt-4 d">
-            <div class="row d-flex justify-content-center">
-                    <div class="">
-                        <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#t1">껌</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t2">초콜릿</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t3">비스킷</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t4">아이스크림</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t5">파이</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t6">스낵</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t7">캔디</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#t8">빵</a>
-                        </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="t1" role="tabpanel">
-                                <div class= "row">
-                                    <div class= "col-3">
-                                            <div class="card text-center" >
-                                                <img class="card-img-top" src="../../static/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <p class="card-text">천연치클 껌 4종</p>
-                                                    <p>3,900원</p>
-                                                    <button class="color btn text-white">주문하기</button>
-                                                    <button class="color btn text-white">장바구니</button>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class= "col-3">
-                                            <div class="card text-center" >
-                                                <img class="card-img-top" src="../../static/image/상품/껌2.jpg" th:src="@{/image/상품/껌2.jpg}" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <p class="card-text">천연껌 6종</p>
-                                                    <p>3,900원</p>
-                                                    <button class="color btn text-white">주문하기</button>
-                                                    <button class="color btn text-white">장바구니</button>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class= "col-3">
-                                            <div class="card text-center" >
-                                                <img class="card-img-top" src="../../static/image/상품/껌3.jpg" th:src="@{/image/상품/껌3.jpg}" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <p class="card-text">자일리톨 2종</p>
-                                                    <p>7,900원</p>
-                                                    <button class="color btn text-white">주문하기</button>
-                                                    <button class="color btn text-white">장바구니</button>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class= "col-3">
-                                            <div class="card text-center" >
-                                                <img class="card-img-top" src="../../static/image/상품/껌4.jpg" th:src="@{/image/상품/껌4.jpg}" alt="Card image cap">
-                                                <div class="card-body">
-                                                    <p class="card-text">무가당 캔디 4종</p>
-                                                    <p>3,000원</p>
-                                                    <button class="color btn text-white">주문하기</button>
-                                                    <button class="color btn text-white">장바구니</button>
-                                                </div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="t2" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/초콜릿1.jpg" th:src="@{/image/상품/초콜릿1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">초콜릿 꿀 3종</p>
-                                                            <p>15,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/초콜릿2.jpg" th:src="@{/image/상품/초콜릿2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">유기농 초콜릿 7종</p>
-                                                            <p>3,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/초콜릿3.jpg" th:src="@{/image/상품/초콜릿3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">벨기에 초콜릿 3종</p>
-                                                            <p>7,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/초콜릿4.jpg" th:src="@{/image/상품/초콜릿4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">퓨전 초콜릿 2종</p>
-                                                            <p>7,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                    </div>
-                            </div>
-                            <div class="tab-pane fade" id="t3" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/비스킷1.jpg" th:src="@{/image/상품/비스킷1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">버터쿠키 에디션 3종</p>
-                                                            <p>7,110원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/비스킷2.jpg" th:src="@{/image/상품/비스킷2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">유기농 퀴노아 비스킷</p>
-                                                            <p>1,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/비스킷3.jpg" th:src="@{/image/상품/비스킷3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">벨기에 비스킷 6종</p>
-                                                            <p>4,200원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/비스킷4.jpg" th:src="@{/image/상품/비스킷4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">마이 커피 비스킷</p>
-                                                            <p>3,300원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="t4" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/아이1.jpg" th:src="@{/image/상품/아이1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">아이스크림 콘 5종</p>
-                                                            <p>2,110원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/아이2.jpg" th:src="@{/image/상품/아이2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">아이스크림 7종</p>
-                                                            <p>1,600원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/아이3.jpg" th:src="@{/image/상품/아이3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">아이스크림 10종</p>
-                                                            <p>14,200원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/아이4.jpg" th:src="@{/image/상품/아이4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">아이스크림 3종</p>
-                                                            <p>3,500원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="t5" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/파이1.jpg" th:src="@{/image/상품/파이1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">르까도드마비 프리미에 쇼콜라</p>
-                                                            <p>16,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/파이2.jpg" th:src="@{/image/상품/파이2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">르까도드마비 타르트 2종</p>
-                                                            <p>7,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/파이3.jpg" th:src="@{/image/상품/파이3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">세렝게티 타르트</p>
-                                                            <p>41,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/파이4.jpg" th:src="@{/image/상품/파이4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">초코파이 2종</p>
-                                                            <p>10,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="t6" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/스낵1.jpg" th:src="@{/image/상품/스낵1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">통곡물 씬 브래드 10종</p>
-                                                            <p>4,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/스낵2.jpg" th:src="@{/image/상품/스낵2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">브래드스틱 6종</p>
-                                                            <p>1,480원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/스낵3.jpg" th:src="@{/image/상품/스낵3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">쌀과자 2종</p>
-                                                            <p>1,500원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/스낵4.jpg" th:src="@{/image/상품/스낵4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">베기칩스 & 스틱</p>
-                                                            <p>1,500원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="t7" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/캔디1.jpg" th:src="@{/image/상품/캔디1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">유기농 과일맛 카라멜 4종</p>
-                                                            <p>2,200원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/캔디2.jpg" th:src="@{/image/상품/캔디2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">페퍼민트 캔디</p>
-                                                            <p>2,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/캔디3.jpg" th:src="@{/image/상품/캔디3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">과일 캔디 틴케이스 6종</p>
-                                                            <p>2,900원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/캔디4.jpg" th:src="@{/image/상품/캔디4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">과일사탕 2종</p>
-                                                            <p>3,000원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div class="tab-pane fade" id="t8" role="tabpanel">
-                                    <div class= "row">
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/빵1.jpg" th:src="@{/image/상품/빵1.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">스콘 3종</p>
-                                                            <p>3,110원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/빵2.jpg" th:src="@{/image/상품/빵2.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">햄버그 번 180g</p>
-                                                            <p>3,500원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/빵3.jpg" th:src="@{/image/상품/빵3.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">에그 베이컨</p>
-                                                            <p>3,700원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <div class= "col-3">
-                                                    <div class="card text-center" >
-                                                        <img class="card-img-top" src="../../static/image/상품/빵4.jpg" th:src="@{/image/상품/빵4.jpg}" alt="Card image cap">
-                                                        <div class="card-body">
-                                                            <p class="card-text">설탕 없는 머핀 2종</p>
-                                                            <p>3,800원</p>
-                                                            <button class="color btn text-white">주문하기</button>
-                                                            <button class="color btn text-white">장바구니</button>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                        </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="../../static/image/h2-2.jpg" th:src="@{/image/h2-2.jpg}"
+            alt="Second slide">
+          <div class="mask rgba-black-strong"></div>
         </div>
+        <div class="carousel-caption  text-left mb-5">
+          <h3 class="h3-responsive display-3 f"><strong>Cost-effective</strong></h3>
+          <p class= "g">엄선된 재료로 만든 먹거리를 합리적인 가격에 즐기세요.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img class="d-block w-100" src="../../static/image/h2-3.jpg" th:src="@{/image/h2-2.jpg}"
+            alt="Third slide">
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption  text-left mb-5">
+          <h3 class="h3-responsive display-3 f"><strong>Fast shipping</strong></h3>
+          <p class= "g">주문하신 제품을 바로 즐기세요.</p>
+        </div>
+      </div>
     </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel 끝-->
+  <div>
+    <h1 class = "container mt-4 c">Popular Item</h1>
+      <div class= "container d-flex justify-content-center pt-4 d">
+        <div class="row d-flex justify-content-center">
+          <div class="">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#t1">껌</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t2">초콜릿</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t3">비스킷</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t4">아이스크림</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t5">파이</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t6">스낵</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t7">캔디</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#t8">빵</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="t1" role="tabpanel">
+                <div class= "row">
+                  <div class= "col-3">
+                    <div class="card text-center" >
+                      <img class="card-img-top" src="../../static/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">천연치클 껌 4종</p>
+                        <p>3,900원</p>
+                        <button class="color btn text-white">주문하기</button>
+                        <button class="color btn text-white">장바구니</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class= "col-3">
+                    <div class="card text-center" >
+                      <img class="card-img-top" src="../../static/image/상품/껌2.jpg" th:src="@{/image/상품/껌2.jpg}" alt="Card image cap">
+                        <div class="card-body">
+                          <p class="card-text">천연껌 6종</p>
+                          <p>3,900원</p>
+                          <button class="color btn text-white">주문하기</button>
+                          <button class="color btn text-white">장바구니</button>
+                                              </div>
+                                          </div>
+                                  </div>
+                                  <div class= "col-3">
+                                          <div class="card text-center" >
+                                              <img class="card-img-top" src="../../static/image/상품/껌3.jpg" th:src="@{/image/상품/껌3.jpg}" alt="Card image cap">
+                                              <div class="card-body">
+                                                  <p class="card-text">자일리톨 2종</p>
+                                                  <p>7,900원</p>
+                                                  <button class="color btn text-white">주문하기</button>
+                                                  <button class="color btn text-white">장바구니</button>
+                                              </div>
+                                          </div>
+                                  </div>
+                                  <div class= "col-3">
+                                          <div class="card text-center" >
+                                              <img class="card-img-top" src="../../static/image/상품/껌4.jpg" th:src="@{/image/상품/껌4.jpg}" alt="Card image cap">
+                                              <div class="card-body">
+                                                  <p class="card-text">무가당 캔디 4종</p>
+                                                  <p>3,000원</p>
+                                                  <button class="color btn text-white">주문하기</button>
+                                                  <button class="color btn text-white">장바구니</button>
+                                              </div>
+                                          </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane fade" id="t2" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/초콜릿1.jpg" th:src="@{/image/상품/초콜릿1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">초콜릿 꿀 3종</p>
+                                                          <p>15,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/초콜릿2.jpg" th:src="@{/image/상품/초콜릿2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">유기농 초콜릿 7종</p>
+                                                          <p>3,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/초콜릿3.jpg" th:src="@{/image/상품/초콜릿3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">벨기에 초콜릿 3종</p>
+                                                          <p>7,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/초콜릿4.jpg" th:src="@{/image/상품/초콜릿4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">퓨전 초콜릿 2종</p>
+                                                          <p>7,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                  </div>
+                          </div>
+                          <div class="tab-pane fade" id="t3" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/비스킷1.jpg" th:src="@{/image/상품/비스킷1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">버터쿠키 에디션 3종</p>
+                                                          <p>7,110원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/비스킷2.jpg" th:src="@{/image/상품/비스킷2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">유기농 퀴노아 비스킷</p>
+                                                          <p>1,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/비스킷3.jpg" th:src="@{/image/상품/비스킷3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">벨기에 비스킷 6종</p>
+                                                          <p>4,200원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/비스킷4.jpg" th:src="@{/image/상품/비스킷4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">마이 커피 비스킷</p>
+                                                          <p>3,300원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                          <div class="tab-pane fade" id="t4" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/아이1.jpg" th:src="@{/image/상품/아이1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">아이스크림 콘 5종</p>
+                                                          <p>2,110원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/아이2.jpg" th:src="@{/image/상품/아이2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">아이스크림 7종</p>
+                                                          <p>1,600원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/아이3.jpg" th:src="@{/image/상품/아이3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">아이스크림 10종</p>
+                                                          <p>14,200원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/아이4.jpg" th:src="@{/image/상품/아이4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">아이스크림 3종</p>
+                                                          <p>3,500원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                          <div class="tab-pane fade" id="t5" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/파이1.jpg" th:src="@{/image/상품/파이1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">르까도드마비 프리미에 쇼콜라</p>
+                                                          <p>16,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/파이2.jpg" th:src="@{/image/상품/파이2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">르까도드마비 타르트 2종</p>
+                                                          <p>7,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/파이3.jpg" th:src="@{/image/상품/파이3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">세렝게티 타르트</p>
+                                                          <p>41,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/파이4.jpg" th:src="@{/image/상품/파이4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">초코파이 2종</p>
+                                                          <p>10,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                          <div class="tab-pane fade" id="t6" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/스낵1.jpg" th:src="@{/image/상품/스낵1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">통곡물 씬 브래드 10종</p>
+                                                          <p>4,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/스낵2.jpg" th:src="@{/image/상품/스낵2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">브래드스틱 6종</p>
+                                                          <p>1,480원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/스낵3.jpg" th:src="@{/image/상품/스낵3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">쌀과자 2종</p>
+                                                          <p>1,500원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/스낵4.jpg" th:src="@{/image/상품/스낵4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">베기칩스 & 스틱</p>
+                                                          <p>1,500원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                          <div class="tab-pane fade" id="t7" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/캔디1.jpg" th:src="@{/image/상품/캔디1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">유기농 과일맛 카라멜 4종</p>
+                                                          <p>2,200원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/캔디2.jpg" th:src="@{/image/상품/캔디2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">페퍼민트 캔디</p>
+                                                          <p>2,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/캔디3.jpg" th:src="@{/image/상품/캔디3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">과일 캔디 틴케이스 6종</p>
+                                                          <p>2,900원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/캔디4.jpg" th:src="@{/image/상품/캔디4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">과일사탕 2종</p>
+                                                          <p>3,000원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                          <div class="tab-pane fade" id="t8" role="tabpanel">
+                                  <div class= "row">
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/빵1.jpg" th:src="@{/image/상품/빵1.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">스콘 3종</p>
+                                                          <p>3,110원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/빵2.jpg" th:src="@{/image/상품/빵2.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">햄버그 번 180g</p>
+                                                          <p>3,500원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/빵3.jpg" th:src="@{/image/상품/빵3.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">에그 베이컨</p>
+                                                          <p>3,700원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                          <div class= "col-3">
+                                                  <div class="card text-center" >
+                                                      <img class="card-img-top" src="../../static/image/상품/빵4.jpg" th:src="@{/image/상품/빵4.jpg}" alt="Card image cap">
+                                                      <div class="card-body">
+                                                          <p class="card-text">설탕 없는 머핀 2종</p>
+                                                          <p>3,800원</p>
+                                                          <button class="color btn text-white">주문하기</button>
+                                                          <button class="color btn text-white">장바구니</button>
+                                                      </div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+  </div>
 
-    <div>
-            <h1 class = "container mt-4 c">New Item</h1>
-            <div class= "container d-flex justify-content-center pt-4 d">
-                <div class="row d-flex justify-content-center">
-                        <div class="">
-                            <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tt1">껌</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt2">초콜릿</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt3">비스킷</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt4">아이스크림</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt5">파이</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt6">스낵</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt7">캔디</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tt8">빵</a>
-                            </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="tt1" role="tabpanel">
-                                    <div class= "row">
-                                        <div class= "col-3">
-                                                <div class="card text-center" >
-                                                    <img class="card-img-top" src="../../static/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <p class="card-text">천연치클 껌 4종</p>
-                                                        <p>3,900원</p>
-                                                        <button class="color btn text-white">주문하기</button>
-                                                        <button class="color btn text-white">장바구니</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        <div class= "col-3">
-                                                <div class="card text-center" >
-                                                    <img class="card-img-top" src="../../static/image/상품/껌2.jpg" th:src="@{/image/상품/껌2.jpg}" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <p class="card-text">천연껌 6종</p>
-                                                        <p>3,900원</p>
-                                                        <button class="color btn text-white">주문하기</button>
-                                                        <button class="color btn text-white">장바구니</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        <div class= "col-3">
-                                                <div class="card text-center" >
-                                                    <img class="card-img-top" src="../../static/image/상품/껌3.jpg" th:src="@{/image/상품/껌3.jpg}" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <p class="card-text">자일리톨 2종</p>
-                                                        <p>7,900원</p>
-                                                        <button class="color btn text-white">주문하기</button>
-                                                        <button class="color btn text-white">장바구니</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        <div class= "col-3">
-                                                <div class="card text-center" >
-                                                    <img class="card-img-top" src="../../static/image/상품/껌4.jpg" th:src="@{/image/상품/껌4.jpg}" alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <p class="card-text">무가당 캔디 4종</p>
-                                                        <p>3,000원</p>
-                                                        <button class="color btn text-white">주문하기</button>
-                                                        <button class="color btn text-white">장바구니</button>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt2" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/초콜릿1.jpg" th:src="@{/image/상품/초콜릿1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">초콜릿 꿀 3종</p>
-                                                                <p>15,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/초콜릿2.jpg" th:src="@{/image/상품/초콜릿2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">유기농 초콜릿 7종</p>
-                                                                <p>3,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/초콜릿3.jpg" th:src="@{/image/상품/초콜릿3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">벨기에 초콜릿 3종</p>
-                                                                <p>7,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/초콜릿4.jpg" th:src="@{/image/상품/초콜릿4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">퓨전 초콜릿 2종</p>
-                                                                <p>7,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt3" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/비스킷1.jpg" th:src="@{/image/상품/비스킷1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">버터쿠키 에디션 3종</p>
-                                                                <p>7,110원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/비스킷2.jpg" th:src="@{/image/상품/비스킷2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">유기농 퀴노아 비스킷</p>
-                                                                <p>1,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/비스킷3.jpg" th:src="@{/image/상품/비스킷3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">벨기에 비스킷 6종</p>
-                                                                <p>4,200원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/비스킷4.jpg" th:src="@{/image/상품/비스킷4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">마이 커피 비스킷</p>
-                                                                <p>3,300원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt4" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/아이1.jpg" th:src="@{/image/상품/아이1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">아이스크림 콘 5종</p>
-                                                                <p>2,110원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/아이2.jpg" th:src="@{/image/상품/아이2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">아이스크림 7종</p>
-                                                                <p>1,600원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/아이3.jpg" th:src="@{/image/상품/아이3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">아이스크림 10종</p>
-                                                                <p>14,200원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/아이4.jpg" th:src="@{/image/상품/아이4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">아이스크림 3종</p>
-                                                                <p>3,500원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt5" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/파이1.jpg" th:src="@{/image/상품/파이1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">르까도드마비 프리미에 쇼콜라</p>
-                                                                <p>16,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/파이2.jpg" th:src="@{/image/상품/파이2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">르까도드마비 타르트 2종</p>
-                                                                <p>7,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/파이3.jpg" th:src="@{/image/상품/파이3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">세렝게티 타르트</p>
-                                                                <p>41,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/파이4.jpg" th:src="@{/image/상품/파이4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">초코파이 2종</p>
-                                                                <p>10,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt6" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/스낵1.jpg" th:src="@{/image/상품/스낵1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">통곡물 씬 브래드 10종</p>
-                                                                <p>4,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/스낵2.jpg" th:src="@{/image/상품/스낵2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">브래드스틱 6종</p>
-                                                                <p>1,480원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/스낵3.jpg" th:src="@{/image/상품/스낵3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">쌀과자 2종</p>
-                                                                <p>1,500원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/스낵4.jpg" th:src="@{/image/상품/스낵4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">베기칩스 & 스틱</p>
-                                                                <p>1,500원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt7" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/캔디1.jpg" th:src="@{/image/상품/캔디1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">유기농 과일맛 카라멜 4종</p>
-                                                                <p>2,200원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/캔디2.jpg" th:src="@{/image/상품/캔디2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">페퍼민트 캔디</p>
-                                                                <p>2,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/캔디3.jpg" th:src="@{/image/상품/캔디3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">과일 캔디 틴케이스 6종</p>
-                                                                <p>2,900원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/캔디4.jpg" th:src="@{/image/상품/캔디4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">과일사탕 2종</p>
-                                                                <p>3,000원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                                <div class="tab-pane fade" id="tt8" role="tabpanel">
-                                        <div class= "row">
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/빵1.jpg" th:src="@{/image/상품/빵1.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">스콘 3종</p>
-                                                                <p>3,110원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/빵2.jpg" th:src="@{/image/상품/빵2.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">햄버그 번 180g</p>
-                                                                <p>3,500원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/빵3.jpg" th:src="@{/image/상품/빵3.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">에그 베이컨</p>
-                                                                <p>3,700원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class= "col-3">
-                                                        <div class="card text-center" >
-                                                            <img class="card-img-top" src="../../static/image/상품/빵4.jpg" th:src="@{/image/상품/빵4.jpg}" alt="Card image cap">
-                                                            <div class="card-body">
-                                                                <p class="card-text">설탕 없는 머핀 2종</p>
-                                                                <p>3,800원</p>
-                                                                <button class="color btn text-white">주문하기</button>
-                                                                <button class="color btn text-white">장바구니</button>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-    </div>
-
-      </body>
+  <div>
+          <h1 class = "container mt-4 c">New Item</h1>
+          <div class= "container d-flex justify-content-center pt-4 d">
+              <div class="row d-flex justify-content-center">
+                      <div class="">
+                          <ul class="nav nav-tabs">
+                          <li class="nav-item">
+                              <a class="nav-link active" data-toggle="tab" href="#tt1">껌</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt2">초콜릿</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt3">비스킷</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt4">아이스크림</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt5">파이</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt6">스낵</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt7">캔디</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" data-toggle="tab" href="#tt8">빵</a>
+                          </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="tt1" role="tabpanel">
+                                  <div class= "row">
+                                      <div class= "col-3">
+                                              <div class="card text-center" >
+                                                  <img class="card-img-top" src="../../static/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" alt="Card image cap">
+                                                  <div class="card-body">
+                                                      <p class="card-text">천연치클 껌 4종</p>
+                                                      <p>3,900원</p>
+                                                      <button class="color btn text-white">주문하기</button>
+                                                      <button class="color btn text-white">장바구니</button>
+                                                  </div>
+                                              </div>
+                                      </div>
+                                      <div class= "col-3">
+                                              <div class="card text-center" >
+                                                  <img class="card-img-top" src="../../static/image/상품/껌2.jpg" th:src="@{/image/상품/껌2.jpg}" alt="Card image cap">
+                                                  <div class="card-body">
+                                                      <p class="card-text">천연껌 6종</p>
+                                                      <p>3,900원</p>
+                                                      <button class="color btn text-white">주문하기</button>
+                                                      <button class="color btn text-white">장바구니</button>
+                                                  </div>
+                                              </div>
+                                      </div>
+                                      <div class= "col-3">
+                                              <div class="card text-center" >
+                                                  <img class="card-img-top" src="../../static/image/상품/껌3.jpg" th:src="@{/image/상품/껌3.jpg}" alt="Card image cap">
+                                                  <div class="card-body">
+                                                      <p class="card-text">자일리톨 2종</p>
+                                                      <p>7,900원</p>
+                                                      <button class="color btn text-white">주문하기</button>
+                                                      <button class="color btn text-white">장바구니</button>
+                                                  </div>
+                                              </div>
+                                      </div>
+                                      <div class= "col-3">
+                                              <div class="card text-center" >
+                                                  <img class="card-img-top" src="../../static/image/상품/껌4.jpg" th:src="@{/image/상품/껌4.jpg}" alt="Card image cap">
+                                                  <div class="card-body">
+                                                      <p class="card-text">무가당 캔디 4종</p>
+                                                      <p>3,000원</p>
+                                                      <button class="color btn text-white">주문하기</button>
+                                                      <button class="color btn text-white">장바구니</button>
+                                                  </div>
+                                              </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt2" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/초콜릿1.jpg" th:src="@{/image/상품/초콜릿1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">초콜릿 꿀 3종</p>
+                                                              <p>15,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/초콜릿2.jpg" th:src="@{/image/상품/초콜릿2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">유기농 초콜릿 7종</p>
+                                                              <p>3,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/초콜릿3.jpg" th:src="@{/image/상품/초콜릿3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">벨기에 초콜릿 3종</p>
+                                                              <p>7,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/초콜릿4.jpg" th:src="@{/image/상품/초콜릿4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">퓨전 초콜릿 2종</p>
+                                                              <p>7,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                      </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt3" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/비스킷1.jpg" th:src="@{/image/상품/비스킷1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">버터쿠키 에디션 3종</p>
+                                                              <p>7,110원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/비스킷2.jpg" th:src="@{/image/상품/비스킷2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">유기농 퀴노아 비스킷</p>
+                                                              <p>1,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/비스킷3.jpg" th:src="@{/image/상품/비스킷3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">벨기에 비스킷 6종</p>
+                                                              <p>4,200원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/비스킷4.jpg" th:src="@{/image/상품/비스킷4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">마이 커피 비스킷</p>
+                                                              <p>3,300원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt4" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/아이1.jpg" th:src="@{/image/상품/아이1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">아이스크림 콘 5종</p>
+                                                              <p>2,110원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/아이2.jpg" th:src="@{/image/상품/아이2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">아이스크림 7종</p>
+                                                              <p>1,600원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/아이3.jpg" th:src="@{/image/상품/아이3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">아이스크림 10종</p>
+                                                              <p>14,200원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/아이4.jpg" th:src="@{/image/상품/아이4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">아이스크림 3종</p>
+                                                              <p>3,500원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt5" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/파이1.jpg" th:src="@{/image/상품/파이1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">르까도드마비 프리미에 쇼콜라</p>
+                                                              <p>16,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/파이2.jpg" th:src="@{/image/상품/파이2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">르까도드마비 타르트 2종</p>
+                                                              <p>7,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/파이3.jpg" th:src="@{/image/상품/파이3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">세렝게티 타르트</p>
+                                                              <p>41,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/파이4.jpg" th:src="@{/image/상품/파이4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">초코파이 2종</p>
+                                                              <p>10,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt6" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/스낵1.jpg" th:src="@{/image/상품/스낵1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">통곡물 씬 브래드 10종</p>
+                                                              <p>4,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/스낵2.jpg" th:src="@{/image/상품/스낵2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">브래드스틱 6종</p>
+                                                              <p>1,480원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/스낵3.jpg" th:src="@{/image/상품/스낵3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">쌀과자 2종</p>
+                                                              <p>1,500원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/스낵4.jpg" th:src="@{/image/상품/스낵4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">베기칩스 & 스틱</p>
+                                                              <p>1,500원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt7" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/캔디1.jpg" th:src="@{/image/상품/캔디1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">유기농 과일맛 카라멜 4종</p>
+                                                              <p>2,200원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/캔디2.jpg" th:src="@{/image/상품/캔디2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">페퍼민트 캔디</p>
+                                                              <p>2,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/캔디3.jpg" th:src="@{/image/상품/캔디3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">과일 캔디 틴케이스 6종</p>
+                                                              <p>2,900원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/캔디4.jpg" th:src="@{/image/상품/캔디4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">과일사탕 2종</p>
+                                                              <p>3,000원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tt8" role="tabpanel">
+                                      <div class= "row">
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/빵1.jpg" th:src="@{/image/상품/빵1.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">스콘 3종</p>
+                                                              <p>3,110원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/빵2.jpg" th:src="@{/image/상품/빵2.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">햄버그 번 180g</p>
+                                                              <p>3,500원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/빵3.jpg" th:src="@{/image/상품/빵3.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">에그 베이컨</p>
+                                                              <p>3,700원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                              <div class= "col-3">
+                                                      <div class="card text-center" >
+                                                          <img class="card-img-top" src="../../static/image/상품/빵4.jpg" th:src="@{/image/상품/빵4.jpg}" alt="Card image cap">
+                                                          <div class="card-body">
+                                                              <p class="card-text">설탕 없는 머핀 2종</p>
+                                                              <p>3,800원</p>
+                                                              <button class="color btn text-white">주문하기</button>
+                                                              <button class="color btn text-white">장바구니</button>
+                                                          </div>
+                                                      </div>
+                                              </div>
+                                          </div>
+                              </div>
+                          </div>
+                      </div>
+              </div>
+          </div>
+  </div>
+</th:block>
 </html>
