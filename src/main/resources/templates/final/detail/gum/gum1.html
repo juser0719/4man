@@ -93,40 +93,45 @@
     $(function () {
       var btn_index = 1;
       var item_index_list = [];
+      //버튼 생성
       $("#select").change(function () {
-        var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
-        var plus_button = "<input type=" + "button " + "value= " + " +  " + "onclick=" + "add(); " + "id=" + "plus_btn" + btn_index + ">"
-        var minus_button = "<input type=" + "button " + "value= " + " -  " + "onclick=" + "del(); " + "id=" + "minus_btn" + btn_index + ">"
-        var remove_button = "<input type=" + "button " + "value= " + " X  " + "remove_btn " + btn_index + ">"
-
-        var amount = "<input type=" + "text" + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " onchange=" + "change();" + ">"
-        var end_div = "</div>"
-        var text = $(this).children("option:selected").text()
         if ($(this).children("option:selected").attr("id") != "default_choose") {
+          var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
+          var plus_button = "<input type=" + "button " + "value= " + " +  " + "onclick=" + "add(); " + "id=" + "plus_btn" + btn_index.toString() + ">"
+          var minus_button = "<input type=" + "button " + "value= " + " -  " + "onclick=" + "del(); " + "id=" + "minus_btn" + btn_index.toString() + ">"
+          var remove_button = "<input type=" + "button " + "value= " + " X  " + "remove_btn " + btn_index.toString() + ">"
+
+          var amount = "<input type=" + "text" + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " onchange=" + "cange(); " + "id=" + "amount" + btn_index.toString() + ">"
+          var end_div = "</div>"
+          var text = $(this).children("option:selected").text()
           $("#amount1").append(start_div + text + amount + plus_button + minus_button + remove_button + end_div);
           item_index_list.push(btn_index)
           btn_index += 1
+          console.log(plus_button)
+          console.log(minus_button)
+          console.log(remove_button)
+          console.log(item_index_list)
         }
-
       })
-
+      //버튼 눌렸을 때
       $(item_index_list).each(function (index, value) {
-        $("plus_btn").click(function () {
-
+        console.log("it works?")
+        value_str = value.toString()
+        $("#plus_btn" + value_str).click(function () {
+          console.log("it works!")
+          $("#amount" + value_str).val($("#amount" + value_str).val() + 1)
         })
 
-        $("minus_btn").click(function () {
-
+        $("#minus_btn" + value_str).click(function () {
+          console.log("it works!")
+          $("#amount" + value_str).val($("#amount" + value_str).val() - 1)
         })
 
-        $("remove_btn").click(function () {
-
+        $("#remove_btn" + value_str).click(function () {
+          console.log("it works!")
+          $("#item_index").remove();
         })
       })
-      const $class1 = $('.class1');
-      const $class2 = $('.class2');
-      $class1.add($class2).on('click', some_function);
-      const $class1 = $('.class1');
 
 
     })
