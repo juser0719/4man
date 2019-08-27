@@ -21,20 +21,23 @@ public class Check_Id {
             ModelAndView modelandView) {
         String viewName = "/check_id/";
         Map<String, Object> resultMap = new HashMap<String, Object>();
+        
         String hidden = (String) paramMap.get("ID");
        
 
-        if(hidden.equals("")){
-            viewName += action;
+        if(hidden.equals("") || hidden.equals(false)){
             resultMap.put("ID", false);
+            
+            resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>값없다</button>");
         }
         else{
-            if (action.equals("testsub1")) {
-                viewName += action;
+            if (action.equals("testhome")||action.equals("testsub1")) {
                 resultMap.put("ID", hidden);
-    
+                resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>값있당</button>");
             }
         }
+
+        viewName += action;
 
 
 
