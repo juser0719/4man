@@ -16,32 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
 
     String hidden="";
-    boolean A = false;
-<<<<<<< HEAD
-
-=======
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
+	boolean A = false;
+	
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-<<<<<<< HEAD
-		if(paramMap.get("ID")== null){
-			A = false;
-		}else if(paramMap.get("ID")!= null){
-			A = true;
-		}
 
-        if(A){
-            hidden = (String) paramMap.get("ID");
-		}
-=======
         // if(A){
         //     hidden = (String) paramMap.get("ID");
         // }
         // A= true;
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
 
         // if (hidden.equals("") || hidden.equals(false)) {
         //     resultMap.put("ID", "false");
@@ -51,14 +37,6 @@ public class FINALController {
         //     resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인성공</button>");
         // }
 
-<<<<<<< HEAD
-        modelandView.addObject("resultMap", resultMap);
-        return modelandView;
-=======
-        if(A){
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
-
-        }
         if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", "false");
             resultMap.put("VIEW", "<form method='POST' th:action='@{/final/SignIn}'> <button type='submit' name='ID' class='text-muted bg-white border-0'>Sign In</button></form> <form method='POST' th:action='@{/final/SignUP}'> <button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button> </form>");
@@ -66,7 +44,7 @@ public class FINALController {
                 resultMap.put("ID", hidden);
                 resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인성공</button>");
             }
-        
+
             modelandView.addObject("resultMap", resultMap);
             return modelandView;
     }
@@ -76,15 +54,9 @@ public class FINALController {
             ModelAndView modelandView) {
         String viewName = "/final/";
         Map<String, Object> resultMap = new HashMap<String, Object>();
-<<<<<<< HEAD
 
-
-        hidden = (String) paramMap.get("ID");
-=======
-      
         //메인에서 값넘겨줄때 에러
         // hidden = (String) paramMap.get("ID");
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
 
         if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", false);
