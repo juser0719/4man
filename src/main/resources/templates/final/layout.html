@@ -55,12 +55,14 @@
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
                         <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
-                            <button type="submit" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
+                            <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
                         </form>
 
                         <form method="POST" th:action="@{/final/SignUP}">
                             <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
                         </form><!--SignIn/SignUP form-->
+
+                        <a th:utext="${resultMap.VIEW}"></a>
                     </div>
 
                 </div>

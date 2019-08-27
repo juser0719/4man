@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html xmlns:th="http://">
+
     <head>
         <!--JS-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -28,53 +29,71 @@
             .context_title {margin: 70px 0 20px 0; font-family: 'Noto Sans KR', sans-serif;}
             .word {font-family: 'Nanum Myeongjo', serif; }
         </style>
-        <title></title>
+        
         <script language="JavaScript">
-           $(function(){
-                $("#v1").click(function(){
-                  $("#v1").val();
-                });
-                $("#v2").click(function(){
-                  $("#v2").val();
-                });
-                $("#v3").click(function(){
-                  $("#v3").val();
-                });
-                $("#v4").click(function(){
-                  $("#v4 option:selected").val();
-                });
-            });
             var sell_price;
             var amount;
-            function init () {
+            function init() {
               sell_price = document.form.sell_price.value;
               amount = document.form.amount.value;
               document.form.sum.value = sell_price;
               change();
             }
-            function add () {
+            function add() {
               hm = document.form.amount;
               sum = document.form.sum;
-              hm.value ++ ;
+              hm.value++;
               sum.value = parseInt(hm.value) * sell_price;
             }
-            function del () {
+            function del() {
               hm = document.form.amount;
               sum = document.form.sum;
-                if (hm.value > 1) {
-                  hm.value -- ;
-                  sum.value = parseInt(hm.value) * sell_price;
-                }
+              if (hm.value > 1) {
+                hm.value--;
+                sum.value = parseInt(hm.value) * sell_price;
+              }
             }
-            function change () {
+            function change() {
               hm = document.form.amount;
               sum = document.form.sum;
-            
-                if (hm.value < 0) {
-                  hm.value = 0;
-                }
               sum.value = parseInt(hm.value) * sell_price;
-            }  
+            }
+            $(function () {
+              var btn_index = 1;
+              var item_index_list = [];
+              $("#select").change(function () {
+                var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
+                var plus_button = "<input type=" + "button " + "value= " + " +  " + "onclick=" + "add(); " + "id=" + "plus_btn" + btn_index + ">"
+                var minus_button = "<input type=" + "button " + "value= " + " -  " + "onclick=" + "del(); " + "id=" + "minus_btn" + btn_index + ">"
+                var remove_button = "<input type=" + "button " + "value= " + " X  " + "remove_btn " + btn_index + ">"
+        
+                var amount = "<input type=" + "text" + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " onchange=" + "change();" + ">"
+                var end_div = "</div>"
+                var text = $(this).children("option:selected").text()
+                if ($(this).children("option:selected").attr("id") != "default_choose") {
+                  $("#amount1").append(start_div + text + amount + plus_button + minus_button + remove_button + end_div);
+                  item_index_list.push(btn_index)
+                  btn_index += 1
+                }
+              })
+              $(item_index_list).each(function (index, value) {
+                $("plus_btn").click(function () {
+        
+                })
+        
+                $("minus_btn").click(function () {
+        
+                })
+        
+                $("remove_btn").click(function () {
+        
+                })
+              })
+              const $class1 = $('.class1');
+              const $class2 = $('.class2');
+              $class1.add($class2).on('click', some_function);
+              const $class1 = $('.class1');
+            })
           </script>
     </head>
     <body onload="init();">
@@ -101,44 +120,57 @@
                     <button type="submit" class="btn btn-default btn-outline-secondary">Login</button>
                   </div>
                 </div>
+
+            </div>
+            <div class="md-form mb-4">
+              <label data-error="wrong" data-success="right" for="defaultForm-pass"><strong>PW</strong></label>
+              <input type="password" id="defaultForm-pass" class="form-control validate " name="logpw">
             </div>
           </div>
-        </form>
-        <!--modal-->
-    <!--Header-->
-    <header class = "blog-header ">
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="submit" class="btn btn-default btn-outline-secondary">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--modal-->
+  <!--Header-->
+  <header class="blog-header ">
 
     <!--제가 만든 제과  제목-->
-      <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
+    <div class="jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
       style="background: url(/study/public/images/header/header.PNG) no-repeat; background-position: center center;">
-          <div class = "col-md-8 px-0">
-                <a href="/" class = "a"><h1 class= "text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
-            <p class = "my-3 a">
-            made by JBBK
-            </p>
-          </div>
+      <div class="col-md-8 px-0">
+        <a href="/" class="a">
+          <h1 class="text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1>
+        </a>
+        <p class="my-3 a">
+          made by JBBK
+        </p>
       </div>
+    </div>
     <!--제가 만든 제과  제목-->
-     <!--nav bar-->
-      <div class="container b ">
-          <div class = "row flex-nowrap justify-content-between align-items-center">
-            <div class = "col-8">
-                <a class = "text-muted p-1 " href="#">회사 소개</a>
-                <a class = "text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
-                <a class = "text-muted p-1 " href="#"> 이벤트 </a>
-                <a class = "text-muted p-1 " href="#"> 고객센터 </a>
-                <a class = "text-muted p-1 " href="#"> 인재채용 </a>
-            </div>
-
-            <div class = "col-4 d-flex justify-content-end align-items-center">
-              <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target = "#login">Sign In </button>/
-              <!--로그인 팝업창-->
-              <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
-            </div>
-          </div>
-      </div>
     <!--nav bar-->
-    </header>
+    <div class="container b ">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-8">
+          <a class="text-muted p-1 " href="#">회사 소개</a>
+          <a class="text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
+          <a class="text-muted p-1 " href="#"> 이벤트 </a>
+          <a class="text-muted p-1 " href="#"> 고객센터 </a>
+          <a class="text-muted p-1 " href="#"> 인재채용 </a>
+        </div>
+
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target="#login">Sign In </button>/
+          <!--로그인 팝업창-->
+          <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <!--nav bar-->
+  </header>
 
 <!--body-->
 <div class = "layout-wrapper">
@@ -175,33 +207,32 @@
                     <tr>
                       <th scope="row">단품 골라담기</th>
                       <td>
-                        <select >
-                          <option selected>==단품골라담기 선택==</option>
-                          <option value="3900"  onclick="change();" id ="v1">후레시 민트 (+3,900)</option>
-                          <option value="3900"  onclick="change();" id ="v2">후레시 레몬 (+3,900)</option>
-                          <option value="3900"  onclick="change();" id ="v3">후레시 솔티 (+3,900)</option>
-                          <option value="3900"  onclick="change();" id ="v4">후레시 펀치 (+3,900)</option>
-                        </select>
-                    </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h2>총 금액 : <span name = ""></span></h2>
-                <div class = "row d-flex justify-content-between"> 
-                      <button class="color btn text-white col-5">주문하기</button>
-                      <button class="color btn text-white col-5">장바구니</button>
-                </div>
-               
-                <form name="form" method="get">
-                    수량 : <input type=hidden name="sell_price" value="3900">
-                    <input type="text" name="amount" value="1" size="3" onchange="change();">
-                    <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
-                    
-                    금액 : <input type="text" name="sum" size="11" readonly>원
-                </form>
+                          <select id="select">
+                              <option selected id="default_choose">==단품골라담기 선택==</option>
+                              <option value="3900" onclick="change();" name="v1" id="v1">후레시 민트 (+3,900)</option>
+                              <option value="3900" onclick="change();" name="v2" id="v2">후레시 레몬 (+3,900)</option>
+                              <option value="3900" onclick="change();" name="v3" id="v3">후레시 솔티 (+3,900)</option>
+                              <option value="3900" onclick="change();" name="v4" id="v4">후레시 펀치 (+3,900)</option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+          
+                    <h2>총 금액 : <span id="value"></span></h2>
+                    <form name="form" method="get">
+                      수량 : <input type=hidden name="sell_price" value="3900">
+                      <input type="text" name="amount" value="1" size="3" onchange="change();">
+                      <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
+                      <div id="amount1">
+                      </div>
+          
+                      금액 : <input type="text" name="sum" size="11" readonly>원
+                    </form>
                 
-            </div>
+
+
+        </div>
       </div>
 
       <div>
@@ -229,8 +260,10 @@
         <img src ="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv20000033170_1.jpg">
       </div>
     </div>
+
 </div>
     <!--body-->
     
       </body>
+
 </html>

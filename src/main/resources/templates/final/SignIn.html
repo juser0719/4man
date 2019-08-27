@@ -6,23 +6,23 @@
     <div class="container d-flex justify-content-center">
       <div>
         <h1 class="mt-5 mb-5 text-center c">로그인</h1>
-        <form action="/Sign_Up" class="d" style="font-size: 30px;">
+        <form  method="POST" th:action="@{/final/home}" class="d" style="font-size: 30px;">
           <div class="row">
             <label class="col-4 pr-0">아이디</label>
             <div class="col-8">
-              <input class="col-12 p-0" type="text" id="id">
+              <input class="col-12 p-0" type="text" name="ID">
             </div>
           </div>
           <div class="row">
             <label class="col-4 pr-0">비밀번호</label>
             <div class="col-8">
-              <input class="col-12 p-0" type="password" id="pwd">
+              <input class="col-12 p-0" type="password" name="PWD">
             </div>
           </div>
 
           <div class="text-center">
             <button type="submit" class="col-12  btn btn-primary">LOGIN</button>
-            <a class="text-muted bg-white border-0 " href="/small_pro/SignUp" role="button">Sign Up</a>
+            <a class="text-muted bg-white border-0 " role="button">Sign Up</a>
           </div>
         </form>
       </div>
