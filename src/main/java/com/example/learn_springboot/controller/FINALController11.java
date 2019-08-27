@@ -12,36 +12,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 
+
+
 @Controller
-public class FINALController {
+public class FINALController11 {
 
     String hidden="";
     boolean A = false;
-<<<<<<< HEAD
-
-=======
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-<<<<<<< HEAD
-		if(paramMap.get("ID")== null){
-			A = false;
-		}else if(paramMap.get("ID")!= null){
-			A = true;
-		}
-
-        if(A){
-            hidden = (String) paramMap.get("ID");
-		}
-=======
         // if(A){
         //     hidden = (String) paramMap.get("ID");
         // }
         // A= true;
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
 
         // if (hidden.equals("") || hidden.equals(false)) {
         //     resultMap.put("ID", "false");
@@ -51,13 +37,8 @@ public class FINALController {
         //     resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인성공</button>");
         // }
 
-<<<<<<< HEAD
-        modelandView.addObject("resultMap", resultMap);
-        return modelandView;
-=======
         if(A){
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
-
+            
         }
         if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", "false");
@@ -69,6 +50,8 @@ public class FINALController {
         
             modelandView.addObject("resultMap", resultMap);
             return modelandView;
+        
+
     }
 
     @RequestMapping(value = "/final/{action}", method = { RequestMethod.GET, RequestMethod.POST })
@@ -76,15 +59,9 @@ public class FINALController {
             ModelAndView modelandView) {
         String viewName = "/final/";
         Map<String, Object> resultMap = new HashMap<String, Object>();
-<<<<<<< HEAD
-
-
-        hidden = (String) paramMap.get("ID");
-=======
       
         //메인에서 값넘겨줄때 에러
         // hidden = (String) paramMap.get("ID");
->>>>>>> 399bd3263170a79ed6cc677c98523419db316754
 
         if (hidden.equals("") || hidden.equals(false)) {
             resultMap.put("ID", false);
