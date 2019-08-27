@@ -53,15 +53,15 @@
                         <a class = "text-muted p-1 " href="#"> 인재채용 </a>
                     </div>
 
-                    <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
-                        <div class = "col-4 d-flex justify-content-end align-items-center">
-                            <button type="submit" class="text-muted bg-white border-0 b">Sign In </button>/<!--로그인 팝업창-->
-                    </form>
+                    <div class = "col-4 d-flex justify-content-end align-items-center">
+                        <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
+                            <button type="submit" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
+                        </form>
 
-                    <form method="POST" th:action="@{/final/SignUP}">
+                        <form method="POST" th:action="@{/final/SignUP}">
                             <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
-                        </div>
-                    </form><!--SignIn/SignUP form-->
+                        </form><!--SignIn/SignUP form-->
+                    </div>
 
                 </div>
             </div>
