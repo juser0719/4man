@@ -97,9 +97,9 @@
       $("#select").change(function () {
         if ($(this).children("option:selected").attr("id") != "default_choose") {
           var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
-          var plus_button = "<input type=" + "button " + "value= " + " +  " + "onclick=" + "add(); " + "id=" + "plus_btn" + btn_index.toString() + ">"
-          var minus_button = "<input type=" + "button " + "value= " + " -  " + "onclick=" + "del(); " + "id=" + "minus_btn" + btn_index.toString() + ">"
-          var remove_button = "<input type=" + "button " + "value= " + " X  " + "remove_btn " + btn_index.toString() + ">"
+          var plus_button = "<input type=" + "'button' " + "value= " + " '+'  " + "id=" + "'plus_btn" + btn_index.toString() + "'" + ">"
+          var minus_button = "<input type=" + "'button' " + "value= " + " '-'  " + "id=" + "'minus_btn" + btn_index.toString() + "'" + ">"
+          var remove_button = "<input type=" + "'button' " + "value= " + " 'X'  " + "id=" + "'remove_btn" + btn_index.toString() + "'" + ">"
 
           var amount = "<input type=" + "text" + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " onchange=" + "cange(); " + "id=" + "amount" + btn_index.toString() + ">"
           var end_div = "</div>"
@@ -107,30 +107,23 @@
           $("#amount1").append(start_div + text + amount + plus_button + minus_button + remove_button + end_div);
           item_index_list.push(btn_index)
           btn_index += 1
-          console.log(plus_button)
-          console.log(minus_button)
-          console.log(remove_button)
-          console.log(item_index_list)
+          console.log(document.getElementById("plus_btn1").id)
+          console.log(minus_button.id)
+          console.log(remove_button.id)
+          console.log(item_index_list.id)
+          console.log($("#select").html())
         }
       })
       //버튼 눌렸을 때
-      $(item_index_list).each(function (index, value) {
-        console.log("it works?")
-        value_str = value.toString()
-        $("#plus_btn" + value_str).click(function () {
-          console.log("it works!")
-          $("#amount" + value_str).val($("#amount" + value_str).val() + 1)
-        })
-
-        $("#minus_btn" + value_str).click(function () {
-          console.log("it works!")
-          $("#amount" + value_str).val($("#amount" + value_str).val() - 1)
-        })
-
-        $("#remove_btn" + value_str).click(function () {
-          console.log("it works!")
-          $("#item_index").remove();
-        })
+      /*function addItem(this){
+        
+      }*/
+      $("input[id*='plus_btn']").click(function () {
+        console.log("it works!")
+        var plus_id = $("input[id*='plus_btn']").attr("id")
+        var plus_length = "plus_btn".length()
+        var plus_index = parseInt(substring(plus_length))
+        $("#amount" + plus_index).val() -= 1;
       })
 
 
