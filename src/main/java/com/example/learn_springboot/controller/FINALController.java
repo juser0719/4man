@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class FINALController {
 	@RequestMapping(value = {"/final/home"})
-	public void actionMethod() {
+	public void actionhome() {
+	}
+	@RequestMapping(value = {"/final/SignIn"})
+	public void actionSignIn() {
+	}
+	@RequestMapping(value = {"/final/SignUp"})
+	public void actionSignUp() {
 	}
 }
