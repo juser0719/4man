@@ -49,7 +49,11 @@
                 <div class = "row flex-nowrap justify-content-between align-items-center">
                     <div class = "col-8">
                         <a class = "text-muted p-1 " href="#">회사 소개</a>
-                        <a class = "text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
+                        
+                        <form method="POST" th:action="@{/final/Introduction_item}">
+                            <a type="submit" class = "text-muted p-1 " href="">제품 소개</a>
+                        </form>
+                       
                         <a class = "text-muted p-1 " href="#"> 이벤트 </a>
                         <a class = "text-muted p-1 " href="#"> 고객센터 </a>
                         <a class = "text-muted p-1 " href="#"> 인재채용 </a>
@@ -57,12 +61,14 @@
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
                         <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
-                            <button type="submit" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
+                            <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
                         </form>
 
                         <form method="POST" th:action="@{/final/SignUP}">
                             <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
                         </form><!--SignIn/SignUP form-->
+                        <!-- <button name="ID"></button> -->
+                        <a th:utext="${resultMap.VIEW}"></a>
                     </div>
 
                 </div>
