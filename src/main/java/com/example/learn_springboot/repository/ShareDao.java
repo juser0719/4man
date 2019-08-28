@@ -18,12 +18,12 @@ public class ShareDao{
 
     public Object getObject(String sqlMapId, Object dataMap) {
 		Object resultObject = sqlSession.selectOne(sqlMapId, dataMap);
-		
+
 		return resultObject;
 	}
 
 	public Object saveObject(String sqlMapId, Object dataMap) {
-		Integer resultObject = sqlSession.insert(sqlMapId, dataMap);
+		Object resultObject = sqlSession.insert(sqlMapId, dataMap);
 		
 		return resultObject;
 	}

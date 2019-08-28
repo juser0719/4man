@@ -49,25 +49,25 @@
         <div class="container d-flex justify-content-center">
         <div>
             <h1 class="mt-5 mb-5 text-center c">회원 가입</h1>
-            <form onsubmit="return check()" method="POST" th:action="@{/final/SignIn}" class = "d">
+            <form onsubmit="return check()" method="POST" th:action="@{/final/insert}" class = "d">
                 <div class="row">
                     <label class="col-3 pr-0">아이디</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="text" id="ID" placeholder="5자 이상 작성">
+                        <input class="col-12 p-0" type="text" id="ID" name="ID" placeholder="5자 이상 작성">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-3 pr-0">이름</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="text" id="NAME">
+                        <input class="col-12 p-0" type="text" id="NAME" name="NAME">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-3 pr-0">비밀번호</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="password" id="PWD" placeholder="5자 이상 작성">
+                        <input class="col-12 p-0" type="password" id="PWD" name="PWD" placeholder="5자 이상 작성">
                     </div>
                 </div>
 
@@ -81,7 +81,7 @@
                 <div class="row">
                     <label class="col-3 pr-0">이메일</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="email" id="EMAIL">
+                        <input class="col-12 p-0" type="email" id="EMAIL" name="EMAIL">
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                     <label class="col-3 pr-0">전화번호</label><!--번호 앞자리-->
                     <div class="row col-8 d-flex justify-content-center">
                         <div class="col-1 pr-5">
-                        <select class="row" name="tel1" size="1" id="tel1">
+                        <select class="row" name="PHONE1" size="1" id="tel1">
                             <option value="010" selected>010</option>
                             <option value="011" selected>011</option>
                             <option value="031" selected>031</option>
@@ -99,17 +99,17 @@
                         </select>
                     </div>-
                     <div class="col-4 p-0">
-                        <input class="col-11 p-0" type="text" id="tel2">
+                        <input class="col-11 p-0" type="text" id="PHONE2" name="PHONE2">
                     </div>-
                     <div class="col-4 p-0">
-                        <input class="col-11 p-0" type="text" id="tel3">
+                        <input class="col-11 p-0" type="text" id="PHONE3" name="PHONE3">
                     </div>
                     </div>
                 </div>
                 <div class="row">
                     <label class="col-3 pr-0">주소</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="text" id="addr" style="height: 8rem;">
+                        <input class="col-12 p-0" type="text" id="addr" style="height: 8rem;" name="ADDRESS">
                     </div>
                 </div>
                 <div class="text-center">
