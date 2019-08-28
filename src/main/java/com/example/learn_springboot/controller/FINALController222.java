@@ -24,7 +24,7 @@ public class FINALController222 {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-        if(paramMap.get("ID")==null){
+        if(paramMap.get("ID")==null || paramMap.get("ID").equals("")){
             resultMap.put("VIEW", "<button>실패</button>");
             resultMap.put("ID", "");
         }
