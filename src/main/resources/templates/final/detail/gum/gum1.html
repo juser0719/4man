@@ -64,6 +64,8 @@
   </style>
   <title></title>
   <script language="JavaScript">
+    //1. 생길 때 수량, 가격 올리기
+    //2. readonly 속성 넣기
     // 수량 늘리기: 가격 더할 때마다 기존에 있던 input element의 값을 받아옴 -> 3,900원을 더함(데이터베이스의 값, 후에 rest api로 가져와야한다) -> 수량 더함
     // var sell_price;
     // var amount;
@@ -134,10 +136,10 @@
 
         } else if (button_type == "plus_editItem_btn") {
           $("#sell_price").val(parseInt($("#sell_price").val()) + 1) //수량
-          $("sell_sum").val(parseInt($("#sell_price").val()) * 3900)
+          $("#sell_sum").val(parseInt($("#sell_price").val()) * 3900)
         } else if (button_type == "minus_editItem_btn") {
           $("#sell_price").val(parseInt($("#sell_price").val()) - 1)
-          $("sell_sum").val(parseInt($("#sell_price").val()) * 3900)
+          $("#sell_sum").val(parseInt($("#sell_price").val()) * 3900)
         } else {
           conosole.log("Error02")
         }
