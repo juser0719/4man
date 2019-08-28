@@ -33,16 +33,16 @@ public class FINALController {
 
         if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n == 1){//로그인 전
             resultMap.put("ID", "");
-            resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
-            resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-            resultMap.put("VIEW", "");
-        }
-        else if((paramMap.get("ID")!=null || !paramMap.get("ID").equals("")) && n != 1){//로그인 후
+            resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted p-white border-0 bg-white b'>Sign In</button>/");
+            resultMap.put("FORM2", "<button type='submit' class='text-muted p-white border-0 bg-white b'>Sign Up</button>");
+            resultMap.put("SIGNOUT", "");
+        }else if((paramMap.get("ID")!=null || !paramMap.get("ID").equals("")) && n != 1){//로그인 후
+            resultMap.put("ID", hidden);
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
-            resultMap.put("VIEW", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign Out</button>");
-            resultMap.put("ID", hidden);
-        }//else if(!paramMap.get("ID").equals("") && n != 1){
+            resultMap.put("SIGNOUT", "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
+        }
+        //else if(!paramMap.get("ID").equals("") && n != 1){
         //     A = false;
         //     hidden = (String)paramMap.get("ID");
         //     resultMap.put("FORM1", "");
@@ -66,11 +66,11 @@ public class FINALController {
             resultMap.put("ID", "");
             resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-            resultMap.put("VIEW", "");
+            resultMap.put("SIGNOUT", "");
         }else if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n != 1){//로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
-            resultMap.put("VIEW", "<button>성공</button>");
+            resultMap.put("SIGNOUT", "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("ID", hidden);
         }//else if(!paramMap.get("ID").equals("") && n != 1){
         //     A = false;
