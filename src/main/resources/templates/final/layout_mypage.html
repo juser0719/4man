@@ -1,3 +1,5 @@
+<!--This page which is not responsive is not affected by screen size.-->
+
 <!DOCTYPE html>
 <!--layout 가운데 메인과 네비게이션-->
 <meta charset="UTF-8">
@@ -21,6 +23,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean"
         rel="stylesheet">
+    <link href="../../static/css/layout_mypage.css" rel="stylesheet">
     <style>
         .color {
             background-color: blueviolet;
@@ -116,30 +119,29 @@
         <!--nav bar-->
     </header>
     <!--layout-->
-    <div>
-        <div class="card" style="width:18rem;">
-            <div class="card-body">
-                <h2 class="card-text my-5">
-                    마이페이지
-                </h2>
-            </div>
-        </div>
-        <div>아무것도 없습니다.</div>
-        <div class="card" style="width:18rem;">
-            <div class="card-body">
-                <h2 class="card-text my-5">
-                    마이페이지
-                </h2>
-            </div>
-        </div>
-        <div>
-            <div>주문확인</div>
-            <div>지원이력</div>
-            <div>회원정보수정</div>
-            <div>질문조회</div>
-        </div>
 
+    <!-- Sidebar -->
+    <!--
+    <div class="border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action"></a>
+
+        </div>
     </div>
+    -->
+    <div class="border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">마이페이지 </div>
+        <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action">주문확인</a>
+            <a href="#" class="list-group-item list-group-item-action">지원이력</a>
+            <a href="#" class="list-group-item list-group-item-action">회원정보수정</a>
+            <a href="#" class="list-group-item list-group-item-action">질문조회</a>
+        </div>
+    </div>
+    <div class="mypage-content">
+        아무런 내용이 없다.
+    </div>
+
 </body>
 
 </html>
