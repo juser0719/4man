@@ -45,22 +45,19 @@
             <!--nav bar-->
             <div class="container b ">
                 <div class = "row flex-nowrap justify-content-between align-items-center">
-                    <div class = "col-8">
-                        <a class = "text-muted p-1 " href="#">회사 소개</a>
+                    <div class = "row col-8">
+                        <button class = "text-muted p-white border-0 bg-white" href="#">회사 소개</button>
 
                         <form method="POST" th:action="@{/final/Introduction_item}">
-                            <button type="submit" class = "text-muted p-white border-bottom bg-white ">제품 소개</button>
+                            <button type="submit" class = "text-muted p-white border-0 bg-white">제품 소개</button>
                         </form>
 
-                        <a class = "text-muted p-1 " href="#"> 이벤트 </a>
-                        <a class = "text-muted p-1 " href="#"> 고객센터 </a>
-                        <a class = "text-muted p-1 " href="#"> 인재채용 </a>
+                        <button class = "text-muted p-white border-0 bg-white" href="#"> 이벤트 </button>
+                        <button class = "text-muted p-white border-0 bg-white" href="#"> 고객센터 </button>
+                        <button class = "text-muted p-white border-0 bg-white" href="#"> 인재채용 </button>
                     </div>
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
-                        
-                        
-                        
                         <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
                             <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
                         </form>
