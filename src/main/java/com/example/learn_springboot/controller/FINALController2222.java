@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class FINALController {
+public class FINALController2222 {
 
     String hidden="";
     boolean A=true;
