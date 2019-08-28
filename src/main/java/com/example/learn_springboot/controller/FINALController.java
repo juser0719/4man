@@ -40,7 +40,7 @@ public class FINALController {
         else if((paramMap.get("ID")!=null || !paramMap.get("ID").equals("")) && n != 1){//로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
-            resultMap.put("VIEW", "<button>성공</button>");
+            resultMap.put("VIEW", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign Out</button>");
             resultMap.put("ID", hidden);
         }//else if(!paramMap.get("ID").equals("") && n != 1){
         //     A = false;
