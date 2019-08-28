@@ -35,7 +35,9 @@
             <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
             style="background: url(/images/header/header.PNG) no-repeat; background-position: center center;">
                 <div class = "col-md-8 px-0">
-                    <a href="/" class = "a text-dark text-decoration-none"></a><h1 class= "display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
+                    <form method="POST" th:action="@{/final/home}">
+                        <button type="submit" class = "a bg-white border-0 text-dark text-decoration-none"><h1 class= "display-4" style="font-size: 70px;">제가 만든 제과 </h1></button>
+                    </form>
                     <p class = "my-3 a">
                         made by JBBK
                     </p>
@@ -47,17 +49,28 @@
                 <div class = "row flex-nowrap justify-content-between align-items-center">
                     <div class = "col-8">
                         <a class = "text-muted p-1 " href="#">회사 소개</a>
-                        
+
                         <form method="POST" th:action="@{/final/Introduction_item}">
                             <button type="submit" class = "text-muted p-white border-bottom bg-white ">제품 소개</button>
                         </form>
-                       
+
                         <a class = "text-muted p-1 " href="#"> 이벤트 </a>
                         <a class = "text-muted p-1 " href="#"> 고객센터 </a>
                         <a class = "text-muted p-1 " href="#"> 인재채용 </a>
                     </div>
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
+                        <a th:utext="${resultMap.VIEW}">
+                        <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
+                            <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
+                        </form>
+
+                        <form method="POST" th:action="@{/final/SignUP}">
+                            <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
+                        </form><!--SignIn/SignUP form-->
+                        <!-- <button name="ID"></button> -->
+                        </a>
+
                         <!--
                         <form method="POST" th:action="@{/final/SignIn}">
                             <button type="submit" name="ID" class="text-muted bg-white border-0">Sign In</button>/
@@ -69,7 +82,6 @@
                         -->
                         <a th:utext="${resultMap.VIEW}"></a>
                         <input type="hidden" value="${resultMap.ID}">
-                        
                     </div>
 
                 </div>
