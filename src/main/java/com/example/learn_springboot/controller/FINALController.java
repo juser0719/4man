@@ -25,10 +25,6 @@ public class FINALController {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-<<<<<<< HEAD
-        if(paramMap.get("ID")==null || paramMap.get("ID").equals("")){
-            resultMap.put("VIEW", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>");
-=======
         if(paramMap.get("ID")!=null){//로그인 아웃 구분
             n += 1;
         }else if(paramMap.get("ID")==null && n >= 2){
@@ -36,23 +32,15 @@ public class FINALController {
         }
 
         if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n == 1){//로그인 전
->>>>>>> f414b17a4bc4c38414daab72b4bbcd7a73192c01
             resultMap.put("ID", "");
             resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("VIEW", "");
         }
-<<<<<<< HEAD
-        else if(!paramMap.get("ID").equals("")){
-            A = false;
-            hidden = (String)paramMap.get("ID");
-            resultMap.put("VIEW", "ㅁㅁ");
-=======
         else if((paramMap.get("ID")!=null || !paramMap.get("ID").equals("")) && n != 1){//로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
             resultMap.put("VIEW", "<button>성공</button>");
->>>>>>> f414b17a4bc4c38414daab72b4bbcd7a73192c01
             resultMap.put("ID", hidden);
         }//else if(!paramMap.get("ID").equals("") && n != 1){
         //     A = false;
