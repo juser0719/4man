@@ -60,14 +60,20 @@
                     </div>
 
                     <div class = "col-4 d-flex justify-content-end align-items-center">
-                        <a th:utext="${resultMap.VIEW}">
+                        
+                        
+                        
                         <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
                             <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/<!--로그인 팝업창-->
                         </form>
 
                         <form method="POST" th:action="@{/final/SignUP}">
                             <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button><!--계정생성 팝업창-->
-                        </form><!--SignIn/SignUP form-->
+                        </form>
+
+                        <a th:utext="${resultMap.VIEW}">
+                        <input type="hidden" name = "ID" value ="${resultMap.ID}">
+                        <!--SignIn/SignUP form-->
                         <!-- <button name="ID"></button> -->
                         </a>
 
@@ -80,8 +86,6 @@
                             <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button>
                         </form>
                         -->
-                        <a th:utext="${resultMap.VIEW}"></a>
-                        <input type="hidden" value="${resultMap.ID}">
                     </div>
 
                 </div>
