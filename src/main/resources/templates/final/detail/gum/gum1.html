@@ -2,6 +2,8 @@
 <meta charset="UTF-8">
 <html xmlns:th="http://">
 
+
+
 <head>
   <!--JS-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -29,7 +31,7 @@
       background-color: rebeccapurple;
     }
 
-    .a {
+    .e {
       font-family: 'Stylish', sans-serif;
     }
 
@@ -62,15 +64,171 @@
   </style>
   <title></title>
   <script language="JavaScript">
-    var sell_price;
-    var amount;
+    // 수량 늘리기: 가격 더할 때마다 기존에 있던 input element의 값을 받아옴 -> 3,900원을 더함(데이터베이스의 값, 후에 rest api로 가져와야한다) -> 수량 더함
+    // var sell_price;
+    // var amount;
+
     function init() {
       sell_price = document.form.sell_price.value;
       amount = document.form.amount.value;
       document.form.sum.value = sell_price;
-      change();
+      //change();
     }
-    function add() {
+
+    function add(price) { //총 수량 및 가격에 더해주기
+      hm = parseInt($("#sell_price").val()) //수량
+      sum = parseInt($("#sell_sum").val()) //가격
+      hm++
+      sum += price
+      $("#amount").val(hm)
+      $("#sum").val(sum)
+    }
+    function del(price) { //총 수량 및 가격에 빼주기
+      hm = parseInt($("#sell_price").val()) //수량
+      sum = parseInt($("#sell_sum").val()) //가격
+      hm--
+      sum -= price
+      $("#amount").val(hm)
+      $("#sum").val(sum)
+    }
+    /*
+    function change() {
+      hm = document.form.amount;
+      sum = document.form.sum;
+
+      sum.value = parseInt(hm.value) * sell_price;
+    }
+    */
+
+    $(function () {
+      var btn_index = 1;
+      var item_index_list = [];
+      //버튼 생성
+      $("#select").change(function () {
+        if ($(this).children("option:selected").attr("id") != "default_choose") {
+          var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
+          var plus_button = "<input type=" + "'button' " + "value= " + " '+'  " + "id=" + "'plus_editItem_btn" + btn_index.toString() + "' " + "name='plus_editItem_btn'" + ">"
+          var minus_button = "<input type=" + "'button' " + "value= " + " '-'  " + "id=" + "'minus_editItem_btn" + btn_index.toString() + "' " + "name='minus_editItem_btn'" + ">"
+          var remove_button = "<input type=" + "'button'" + "value= " + " 'X'  " + "id=" + "'remove_editItem_btn" + btn_index.toString() + "' " + "name='remove_editItem_btn'" + ">"
+
+          var amount = "<input type=" + "number " + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " " + "id=" + "'amount" + btn_index.toString() + "'" + ">"
+          var end_div = "</div>"
+          var text = $(this).children("option:selected").text()
+          $("#item-area").append(start_div + text + amount + plus_button + minus_button + remove_button + end_div);
+          item_index_list.push(btn_index)
+          btn_index += 1
+          console.log(document.getElementById("plus_editItem_btn1").id)
+          console.log(document.getElementById("minus_editItem_btn1").id)
+          console.log(document.getElementById("remove_editItem_btn1").id)
+          console.log(document.getElementById("amount1"))
+          console.log($("#select").html())
+
+        }
+      })
+      //분화시킬 필요가 있음, 가격
+      function calculate(button_type) {
+        var price = 3900
+        console.log(sum)
+        console.log(typeof sum)
+        if (button_type == "remove_editItem_btn") {
+
+        } else if (button_type == "plus_editItem_btn") {
+          $("#sell_price").val(parseInt($("#sell_price").val()) + 1) //수량
+          $("sell_sum").val(parseInt($("#sell_price").val()) * 3900)
+        } else if (button_type == "minus_editItem_btn") {
+          $("#sell_price").val(parseInt($("#sell_price").val()) - 1)
+          $("sell_sum").val(parseInt($("#sell_price").val()) * 3900)
+        } else {
+          conosole.log("Error02")
+        }
+      }
+
+
+      //needs to be optimized
+      $(document).ready(function () {
+        $(document).on('click', "input[id*='editItem']", function (e) { //id 이름에 editItem이 포함되는 경운
+
+          //amount index 찾기
+
+
+
+          var editItem_id = e.target.id //editItem_id: 클릭한 element의 id
+
+          if (editItem_id.includes("remove_editItem_btn")) { //항목 제거를 의미하는 id 포함
+            var btn_name = "remove_editItem_btn"
+          }
+          else if (editItem_id.includes("plus_editItem_btn")) { //상품 개수 추가를 의미하는 id 포함
+            var btn_name = "plus_editItem_btn"
+            var edit_amount = 1
+
+          }
+          else if (editItem_id.includes("minus_editItem_btn")) { //상품 개수 감소를 의미하는 id 포함
+            var btn_name = "minus_editItem_btn"
+            var edit_amount = -1
+          }
+          else {
+            console.log("ERROR IN GUM1")
+          }
+
+
+          var editItem_length = btn_name.length
+          var editItem_index_str = editItem_id.substring(editItem_length)
+          var value_str = $("#amount" + editItem_index_str).val()
+          var value_edited = parseInt(value_str) + edit_amount
+
+          if (btn_name === "remove_editItem_btn") {
+            console.log("It works!")
+            $("#item_index" + editItem_index_str).remove() //항목 제거
+          }
+          else if (!(edit_amount == -1 && $("#amount" + editItem_index_str).val() <= 1)) {
+            $("#amount" + editItem_index_str).val(value_edited) //상품 개수 1 이하로 줄일 수 없음
+          }
+          calculate(btn_name)
+
+
+
+
+          // })
+          // $(document).on('click', "input[id*='minus_editItem']", function () {
+
+          //   //amount index 찾기
+          //   var btn_name = "minus_editItem_btn"
+          //   var edit_amount = -1
+
+          //   var editItem_length = btn_name.length
+          //   var editItem_index_str = editItem_id.substring(editItem_length)
+          //   var value_str = $("#amount" + editItem_index_str).val()
+          //   var value_edited = parseInt(value_str) + edit_amount
+          //   $("#amount" + editItem_index_str).val(value_edited)
+
+
+          // })
+
+          // $(document).on('click', "input[id*='remove_editItem']", function () {
+
+          //   //amount index 찾기
+          //   var btn_name = "minus_editItem_btn"
+          //   var edit_amount = 1
+
+          //   var editItem_length = btn_name.length
+          //   var editItem_index_str = editItem_id.substring(editItem_length)
+          //   var value_str = $("#amount" + editItem_index_str).val()
+          //   var value_edited = parseInt(value_str) + edit_amount
+          //   $("#amount" + editItem_index_str).val(value_edited)
+
+
+          // })
+
+        })
+      })
+      //QUESTION: WHY $("input[id*='plus_btn']", function (){ ... }) EXPRESSION DOESN'T WORK?
+      //READ THIS: https://www.tutorialrepublic.com/faq/how-to-bind-click-event-to-dynamically-added-elements-in-jquery.php
+
+
+      //버튼 눌렸을 때
+      /*function addItem(this){
+        
+        function add() {
       hm = document.form.amount;
       sum = document.form.sum;
       hm.value++;
@@ -84,51 +242,10 @@
         sum.value = parseInt(hm.value) * sell_price;
       }
     }
-    function change() {
-      hm = document.form.amount;
-      sum = document.form.sum;
-
-      sum.value = parseInt(hm.value) * sell_price;
-    }
-    $(function () {
-      var btn_index = 1;
-      var item_index_list = [];
-      //버튼 생성
-      $("#select").change(function () {
-        if ($(this).children("option:selected").attr("id") != "default_choose") {
-          var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
-          var plus_button = "<input type=" + "'button' " + "value= " + " '+'  " + "id=" + "'plus_btn" + btn_index.toString() + "'" + ">"
-          var minus_button = "<input type=" + "'button' " + "value= " + " '-'  " + "id=" + "'minus_btn" + btn_index.toString() + "'" + ">"
-          var remove_button = "<input type=" + "'button' " + "value= " + " 'X'  " + "id=" + "'remove_btn" + btn_index.toString() + "'" + ">"
-
-          var amount = "<input type=" + "text" + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " onchange=" + "cange(); " + "id=" + "amount" + btn_index.toString() + ">"
-          var end_div = "</div>"
-          var text = $(this).children("option:selected").text()
-          $("#amount1").append(start_div + text + amount + plus_button + minus_button + remove_button + end_div);
-          item_index_list.push(btn_index)
-          btn_index += 1
-          console.log(document.getElementById("plus_btn1").id)
-          console.log(minus_button.id)
-          console.log(remove_button.id)
-          console.log(item_index_list.id)
-          console.log($("#select").html())
-        }
-      })
-      //버튼 눌렸을 때
-      /*function addItem(this){
-        
       }*/
-      $("input[id*='plus_btn']").click(function () {
-        console.log("it works!")
-        var plus_id = $("input[id*='plus_btn']").attr("id")
-        var plus_length = "plus_btn".length()
-        var plus_index = parseInt(substring(plus_length))
-        $("#amount" + plus_index).val() -= 1;
-      })
 
 
     })
-
 
   </script>
 </head>
@@ -168,10 +285,10 @@
     <div class="jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
       style="background: url(/study/public/images/header/header.PNG) no-repeat; background-position: center center;">
       <div class="col-md-8 px-0">
-        <a href="/" class="a">
+        <e href="/" class="e">
           <h1 class="text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1>
-        </a>
-        <p class="my-3 a">
+        </e>
+        <p class="my-3 e">
           made by JBBK
         </p>
       </div>
@@ -181,17 +298,17 @@
     <div class="container b ">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-8">
-          <a class="text-muted p-1 " href="#">회사 소개</a>
-          <a class="text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</a>
-          <a class="text-muted p-1 " href="#"> 이벤트 </a>
-          <a class="text-muted p-1 " href="#"> 고객센터 </a>
-          <a class="text-muted p-1 " href="#"> 인재채용 </a>
+          <e class="text-muted p-1 " href="#">회사 소개</e>
+          <e class="text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</e>
+          <e class="text-muted p-1 " href="#"> 이벤트 </e>
+          <e class="text-muted p-1 " href="#"> 고객센터 </e>
+          <e class="text-muted p-1 " href="#"> 인재채용 </e>
         </div>
 
         <div class="col-4 d-flex justify-content-end align-items-center">
           <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target="#login">Sign In </button>/
           <!--로그인 팝업창-->
-          <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
+          <e class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</e>
         </div>
       </div>
     </div>
@@ -235,10 +352,10 @@
                 <td>
                   <select id="select">
                     <option selected id="default_choose">==단품골라담기 선택==</option>
-                    <option value="3900" onclick="change();" name="v1" id="v1">후레시 민트 (+3,900)</option>
-                    <option value="3900" onclick="change();" name="v2" id="v2">후레시 레몬 (+3,900)</option>
-                    <option value="3900" onclick="change();" name="v3" id="v3">후레시 솔티 (+3,900)</option>
-                    <option value="3900" onclick="change();" name="v4" id="v4">후레시 펀치 (+3,900)</option>
+                    <option value="3900" name="v1" id="v1">후레시 민트 (+3,900)</option>
+                    <option value="3900" name="v2" id="v2">후레시 레몬 (+3,900)</option>
+                    <option value="3900" name="v3" id="v3">후레시 솔티 (+3,900)</option>
+                    <option value="3900" name="v4" id="v4">후레시 펀치 (+3,900)</option>
                   </select>
                 </td>
               </tr>
@@ -248,12 +365,12 @@
           <h2>총 금액 : <span id="value"></span></h2>
           <form name="form" method="get">
             수량 : <input type=hidden name="sell_price" value="3900">
-            <input type="text" name="amount" value="1" size="3" onchange="change();">
-            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
-            <div id="amount1">
+            <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
+            <input type="number" name="amount" value="1" size="3" id="sell_price">
+            <div id="item-area">
             </div>
 
-            금액 : <input type="text" name="sum" size="11" readonly>원
+            금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="3900">원
           </form>
 
         </div>
