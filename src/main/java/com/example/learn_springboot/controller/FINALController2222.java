@@ -12,37 +12,35 @@
 
 
 
+
+
 // @Controller
-// public class FINALController12 {
+// public class FINALController2222 {
 
 //     String hidden="";
-//     boolean A = false;
-
+//     boolean A=true;
 //     @RequestMapping(value = "/final/home")
 //     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 
 //         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-// 		if(paramMap.get("ID")== null){
-// 			A = false;
-// 		}else if(paramMap.get("ID")!= null){
-// 			A = true;
-// 		}
-
-//         if(A){
-//             hidden = (String) paramMap.get("ID");
-// 		}
-
-//         if (hidden.equals("") || hidden.equals(false)) {
-//             resultMap.put("ID", false);
-//             resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인실패</button>");
-//         } else {
+//         if(paramMap.get("ID")==null || paramMap.get("ID").equals("")){
+//             resultMap.put("VIEW", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>");
+//             resultMap.put("ID", "");
+//         }
+//         else if(!paramMap.get("ID").equals("")){
+//             A = false;
+//             hidden = (String)paramMap.get("ID");
+//             resultMap.put("VIEW", "ㅁㅁ");
 //             resultMap.put("ID", hidden);
-//             resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인성공</button>");
+//         }
+//         else{
+
 //         }
 
-//         modelandView.addObject("resultMap", resultMap);
-//         return modelandView;
+//             modelandView.addObject("resultMap", resultMap);
+//             return modelandView;
+        
 
 //     }
 
@@ -51,18 +49,18 @@
 //             ModelAndView modelandView) {
 //         String viewName = "/final/";
 //         Map<String, Object> resultMap = new HashMap<String, Object>();
+      
 
-
-//         hidden = (String) paramMap.get("ID");
-
-//         if (hidden.equals("") || hidden.equals(false)) {
-//             resultMap.put("ID", false);
-//             resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인실패</button>");
-
-//         } else {
-//             resultMap.put("ID", hidden);
-//             resultMap.put("VIEW", "<button type='button' class='btn btn-primary'>로그인성공</button>");
+//         if(paramMap.get("ID")==null || paramMap.get("ID").equals("")){
+//             resultMap.put("VIEW", "<button>실패</button>");
+//             resultMap.put("ID", "");
 //         }
+//         else{
+//             resultMap.put("VIEW", "<button>성공</button>");
+//             resultMap.put("ID", hidden);
+//         }
+
+        
 
 //         viewName += action;
 //         modelandView.setViewName(viewName);

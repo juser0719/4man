@@ -1,48 +1,91 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/layout">
+
+
+<head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      
+      <script>
+        function check(){
+         if( $("#ID").val() == "" || $("#ID").val().length < 5 ){
+             alert("아이디 확인")
+             $("#ID").focus();
+             return false;
+         }
+
+         if( $("#NAME").val() == ""){
+             alert("이름 입력")
+             $("#NAME").focus();
+             return false;
+         }
+
+         if( $("#PWD").val() == "" || $("#PWD").val().length < 5 ){
+             alert("비밀번호 확인")
+             $("#PWD").focus();
+             return false;
+         }
+
+         if( $("#PWD").val() != $("#PWDCHECK").val() ){
+             alert("비밀번호가 일치하지 않습니다.")
+             $("#PWDCHECK").focus();
+             return false;
+         }
+
+         if(!getMail.test($("#MAIL").val())){
+             alert("이메일 형식에 맞게 입력")
+             $("#")
+         }
+
+
+        }
+      </script>
+    </head>  
+
+
     <body>
     <th:block layout:fragment="layout.home"><!--layout-->
         <!--body-->
         <div class="container d-flex justify-content-center">
         <div>
             <h1 class="mt-5 mb-5 text-center c">회원 가입</h1>
-            <form action="/Sign_Up" class = "d">
+            <form onsubmit="return check()" method="POST" th:action="@{/final/SignIn}" class = "d">
                 <div class="row">
                     <label class="col-3 pr-0">아이디</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="text" id="id">
+                        <input class="col-12 p-0" type="text" id="ID" placeholder="5자 이상 작성">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-3 pr-0">이름</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="text" id="name">
+                        <input class="col-12 p-0" type="text" id="NAME">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-3 pr-0">비밀번호</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="password" id="pwd">
+                        <input class="col-12 p-0" type="password" id="PWD" placeholder="5자 이상 작성">
                     </div>
                 </div>
 
+                <div class="row">
+                        <label class="col-3 pr-0">비밀번호 확인</label>
+                        <div class="col-8">
+                            <input class="col-12 p-0" type="password" id="PWDCHECK">
+                        </div>
+                    </div>
+                
                 <div class="row">
                     <label class="col-3 pr-0">이메일</label>
                     <div class="col-8">
-                        <input class="col-12 p-0" type="email" id="email">
+                        <input class="col-12 p-0" type="email" id="EMAIL">
                     </div>
                 </div>
 
-                <div class="row">
-                    <label class="col-3 pr-0">비밀번호 확인</label>
-                    <div class="col-8">
-                        <input class="col-12 p-0" type="password" id="pwdcheck">
-                    </div>
-                </div>
-
+                
                 <div class="row">
                     <label class="col-3 pr-0">전화번호</label><!--번호 앞자리-->
                     <div class="row col-8 d-flex justify-content-center">
