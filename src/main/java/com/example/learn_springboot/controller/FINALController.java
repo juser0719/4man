@@ -73,7 +73,7 @@ public class FINALController {
             action = "home";
 		} else if ("insert".equals(action)) {//회원가입
 			service.saveObject(paramMap);
-			action = "home";
+			action = "SignIn";
         } else if ("accountcheck".equals(action)) {//로그인 db확인
             resultDB = service.getObjectid(paramMap);//DB에서 MAP으로 받아오기
             result11 = (Map<String, Object>) resultDB;
