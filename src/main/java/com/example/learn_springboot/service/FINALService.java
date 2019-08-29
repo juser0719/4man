@@ -32,8 +32,8 @@ public class FINALService{
 		return resultObject;
 	}
 
-	public Object getObject(Object dataMap) {
-		String sqlMapId = "custom.read";
+	public Object getObjectid(Object dataMap) {
+		String sqlMapId = "custom.id";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 

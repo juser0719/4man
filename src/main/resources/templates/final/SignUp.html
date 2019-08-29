@@ -9,7 +9,7 @@
     <script>
         function check() {
             var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-            //var getName = RegExp(/^[가-힣]+$/);
+            var getName = RegExp(/^[가-힣]+$/);
 
             if ($("#ID").val() == "" || $("#ID").val().length < 5) {
                 alert("아이디 확인")
@@ -56,7 +56,7 @@
 
             if ($("#PHONE2").val().length < 3 || $("#PHONE3").val().length < 3) {
                 alert("번호확인")
-                $("#PHONE@").focus();
+                $("#PHONE2").focus();
                 return false;
             }
 

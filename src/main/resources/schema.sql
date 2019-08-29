@@ -21,3 +21,15 @@ CREATE TABLE CIP_ORGANIZATION
 	PARENT_ORGANIZATION_SEQ varchar(50) COMMENT '상위 조직 일련번호',
 	CONSTRAINT PK_ORGANIZATION PRIMARY KEY (ORGANIZATION_SEQ)
 ) COMMENT = '그룹/조직/부서 구조도';
+
+create table CUSTOM
+(
+    ID varchar(255) not null,
+    PASS varchar(255) not null,
+    NAME varchar(255) not null,
+    EMAIL varchar(255),
+    ADDRESS varchar(255),
+    PHONE1 int,
+    PHONE2 int,
+    PHONE3 int,
+);

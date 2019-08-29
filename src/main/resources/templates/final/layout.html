@@ -46,8 +46,9 @@
             <div class="container b ">
                 <div class = "row flex-nowrap justify-content-between align-items-center">
                     <div class = "row col-8">
-                        <button class = "text-muted p-white border-0 bg-white" href="#">회사 소개</button>
-
+                        <form method="POST" th:action="@{/final/company_info}">
+                            <button class = "text-muted p-white border-0 bg-white" href="#">회사 소개</button>
+                        </form>
                         <form method="POST" th:action="@{/final/Introduction_item}">
                             <button type="submit" class = "text-muted p-white border-0 bg-white">제품 소개</button>
                         </form>

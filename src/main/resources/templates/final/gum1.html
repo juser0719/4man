@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html xmlns:th="http://">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/layout">
 
 
 
@@ -105,14 +105,7 @@
       $("#amount").val(hm)
       $("#sum").val(sum)
     }
-    /*
-    function change() {
-      hm = document.form.amount;
-      sum = document.form.sum;
 
-      sum.value = parseInt(hm.value) * sell_price;
-    }
-    */
 
     $(function () {
       var btn_index = 1
@@ -202,59 +195,9 @@
 
 
 
-          // })
-          // $(document).on('click', "input[id*='minus_editItem']", function () {
-
-          //   //amount index 찾기
-          //   var btn_name = "minus_editItem_btn"
-          //   var edit_amount = -1
-
-          //   var editItem_length = btn_name.length
-          //   var editItem_index_str = editItem_id.substring(editItem_length)
-          //   var value_str = $("#amount" + editItem_index_str).val()
-          //   var value_edited = parseInt(value_str) + edit_amount
-          //   $("#amount" + editItem_index_str).val(value_edited)
-
-
-          // })
-
-          // $(document).on('click', "input[id*='remove_editItem']", function () {
-
-          //   //amount index 찾기
-          //   var btn_name = "minus_editItem_btn"
-          //   var edit_amount = 1
-
-          //   var editItem_length = btn_name.length
-          //   var editItem_index_str = editItem_id.substring(editItem_length)
-          //   var value_str = $("#amount" + editItem_index_str).val()
-          //   var value_edited = parseInt(value_str) + edit_amount
-          //   $("#amount" + editItem_index_str).val(value_edited)
-
-
-          // })
 
         })
       })
-      //QUESTION: WHY $("input[id*='plus_btn']", function (){ ... }) EXPRESSION DOESN'T WORK?
-      //READ THIS: https://www.tutorialrepublic.com/faq/how-to-bind-click-event-to-dynamically-added-elements-in-jquery.php
-
-
-      //버튼 눌렸을 때
-      /*function addItem(this){
-        
-
-                $("#remove_btn" + value_str).click(function () {
-                  console.log("it works!")
-                  $("#item_index").remove();
-                })
-              })
-            })
-          </script>
-    </head>
-    <body onload="init();">
-        <!--modal-->
-       
-=======
         function add() {
       hm = document.form.amount;
       sum = document.form.sum;
@@ -269,54 +212,14 @@
         sum.value = parseInt(hm.value) * sell_price;
       }
     }
-      }*/
-
-
-    })
+    });
 
   </script>
 </head>
 
 <body onload="init();">
-
-  <!--modal-->
-  <!--Header-->
-  <header class="blog-header ">
-
-    <!--제가 만든 제과  제목-->
-    <div class="jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
-      style="background: url(/study/public/images/header/header.PNG) no-repeat; background-position: center center;">
-      <div class="col-md-8 px-0">
-        <e href="/" class="e">
-          <h1 class="text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1>
-        </e>
-        <p class="my-3 e">
-          made by JBBK
-        </p>
-      </div>
-    </div>
-    <!--제가 만든 제과  제목-->
-    <!--nav bar-->
-    <div class="container b ">
-      <div class="row flex-nowrap justify-content-between align-items-center">
-        <div class="col-8">
-          <e class="text-muted p-1 " href="#">회사 소개</e>
-          <e class="text-muted p-1 " href="/small_pro/Introduction_item">제품 소개</e>
-          <e class="text-muted p-1 " href="#"> 이벤트 </e>
-          <e class="text-muted p-1 " href="#"> 고객센터 </e>
-          <e class="text-muted p-1 " href="#"> 인재채용 </e>
-        </div>
-
-        <div class="col-4 d-flex justify-content-end align-items-center">
-          <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target="#login">Sign In </button>/
-          <!--로그인 팝업창-->
-          <e class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</e>
-        </div>
-      </div>
-    </div>
-    <!--nav bar-->
-  </header>
-
+    <th:block layout:fragment="layout.home"><!--layout-->
+ 
   <!--body-->
   <div class="layout-wrapper">
     <div class="container">

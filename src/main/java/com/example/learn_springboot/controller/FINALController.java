@@ -29,9 +29,8 @@ public class FINALController {
 
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-        if(paramMap.get("ID")!=null){//로그인 아웃 구분
-            n += 1;
-        }else if(paramMap.get("ID")==null && n >= 2){
+
+        if(paramMap.get("ID")==null && n >= 2){//로그인 아웃 구분
             n = 1;
         }
 
@@ -63,16 +62,47 @@ public class FINALController {
     public ModelAndView action01(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
             ModelAndView modelandView) {
         String viewName = "/final/";
-        Object resultDB = new HashMap<String, Object>();
+        String idcheck, passcheck, serveridcheck, serverpasscheck;
+        Object resultDB;
+        Map<String, Object> result11 = new HashMap<String, Object>();
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
+        if ("insert".equals(action)) {//회원가입
+			service.saveObject(paramMap);
+			action = "SignIn";
+        } else if ("accountcheck".equals(action)) {//로그인 db확인
+            resultDB = service.getObjectid(paramMap);//DB에서 MAP으로 받아오기
+            result11 = (Map<String, Object>) resultDB;
+
+            idcheck = (String) paramMap.get("ID");//아이디 비밀번호 변수선언
+            passcheck = (String) paramMap.get("PASS");
+
+            if((String) result11.get("ID") == null){
+                serveridcheck = "";
+            } else {
+                serveridcheck = (String) result11.get("ID");
+            }
+
+            if((String) result11.get("PASS") == null){
+                serverpasscheck = "";
+            } else {
+                serverpasscheck = (String) result11.get("PASS");
+            }
+
+            if(serveridcheck.equals(idcheck) && serverpasscheck.equals(passcheck)){//계정이 맞으면
+                n += 1;
+                action = "home";
+            } else {
+                action = "SignIn";
+            }
+		}
 
         if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n == 1){//로그인 전
             resultMap.put("ID", "");
             resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("SIGNOUT", "");
-        }else if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n != 1){//로그인 후
+        }else if((paramMap.get("ID")!=null || paramMap.get("ID").equals("")) && n != 1){//로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT", "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
@@ -92,27 +122,8 @@ public class FINALController {
         //     resultMap.put("ID", hidden);
         // }
 
-        if ("edit".equals(action)) {
-			resultDB = service.getObject(paramMap);
-		} else if ("input".equals(action)) {
-		} else if ("update".equals(action)) {
-            resultDB = service.updateObject(paramMap);
-            action = "home";
-		} else if ("insert".equals(action)) {
-			resultDB = service.saveObject(paramMap);
-			action = "home";
-		} else if ("read".equals(action)) {
-			resultDB = service.getObject(paramMap);
-		} else if ("list".equals(action)) {
-			resultDB = service.getList(paramMap);
-		} else if ("delete".equals(action)) {
-			resultDB = service.deleteObject(paramMap);
-			action = "home";
-		}
-
         viewName += action;
         modelandView.setViewName(viewName);
-        modelandView.addObject("resultDB", resultDB);
         modelandView.addObject("paramMap", paramMap);
         modelandView.addObject("resultMap", resultMap);
         return modelandView;

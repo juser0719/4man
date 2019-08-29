@@ -23,7 +23,7 @@
     <div class="container d-flex justify-content-center">
       <div>
         <h1 class="mt-5 mb-5 text-center c">로그인</h1>
-        <form  onsubmit="return check()" method="POST" th:action="@{/final/home}" class="d" style="font-size: 30px;">
+        <form  onsubmit="return check()" method="POST" th:action="@{/final/accountcheck}" class="d" style="font-size: 30px;">
           
           <div class="row">
             <label class="col-4 pr-0" >아이디</label>
@@ -35,7 +35,7 @@
           <div class="row">
             <label class="col-4 pr-0">비밀번호</label>
             <div class="col-8">
-              <input id="PWD" class="col-12 p-0" type="password">
+              <input id="PASS" name="PASS" class="col-12 p-0" type="password">
             </div>
 
           </div>

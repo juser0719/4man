@@ -27,4 +27,14 @@
             , #{PHONE3}
 		)
 	</insert>
+	<select id="id" resultType="Map" parameterType="Map">
+		select ID,PASS
+		from CUSTOM
+		where ID = #{ID}
+	</select>
+	<select id="pwd" resultType="Map" parameterType="Map">
+		select PASS
+		from CUSTOM
+		where PASS = #{PASS}
+	</select>
 </mapper>
