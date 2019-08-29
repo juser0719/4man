@@ -46,14 +46,7 @@ public class FINALController {
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT", "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
         }
-        //else if(!paramMap.get("ID").equals("") && n != 1){
-        //     A = false;
-        //     hidden = (String)paramMap.get("ID");
-        //     resultMap.put("FORM1", "");
-        //     resultMap.put("FORM1", "");
-        //     resultMap.put("VIEW", "<button>성공</button>");
-        //     resultMap.put("ID", hidden);
-        // }
+       
             modelandView.addObject("resultMap", resultMap);
             return modelandView;
 
@@ -83,14 +76,7 @@ public class FINALController {
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("SIGNOUT", "");
         }
-        //else if(!paramMap.get("ID").equals("") && n != 1){
-        //     A = false;
-        //     hidden = (String)paramMap.get("ID");
-        //     resultMap.put("FORM1", "");
-        //     resultMap.put("FORM1", "");
-        //     resultMap.put("VIEW", "<button>성공</button>");
-        //     resultMap.put("ID", hidden);
-        // }
+      
 
         if ("edit".equals(action)) {
 			resultDB = service.getObject(paramMap);
