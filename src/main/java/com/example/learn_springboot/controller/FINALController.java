@@ -13,18 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ch.qos.logback.core.joran.conditional.ElseAction;
-
 @Controller
 public class FINALController {
     @Autowired
     private FINALService service;
-<<<<<<< HEAD
-    String hidden="";
-=======
     String hidden = "";
-    boolean A = true;
->>>>>>> 83c8e6642e0a904b819419bb62fba44b2c94b121
     int n = 1;
 
     @RequestMapping(value = "/final/home")
@@ -50,14 +43,7 @@ public class FINALController {
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
         }
-        // else if(!paramMap.get("ID").equals("") && n != 1){
-        // A = false;
-        // hidden = (String)paramMap.get("ID");
-        // resultMap.put("FORM1", "");
-        // resultMap.put("FORM1", "");
-        // resultMap.put("VIEW", "<button>성공</button>");
-        // resultMap.put("ID", hidden);
-        // }
+       
         modelandView.addObject("resultMap", resultMap);
         return modelandView;
 
