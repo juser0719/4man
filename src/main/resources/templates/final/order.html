@@ -23,6 +23,8 @@
             .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
             .d {font-family: 'Cute Font', cursive; font-size: 20px;}
             .e {font-family: 'Poor Story', cursive;}
+            .order_info{margin: 100px 0 0 80px}
+            
         </style>
         <title></title>
         <script></script>
@@ -59,26 +61,30 @@
       </div>
     </header>
 
-    <h2 class = "text-center">주문서</h3>
+    <h2 class = "text-center" style="margin: 100px 0 50px 0">주문서</h3>
     <div class = "container">
-        <table class ="table">
-            <thead>
-                <tr>
-                    
-                    <th scope="col">상품 정보</th>
-                    <th scope="col">상품 금액</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class ="row">
-                        <img class="" src="/study/public/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" style="height: 350px; width: 250px">
-                        <p th:text="@{..}" class ="text-center">천연 치클 껌 4종</p>
-                    </td>
-                    <td>금액</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class= "order_list row">
+            <div class= "col-8">
+                <h2 class= "border-bottom text-center p-5">상품 정보</h2>
+                <div class ="row p-3">
+                <img src="/study/public/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" style="height: 350px; width: 250px;">
+                <div class= "text-center order_info">
+                    <h3>천연 치클 껌 4종</h3>
+                    <p></p>
+                </div>
+                </div>
+            </div>
+            <div class= "col-4 border-left">
+                    <h2 class= "border-bottom text-center p-5">상품 금액</h2>
+                    <div class ="row  p-3">
+                    <h1 class= "text-center  order_info">3900원</h1>
+                    </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        
     </div>
     </body>
 </html>
