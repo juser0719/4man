@@ -99,13 +99,10 @@ public class FINALController {
             } else {
                 action = "SignIn";
             }
-<<<<<<< HEAD
 		}else if("read".equals(action)){
             resultDB = service1.getObjectinfo(paramMap);
             result11 = (Map<String,Object>) resultDB;
         }
-=======
->>>>>>> 24249d2a8ae57ac84375adc7b85fb8690c2333fc
 
         } else if ("logout".equals(action)) {
             n = 1;
