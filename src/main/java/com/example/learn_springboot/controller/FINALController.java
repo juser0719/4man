@@ -19,12 +19,8 @@ import ch.qos.logback.core.joran.conditional.ElseAction;
 public class FINALController {
     @Autowired
     private FINALService service;
-<<<<<<< HEAD
-    String hidden="";
-=======
     String hidden = "";
     boolean A = true;
->>>>>>> 83c8e6642e0a904b819419bb62fba44b2c94b121
     int n = 1;
 
     @RequestMapping(value = "/final/home")
