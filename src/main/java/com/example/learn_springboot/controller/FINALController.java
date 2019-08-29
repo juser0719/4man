@@ -18,8 +18,8 @@ public class FINALController {
     @Autowired
     private FINALService service;
     String hidden = "";
-    boolean A = true;
     int n = 1;
+
 
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
@@ -114,3 +114,5 @@ public class FINALController {
     }
 
 }
+
+
