@@ -22,7 +22,6 @@ public class FINALController {
     @Autowired
     private FINALService service;
     String hidden="";
-    boolean A=true;
     int n = 1;
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
@@ -95,18 +94,18 @@ public class FINALController {
             resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("SIGNOUT", "");
-        }else if((paramMap.get("ID")!=null || paramMap.get("ID").equals("")) && n != 1){//로그인 후
+        }else {//로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT", "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("ID", hidden);
-        }else{
-            resultMap.put("ID", "");
-            resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
-            resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-            resultMap.put("SIGNOUT", "");
         }
-      
+        // else{
+        //     resultMap.put("ID", "");
+        //     resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
+        //     resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
+        //     resultMap.put("SIGNOUT", "");
+        // }
 
         viewName += action;
         modelandView.setViewName(viewName);
