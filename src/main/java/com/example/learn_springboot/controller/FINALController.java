@@ -18,11 +18,10 @@ public class FINALController {
     @Autowired
     private FINALService service;
     String hidden = "";
-<<<<<<< HEAD
-=======
-    boolean A = true;
->>>>>>> 305cae23f11296b0a262b77969c719c17b74411c
     int n = 1;
+    
+
+
 
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
