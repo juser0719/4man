@@ -163,7 +163,8 @@
           var value_edited = parseInt(value_str) + edit_amount
 
           if (btn_name === "remove_editItem_btn") {
-            $("#item_index" + editItem_index_str).remove() //항목 제거
+            $("#amount" + editItem_index_str).val()
+            $("#item_index" + editItem_index_str).remove() //항목 제거            
           }
           else if (!(edit_amount == -1 && $("#amount" + editItem_index_str).val() <= 1)) {
             $("#amount" + editItem_index_str).val(value_edited) //상품 개수 1 이하로 줄일 수 없음
