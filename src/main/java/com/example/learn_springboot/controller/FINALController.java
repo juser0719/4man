@@ -118,12 +118,7 @@ public class FINALController {
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("ID", hidden);
         }
-        // else{
-        //     resultMap.put("ID", "");
-        //     resultMap.put("FORM1", "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
-        //     resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-        //     resultMap.put("SIGNOUT", "");
-        // }
+      
 
         viewName += action;
         modelandView.setViewName(viewName);
