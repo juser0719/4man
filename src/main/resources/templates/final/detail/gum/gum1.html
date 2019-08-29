@@ -103,16 +103,16 @@
     */
 
     $(function () {
-      var btn_index = 1;
-      var item_index_list = [];
+      var btn_index = 1
+      var item_index_list = []
+      var price = 3900 //가격
       //버튼 생성
       $("#select").change(function () {
         if ($(this).children("option:selected").attr("id") != "default_choose") {
           var start_div = "<div " + "id= " + "item_index" + btn_index + ">"
-          var plus_button = "<input type=" + "'button' " + "value= " + " '+'  " + "id=" + "'plus_editItem_btn" + btn_index.toString() + "' " + "name='plus_editItem_btn'" + ">"
-          var minus_button = "<input type=" + "'button' " + "value= " + " '-'  " + "id=" + "'minus_editItem_btn" + btn_index.toString() + "' " + "name='minus_editItem_btn'" + ">"
-          var remove_button = "<input type=" + "'button'" + "value= " + " 'X'  " + "id=" + "'remove_editItem_btn" + btn_index.toString() + "' " + "name='remove_editItem_btn'" + ">"
-
+          var plus_button = "<input type=" + "'button' " + "value= " + " '+'  " + "id=" + "'plus_editItem_btn" + btn_index.toString() + "' " + "name='plus_editItem_btn' " + "readonly" + ">"
+          var minus_button = "<input type=" + "'button' " + "value= " + " '-'  " + "id=" + "'minus_editItem_btn" + btn_index.toString() + "' " + "name='minus_editItem_btn' " + "readonly" + ">"
+          var remove_button = "<input type=" + "'button'" + "value= " + " 'X'  " + "id=" + "'remove_editItem_btn" + btn_index.toString() + "' " + "name='remove_editItem_btn' " + "readonly" + ">"
           var amount = "<input type=" + "number " + "name=" + "amount" + " value= " + "1" + "  size=" + "3" + " " + "id=" + "'amount" + btn_index.toString() + "'" + ">"
           var end_div = "</div>"
           var text = $(this).children("option:selected").text()
@@ -124,7 +124,7 @@
           console.log(document.getElementById("remove_editItem_btn1").id)
           console.log(document.getElementById("amount1"))
           console.log($("#select").html())
-
+          calculate("plus_editItem_btn")
         }
       })
       //분화시킬 필요가 있음, 가격
@@ -140,9 +140,10 @@
         } else if (button_type == "minus_editItem_btn") {
           $("#sell_price").val(parseInt($("#sell_price").val()) - 1)
           $("#sell_sum").val(parseInt($("#sell_price").val()) * 3900)
-        } else {
-          conosole.log("Error02")
+        } else if (button_type == "minus_editItem_btn") {
+
         }
+
       }
 
 
@@ -179,7 +180,6 @@
           var value_edited = parseInt(value_str) + edit_amount
 
           if (btn_name === "remove_editItem_btn") {
-            console.log("It works!")
             $("#item_index" + editItem_index_str).remove() //항목 제거
           }
           else if (!(edit_amount == -1 && $("#amount" + editItem_index_str).val() <= 1)) {
@@ -366,13 +366,13 @@
 
           <h2>총 금액 : <span id="value"></span></h2>
           <form name="form" method="get">
-            수량 : <input type=hidden name="sell_price" value="3900">
+            수량 : <input type=hidden name="sell_price" value="3900" readonly>
             <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
-            <input type="number" name="amount" value="1" size="3" id="sell_price">
+            <input type="number" name="amount" value="0" size="3" id="sell_price" readonly>
             <div id="item-area">
             </div>
 
-            금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="3900">원
+            금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0" readonly>원
           </form>
 
         </div>
