@@ -67,11 +67,7 @@ public class FINALController {
         Map<String, Object> result11 = new HashMap<String, Object>();
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
-        if ("input".equals(action)) {
-		} else if ("update".equals(action)) {
-            resultDB = service.updateObject(paramMap);
-            action = "home";
-		} else if ("insert".equals(action)) {//회원가입
+        if ("insert".equals(action)) {//회원가입
 			service.saveObject(paramMap);
 			action = "SignIn";
         } else if ("accountcheck".equals(action)) {//로그인 db확인
@@ -99,11 +95,6 @@ public class FINALController {
             } else {
                 action = "SignIn";
             }
-		} else if ("list".equals(action)) {
-			resultDB = service.getList(paramMap);
-		} else if ("delete".equals(action)) {
-			resultDB = service.deleteObject(paramMap);
-			action = "home";
 		}
 
         if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n == 1){//로그인 전
