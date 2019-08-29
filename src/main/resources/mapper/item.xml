@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="item">
+	<select id="list" resultType="Map" parameterType="Map" timeout="10">
+		select 
+            *
+		from ITEM
+		<where>
+			<if test="COMMON_CODE_ID != null">
+			        and PARENT_ORGANIZATION_SEQ = #{PARENT_ORGANIZATION_SEQ}
+			</if>
+		</where>
+	</select>
+
+	<select id="read" resultType="Map" parameterType="Map">
+		select 
+                *
+		from ITEM
+		where ORGANIZATION_SEQ = #{ORGANIZATION_SEQ}
+	</select>
+
+	<insert id="update" parameterType="Map">
+	    update ITEM 
+		set ITEM = #{ITEM} 			<!-- 명칭 -->
+			, PRICE = #{PRICE} 			<!-- 대표 전화번호 -->
+			, NUM = #{NUM} 			<!-- 정렬순서 -->
+			, OPTION1 = #{OPTION1} 			<!-- 상위 조직 일련번호 -->
+            , OPTION2 = #{OPTION2}
+            , OPTION3 = #{OPTION3}
+            , OPTION4 = #{OPTION4}
+		where ORGANIZATION_SEQ = #{ORGANIZATION_SEQ}
+	</insert>
+
+	<insert id="insert" parameterType="Map">
+	    INSERT INTO ITEM (
+		)
+		values(
+			#{ITEM}			<!-- 조직 일련번호 -->
+			, #{PRICE}			<!-- 명칭 -->
+			, #{NUM}			<!-- 대표 전화번호 -->
+			, #{OPTION1}			<!-- 정렬순서 -->
+			, #{OPTION2}	<!-- 상위 조직 일련번호 -->
+            , #{OPTION3}
+            , #{OPTION4}
+        )
+	</insert>
+
+	<delete id="delete" parameterType="Map">
+		delete from CIP_ORGANIZATION
+		where ORGANIZATION_SEQ = #{ORGANIZATION_SEQ}
+	</delete>
+</mapper>

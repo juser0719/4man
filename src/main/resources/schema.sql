@@ -33,3 +33,14 @@ create table CUSTOM
     PHONE2 int,
     PHONE3 int,
 );
+
+create table ITEM
+(
+    ITEM varchar(255) not null,
+    PRICE int not null,
+    NUM int not null,
+    OPTION1 int not null,
+    OPTION2 int not null,
+    OPTION3 int not null,
+    OPTION4 int not null,
+);
