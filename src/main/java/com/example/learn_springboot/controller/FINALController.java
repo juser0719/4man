@@ -78,10 +78,8 @@ public class FINALController {
             resultDB = service.getObjectid(paramMap);//DB에서 MAP으로 받아오기
             result11 = (Map<String, Object>) resultDB;
 
-
             idcheck = (String) paramMap.get("ID");//아이디 비밀번호 변수선언
             passcheck = (String) paramMap.get("PASS");
-
 
             if((String) result11.get("ID") == null){
                 serveridcheck = "";
