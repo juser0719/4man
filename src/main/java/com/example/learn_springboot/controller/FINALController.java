@@ -50,7 +50,7 @@ public class FINALController {
     public ModelAndView action01(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
             ModelAndView modelandView) {
         String viewName = "/final/";
-        String idcheck, passcheck, serveridcheck="", serverpasscheck="", test;
+        String idcheck, passcheck, serveridcheck = "", serverpasscheck = "", test;
         Object resultDB;
         Map<String, Object> result11 = new HashMap<String, Object>();
         Map<String, Object> resultMap = new HashMap<String, Object>();
@@ -66,7 +66,7 @@ public class FINALController {
             idcheck = (String) paramMap.get("ID");// 아이디 비밀번호 변수선언
             passcheck = (String) paramMap.get("PASS");
 
-                if(result11 !=null){
+            if (result11 != null) {
                 if (result11.get("ID") == null) {
                     serveridcheck = "";
                 } else {
@@ -75,7 +75,7 @@ public class FINALController {
 
                 if (result11.get("PASS") == null) {
                     serverpasscheck = "";
-                } else{
+                } else {
                     serverpasscheck = (String) result11.get("PASS");
                 }
             }
@@ -87,7 +87,7 @@ public class FINALController {
                 action = "SignIn";
             }
 
-        } else if ("logout".equals(action)){
+        } else if ("logout".equals(action)) {
             n = 1;
             action = "home";
         }
@@ -98,7 +98,7 @@ public class FINALController {
                     "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("SIGNOUT", "");
-        }else {//로그인 후
+        } else {// 로그인 후
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT",

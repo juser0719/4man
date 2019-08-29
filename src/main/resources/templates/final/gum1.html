@@ -79,40 +79,8 @@
     //1. 생길 때 수량, 가격 올리기
     //2. readonly 속성 넣기
     // 수량 늘리기: 가격 더할 때마다 기존에 있던 input element의 값을 받아옴 -> 3,900원을 더함(데이터베이스의 값, 후에 rest api로 가져와야한다) -> 수량 더함
-    // var sell_price;
+    // var sell_amount;
     // var amount;
-
-    function init() {
-      sell_price = document.form.sell_price.value;
-      amount = document.form.amount.value;
-      document.form.sum.value = sell_price;
-      //change();
-    }
-
-    function add(price) { //총 수량 및 가격에 더해주기
-      hm = parseInt($("#sell_price").val()) //수량
-      sum = parseInt($("#sell_sum").val()) //가격
-      hm++
-      sum += price
-      $("#amount").val(hm)
-      $("#sum").val(sum)
-    }
-    function del(price) { //총 수량 및 가격에 빼주기
-      hm = parseInt($("#sell_price").val()) //수량
-      sum = parseInt($("#sell_sum").val()) //가격
-      hm--
-      sum -= price
-      $("#amount").val(hm)
-      $("#sum").val(sum)
-    }
-    /*
-    function change() {
-      hm = document.form.amount;
-      sum = document.form.sum;
-
-      sum.value = parseInt(hm.value) * sell_price;
-    }
-    */
 
     $(function () {
       var btn_index = 1
@@ -147,12 +115,15 @@
         if (button_type == "remove_editItem_btn") {
 
         } else if (button_type == "plus_editItem_btn") {
-          $("#sell_price").val(parseInt($("#sell_price").val()) + 1) //수량
-          $("#sell_sum").val(parseInt($("#sell_price").val()) * 3900)
+          $("#sell_amount").val(parseInt($("#sell_amount").val()) + 1) //수량
+          console.log($("#sell_amount").val())
+          $("#sell_amount_p").text($("#sell_amount").val().toString())
+          $("#sell_sum").val(parseInt($("#sell_amount").val()) * 3900)
         } else if (button_type == "minus_editItem_btn") {
-          $("#sell_price").val(parseInt($("#sell_price").val()) - 1)
-          $("#sell_sum").val(parseInt($("#sell_price").val()) * 3900)
-        } else if (button_type == "minus_editItem_btn") {
+          $("#sell_amount").val(parseInt($("#sell_amount").val()) - 1)
+          $("#sell_amount_p").text($("#sell_amount").val().toString())
+          $("#sell_sum").val(parseInt($("#sell_amount").val()) * 3900)
+        } else if (button_type == "remove_editItem_btn") {
 
         }
 
@@ -205,110 +176,107 @@
 
         })
       })
-    
+
     })
 
   </script>
 </head>
 
 <body onload="init();">
-    <th:block layout:fragment="layout.home"><!--layout-->
- 
-  <!--body-->
-  <div class="layout-wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="span5">
-          <div class="">
-            <img class="py-5" src="http://img-cf.kurly.com/shop/data/goods/1538985810995l0.jpg">
+  <th:block layout:fragment="layout.home">
+    <!--layout-->
+
+    <!--body-->
+    <div class="layout-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="span5">
+            <div class="">
+              <img class="py-5" src="http://img-cf.kurly.com/shop/data/goods/1538985810995l0.jpg">
+            </div>
+          </div>
+          <div class="span4 offset5 pl-5">
+            <h1 class="name pt-5"> 천연치클 껌 4종</h1>
+            <p class="text-left">건강과 환경을 생각하는 껌</p>
+            <table class="table mt-5">
+              <thead>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">판매가</th>
+                  <td>3,900원</td>
+                </tr>
+                <tr>
+                  <th scope="row">판매단위</th>
+                  <td>PK</td>
+                </tr>
+                <tr>
+                  <th scope="row">포장타입</th>
+                  <td>상온/종이 포장</td>
+                </tr>
+                <tr>
+                  <th scope="row">중량/용량</th>
+                  <td>12개입 / 19g</td>
+                </tr>
+                <tr>
+                  <th scope="row">단품 골라담기</th>
+                  <td>
+                    <select id="select">
+                      <option selected id="default_choose">==단품골라담기 선택==</option>
+                      <option value="3900" name="v1" id="v1">후레시 민트 (+3,900)</option>
+                      <option value="3900" name="v2" id="v2">후레시 레몬 (+3,900)</option>
+                      <option value="3900" name="v3" id="v3">후레시 솔티 (+3,900)</option>
+                      <option value="3900" name="v4" id="v4">후레시 펀치 (+3,900)</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>총 금액 : <span id="value"></span></h2>
+            <form name="form" method="get" th:action="@{final/gum1}">
+              수량 : <input type=hidden name="sell_amount" value="3900" readonly>
+              <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
+              <span name="amount" id="sell_amount_p"></span>
+              <input value="0" hidden id="sell_amount">
+              <div id="item-area">
+                금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0" readonly>원
+            </form>
+
           </div>
         </div>
-        <div class="span4 offset5 pl-5">
-          <h1 class="name pt-5"> 천연치클 껌 4종</h1>
-          <p class="text-left">건강과 환경을 생각하는 껌</p>
-          <table class="table mt-5">
-            <thead>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">판매가</th>
-                <td>3,900원</td>
-              </tr>
-              <tr>
-                <th scope="row">판매단위</th>
-                <td>PK</td>
-              </tr>
-              <tr>
-                <th scope="row">포장타입</th>
-                <td>상온/종이 포장</td>
-              </tr>
-              <tr>
-                <th scope="row">중량/용량</th>
-                <td>12개입 / 19g</td>
-              </tr>
-              <tr>
-                <th scope="row">단품 골라담기</th>
-                <td>
-                  <select id="select">
-                    <option selected id="default_choose">==단품골라담기 선택==</option>
-                    <option value="3900" name="v1" id="v1">후레시 민트 (+3,900)</option>
-                    <option value="3900" name="v2" id="v2">후레시 레몬 (+3,900)</option>
-                    <option value="3900" name="v3" id="v3">후레시 솔티 (+3,900)</option>
-                    <option value="3900" name="v4" id="v4">후레시 펀치 (+3,900)</option>
-                  </select>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
-          <h2>총 금액 : <span id="value"></span></h2>
-          <form name="form" method="get">
-            수량 : <input type=hidden name="sell_price" value="3900" readonly>
-            <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
-            <input type="number" name="amount" value="0" size="3" id="sell_price" readonly>
-            <div id="item-area">
-
-
-
-
-
-              금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0" readonly>원
-          </form>
-
+        <div>
+          <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv10000033127_1.jpg">
+        </div>
+        <div class="text-center">
+          <h3 class="context_title border-bottom p-3">
+            <small>건강과 환경을 생각하는 껌</small>
+            "천연 치클껌 4종"
+          </h3>
+          <p class="word">
+            식사 후 개운하게 입가심을 할 때 씹는 껌은 그 안에 들어있는 색소와 설탕 때문에 걱정이 되기도 하지요. 이제 자연에서 얻은 원료로 순수하게 만든 험블의 천연치클껌을 만나보세요. 이 껌은 설탕
+            대신 자작나무에서 추출한 자일리톨로 단맛을 내고, 식물에서 향을 추출하여 만든 것이에요. 씹어보면, 천연 재료에서 우러나오는 청량함을 확연히 느낄 수 있지요. 무엇보다 천연치클껌의 가장 큰
+            매력으로는 ‘치클’이라는 자연 친화적인 성분을 꼽을 수 있는데요. 씹는 맛을 살리기 위하여 자연분해가 되지 않는 플라스틱 원료(초산비닐수지) 대신 나무 수액에서 까다롭게 추출한 ‘치클’을
+            사용했기 때문에 환경에 해를 입힐 염려가 없답니다.<br> 이제 내 치아 건강뿐만 아니라 지구의 건강까지 생각하는 천연치클껌으로 자연의 달콤함을 즐겨보세요.
+          </p>
+        </div>
+        <div class="dis_img">
+          <h3 class="context_title border-bottom p-3 text-center display-4">
+            Check Point
+          </h3>
+          <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv40000033128_1.jpg" class="ml-5">
+        </div>
+        <div class="info_img">
+          <h3 class="context_title border-bottom p-3 text-center display-4">
+            Information
+          </h3>
+          <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv20000033170_1.jpg">
         </div>
       </div>
 
-      <div>
-        <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv10000033127_1.jpg">
-      </div>
-      <div class="text-center">
-        <h3 class="context_title border-bottom p-3">
-          <small>건강과 환경을 생각하는 껌</small>
-          "천연 치클껌 4종"
-        </h3>
-        <p class="word">
-          식사 후 개운하게 입가심을 할 때 씹는 껌은 그 안에 들어있는 색소와 설탕 때문에 걱정이 되기도 하지요. 이제 자연에서 얻은 원료로 순수하게 만든 험블의 천연치클껌을 만나보세요. 이 껌은 설탕
-          대신 자작나무에서 추출한 자일리톨로 단맛을 내고, 식물에서 향을 추출하여 만든 것이에요. 씹어보면, 천연 재료에서 우러나오는 청량함을 확연히 느낄 수 있지요. 무엇보다 천연치클껌의 가장 큰
-          매력으로는 ‘치클’이라는 자연 친화적인 성분을 꼽을 수 있는데요. 씹는 맛을 살리기 위하여 자연분해가 되지 않는 플라스틱 원료(초산비닐수지) 대신 나무 수액에서 까다롭게 추출한 ‘치클’을
-          사용했기 때문에 환경에 해를 입힐 염려가 없답니다.<br> 이제 내 치아 건강뿐만 아니라 지구의 건강까지 생각하는 천연치클껌으로 자연의 달콤함을 즐겨보세요.
-        </p>
-      </div>
-      <div class="dis_img">
-        <h3 class="context_title border-bottom p-3 text-center display-4">
-          Check Point
-        </h3>
-        <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv40000033128_1.jpg" class="ml-5">
-      </div>
-      <div class="info_img">
-        <h3 class="context_title border-bottom p-3 text-center display-4">
-          Information
-        </h3>
-        <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv20000033170_1.jpg">
-      </div>
     </div>
-
-  </div>
-  <!--body-->
+    <!--body-->
 
 </body>
 
