@@ -9,7 +9,7 @@
     <script>
         function check() {
             var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-            //var getName = RegExp(/^[가-힣]+$/);
+            var getName = RegExp(/^[가-힣]+$/);
 
             if ($("#ID").val() == "" || $("#ID").val().length < 5) {
                 alert("아이디 확인")
@@ -56,7 +56,7 @@
 
             if ($("#PHONE2").val().length < 3 || $("#PHONE3").val().length < 3) {
                 alert("번호확인")
-                $("#PHONE@").focus();
+                $("#PHONE2").focus();
                 return false;
             }
 
@@ -80,7 +80,7 @@
         <div class="container d-flex justify-content-center">
             <div>
                 <h1 class="mt-5 mb-5 text-center c">회원 가입</h1>
-                <form onsubmit="return check()" method="POST" th:action="@{/final/insert}" class="d">
+                <form onsubmit="return check()" method="POST" th:action="@{/final/home}" class="d">
                     <div class="row">
                         <label class="col-3 pr-0">아이디</label>
                         <div class="col-8">
