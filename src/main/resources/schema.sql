@@ -43,4 +43,14 @@ create table ITEM
     OPTION2 int not null,
     OPTION3 int not null,
     OPTION4 int not null,
+     primary key(ITEM)
+);
+
+CREATE TABLE list
+(
+    ITEM     varchar(255) not null, 
+    NUM      int not null, 
+    PRICE    int not null, 
+    ORDERED  varchar(255) not null, 
+    PRIMARY KEY (ITEM)
 );

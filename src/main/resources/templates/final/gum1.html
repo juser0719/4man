@@ -155,20 +155,14 @@
       //needs to be optimized
       $(document).ready(function () {
         $(document).on('click', "input[id*='editItem']", function (e) { //id 이름에 editItem이 포함되는 경운
-
           //amount index 찾기
-
-
-
           var editItem_id = e.target.id //editItem_id: 클릭한 element의 id
-
           if (editItem_id.includes("remove_editItem_btn")) { //항목 제거를 의미하는 id 포함
             var btn_name = "remove_editItem_btn"
           }
           else if (editItem_id.includes("plus_editItem_btn")) { //상품 개수 추가를 의미하는 id 포함
             var btn_name = "plus_editItem_btn"
             var edit_amount = 1
-
           }
           else if (editItem_id.includes("minus_editItem_btn")) { //상품 개수 감소를 의미하는 id 포함
             var btn_name = "minus_editItem_btn"
@@ -191,11 +185,6 @@
             $("#amount" + editItem_index_str).val(value_edited) //상품 개수 1 이하로 줄일 수 없음
           }
           calculate(btn_name)
-
-
-
-
-
         })
       })
         function add() {
@@ -268,17 +257,22 @@
           </table>
 
           <h2>총 금액 : <span id="value"></span></h2>
-          <form name="form" method="get">
+          <form name="form" method="get" th:action="@{/final/read}">
             수량 : <input type=hidden name="sell_price" value="3900" readonly>
             <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
             <input type="number" name="amount" value="0" size="3" id="sell_price" readonly>
             <div id="item-area">
 
 
-
+<p th:text = ${resultMap.}></p>
 
 
               금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0" readonly>원
+              <p class = "mt-3">
+                <button class="color btn text-white">주문하기</button>
+                <button class="color btn text-white">장바구니</button>
+              </p>
+              
           </form>
 
         </div>

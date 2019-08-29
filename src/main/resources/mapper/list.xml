@@ -4,46 +4,40 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="item">
+<mapper namespace="list">
 	<select id="list" resultType="Map" parameterType="Map" timeout="10">
 		select 
             *
-		from ITEM
+		from list
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
 		select 
                 *
-		from ITEM
+		from list
 	</select>
 	<insert id="update" parameterType="Map">
-	    update ITEM 
+	    update list 
 		set ITEM = #{ITEM} 			
-			, PRICE = #{PRICE} 			
 			, NUM = #{NUM} 			
-			, OPTION1 = #{OPTION1} 			
-            , OPTION2 = #{OPTION2}
-            , OPTION3 = #{OPTION3}
-            , OPTION4 = #{OPTION4}
-		
+			, PRICE = #{PRICE}			
+			, ORDERED = #{ORDERED} 			
 	</insert>
 
 	<insert id="insert" parameterType="Map">
-	    INSERT INTO ITEM 
+	    INSERT INTO list 
 		
 		values(
-			#{ITEM}			<!-- 조직 일련번호 -->
-			, #{PRICE}			<!-- 명칭 -->
-			, #{NUM}			<!-- 대표 전화번호 -->
-			, #{OPTION1}			<!-- 정렬순서 -->
-			, #{OPTION2}	<!-- 상위 조직 일련번호 -->
-            , #{OPTION3}
-            , #{OPTION4}
+			#{ITEM}			    <!-- 상품명 -->
+			, #{NUM}			<!-- 수량 -->
+			, #{PRICE}			<!-- 총가격 -->
+			, #{ORDERED} 		<!-- 배송현황 -->
+
         )
 	</insert>
 
 	<delete id="delete" parameterType="Map">
-		delete from ITEM
+		delete from list
 		
 	</delete>
 </mapper>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.learn_springboot.service.FINALService;
+import com.example.learn_springboot.service.ItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
     @Autowired
     private FINALService service;
+    @Autowired
+    private ItemService service1;
     String hidden="";
     boolean A=true;
     int n = 1;
@@ -87,7 +90,10 @@ public class FINALController {
             } else {
                 action = "SignIn";
             }
-		}
+		}else if("read".equals(action)){
+            resultDB = service1.getObjectinfo(paramMap);
+            result11 = (Map<String,Object>) resultDB;
+        }
 
         if((paramMap.get("ID")==null || paramMap.get("ID").equals("")) && n == 1){//로그인 전
             resultMap.put("ID", "");
