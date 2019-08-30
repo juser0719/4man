@@ -20,7 +20,6 @@ public class FINALController {
     String hidden = "";
     int n = 1;
 
-
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 
@@ -40,10 +39,11 @@ public class FINALController {
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
-            resultMap.put("mypage", "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
+            resultMap.put("mypage",
+                    "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
         }
-            modelandView.addObject("resultMap", resultMap);
-            return modelandView;
+        modelandView.addObject("resultMap", resultMap);
+        return modelandView;
 
     }
 
@@ -106,7 +106,8 @@ public class FINALController {
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("ID", hidden);
-            resultMap.put("mypage", "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
+            resultMap.put("mypage",
+                    "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
         }
 
         viewName += action;
@@ -117,5 +118,3 @@ public class FINALController {
     }
 
 }
-
-

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/layout">
+
 <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
   <script>
-    function check(){
+    function check() {
       console.log("here")
-      if( $("#ID").val() == "" || $("#PWD").val() == ""){
+      if ($("#ID").val() == "" || $("#PWD").val() == "") {
         alert("아이디 or 비밀번호 다시확인하십시오.");
         $("#ID").focus();
         return false;
@@ -15,20 +16,22 @@
       else return true;
     }
   </script>
-</head>  
+</head>
 
 <body>
-<th:block layout:fragment="layout.home"><!--layout-->
+  <th:block layout:fragment="layout.home">
+    <!--layout-->
     <!--body-->
     <div class="container d-flex justify-content-center">
       <div>
         <h1 class="mt-5 mb-5 text-center c">로그인</h1>
-        <form  onsubmit="return check()" method="POST" th:action="@{/final/accountcheck}" class="d" style="font-size: 30px;">
-          
+        <form onsubmit="return check()" method="POST" th:action="@{/final/accountcheck}" class="d"
+          style="font-size: 30px;">
+
           <div class="row">
-            <label class="col-4 pr-0" >아이디</label>
+            <label class="col-4 pr-0">아이디</label>
             <div class="col-8">
-              <input id="ID" name="ID" class="col-12 p-0" type="text" >
+              <input id="ID" name="ID" class="col-12 p-0" type="text">
             </div>
           </div>
 
@@ -54,4 +57,5 @@
     <!--body-->
   </th:block>
 </body>
+
 </html>
