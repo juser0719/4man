@@ -94,27 +94,29 @@ public class FINALController {
             resultDB = service1.getObjectinfo(paramMap);
             result11 = (Map<String, Object>) resultDB;
         }else if("logout".equals(action)){
-        n = 1;
-        action = "home";
-    }
+            n = 1;
+            action = "home";
+        }
 
-    if((paramMap.get("ID")==null||paramMap.get("ID").equals(""))&&n==1)
-    {// 로그인 전
-        resultMap.put("ID", "");
-        resultMap.put("FORM1",
-                "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
-        resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-        resultMap.put("SIGNOUT", "");
-    }else
-    {// 로그인 후
-        resultMap.put("FORM1", "");
-        resultMap.put("FORM2", "");
-        resultMap.put("SIGNOUT",
-                "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
-        resultMap.put("ID", hidden);
-    }
+        if((paramMap.get("ID")==null||paramMap.get("ID").equals(""))&&n==1){// 로그인 전
+            resultMap.put("ID", "");
+            resultMap.put("FORM1",
+                    "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
+            resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
+            resultMap.put("SIGNOUT", "");
+        }else{// 로그인 후
+            resultMap.put("FORM1", "");
+            resultMap.put("FORM2", "");
+            resultMap.put("SIGNOUT",
+                    "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
+            resultMap.put("ID", hidden);
+        }
 
-    viewName+=action;modelandView.setViewName(viewName);modelandView.addObject("paramMap",paramMap);modelandView.addObject("resultMap",resultMap);return modelandView;
-}
+        viewName+=action;
+        modelandView.setViewName(viewName);
+        modelandView.addObject("paramMap",paramMap);
+        modelandView.addObject("resultMap",resultMap);
+        return modelandView;
+    }
 
 }
