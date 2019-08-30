@@ -39,7 +39,7 @@
                     <button class = "a bg-white border-0 text-dark text-decoration-none"><h1 class= "display-4" style="font-size: 70px;">제가 만든 제과 </h1></button>
                     </form>
                     <p class = "my-3 a">
-                        made by JBBK
+                        made by JPPK
                     </p>
                 </div>
             </div>
@@ -72,6 +72,10 @@
 
                             <form method="POST" th:action="@{/final/logout}">
                                 <p name="check" id="check" th:utext="${resultMap.SIGNOUT}"></p>
+                            </form>
+
+                            <form method="POST" th:action="@{/final/layout_mypage}">
+                                <p th:utext="${resultMap.mypage}"></p>
                             </form>
                         </p>
                         <input type="hidden" name = "ID" value ="${resultMap.ID}">

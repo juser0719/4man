@@ -3,136 +3,19 @@
 <!DOCTYPE html>
 <!--layout 가운데 메인과 네비게이션-->
 <meta charset="UTF-8">
-<html xmlns:th="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/layout">
 
 <head>
-    <!--JS-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!--CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean"
-        rel="stylesheet">
-    <link href="../../static/css/layout_mypage.css" rel="stylesheet">
 
-    <script>
 
-    </script>
-    <style>
-        .color {
-            background-color: blueviolet;
-        }
-
-        .color:hover {
-            background-color: rebeccapurple;
-        }
-
-        .a {
-            font-family: 'Stylish', sans-serif;
-        }
-
-        .b {
-            font-family: 'Hi Melody', cursive;
-            font-size: 23px;
-        }
-
-        .c {
-            font-family: 'Gamja Flower', cursive;
-            font-size: 40px;
-        }
-
-        .d {
-            font-family: 'Cute Font', cursive;
-            font-size: 20px;
-        }
-
-        .e {
-            font-family: 'Poor Story', cursive;
-        }
-
-        .f {
-            font-family: 'Anton', sans-serif;
-        }
-
-        .g {
-            font-family: 'Sunflower', sans-serif;
-        }
-    </style>
-    <title></title>
-    <script>
-        function checkValidity(param) {
-            console.log(this.start_date.value)
-            conosole.
-                if(this.start_date.value == "" || this.start_date.value == null) {
-
-            }
-        }
-    </script>
 </head>
 
 <body>
-    <!--Header-->
-    <header class="blog-header py-3">
-        <!--제가 만든 제과  제목-->
-        <div class="jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
-            style="background: url(/images/header/header.PNG) no-repeat; background-position: center center;">
-            <div class="col-md-8 px-0">
-                <a href="/" class="a text-dark text-decoration-none"></a>
-                <h1 class="display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
-                <p class="my-3 a">
-                    made by JBBK
-                </p>
-            </div>
-        </div>
-        <!--제가 만든 제과  제목-->
-        <!--nav bar-->
-        <div class="container b ">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="row col-8">
-                    <button class="text-muted p-white border-0 bg-white" href="#">회사 소개</button>
 
-                    <form method="POST" th:action="@{/final/Introduction_item}">
-                        <button type="submit" class="text-muted p-white border-0 bg-white">제품 소개</button>
-                    </form>
-
-                    <button class="text-muted p-white border-0 bg-white" href="#"> 이벤트 </button>
-                    <button class="text-muted p-white border-0 bg-white" href="#"> 고객센터 </button>
-                    <button class="text-muted p-white border-0 bg-white" href="#"> 인재채용 </button>
-                </div>
-
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <form method="POST" th:action="@{/final/SignIn}">
-                        <!--SignIn/SignUP form-->
-                        <button type="submit" name="ID" class="text-muted bg-white border-0 b">Sign In</button>/
-                        <!--로그인 팝업창-->
-                    </form>
-
-                    <form method="POST" th:action="@{/final/SignUP}">
-                        <button type="submit" class="text-muted bg-white border-0 b">Sign Up</button>
-                        <!--계정생성 팝업창-->
-                    </form>
-                    <!--SignIn/SignUP form-->
-                    <!-- <button name="ID"></button> -->
-                    <a th:utext="${resultMap.VIEW}"></a>
-                </div>
-
-            </div>
-        </div>
-        <!--nav bar-->
-    </header>
-    <!--layout-->
-
-    <!-- Sidebar -->
+    <th:block layout:fragment="layout.home">
+        <!--layout-->
+        <!-- 
+  
     <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-left">
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
@@ -143,71 +26,72 @@
             </ul>
         </div>
 
-    </nav>
-    <!-- Sidebar-->
-    <div class="border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">마이페이지 </div>
-        <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action">주문확인</a>
-            <a href="#" class="list-group-item list-group-item-action">지원이력</a>
-            <a href="#" class="list-group-item list-group-item-action">회원정보수정</a>
-            <a href="#" class="list-group-item list-group-item-action">질문조회</a>
-        </div>
-    </div>
-    <div class="border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">마이페이지 </div>
-        <div class="list-group list-group-flush">
-            <input href="#" type="button" class="list-group-item list-group-item-action">주문확인</a>
-            <input href="#" type="button" class="list-group-item list-group-item-action">지원이력</a>
-            <input href="#" type="button" class="list-group-item list-group-item-action">회원정보수정</a>
-            <input href="#" type="button" class="list-group-item list-group-item-action">질문조회</a>
-        </div>
-    </div>
-
-    <form action="#" onsubmit="return checkValidity(this)">
-        <div class="form-inline row">
-            <span class="mx-5">조회기간</span>
-
-            <div class="btn-group" name="time_interval">
-                <input type="button" class="btn border-dark bg-light" value="오늘"></button>
-                <input type="button" class="btn border-dark bg-light" value="15일"></button>
-                <input type="button" class="btn border-dark bg-light" value="1개월"></button>
+    </nav> -->
+        <!-- Sidebar-->
+        <div class="border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">마이페이지 </div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">주문확인</a>
+                <a href="#" class="list-group-item list-group-item-action">지원이력</a>
+                <a href="#" class="list-group-item list-group-item-action">회원정보수정</a>
+                <a href="#" class="list-group-item list-group-item-action">질문조회</a>
             </div>
-
-            <span class="mx-5"></span>
-            <input type="button" class="btn border-dark bg-light" value="5월"></button>
-            <input type="button" class="btn border-dark bg-light" value="6월"></button>
-            <input type="button" class="btn border-dark bg-light" value="7월"></button>
-            <input type="button" class="btn border-dark bg-light" value="8월"></button>
-
-
-            <span class="mx-2">날짜</span>
-            <input class="form-control" type="date" name="start_date">~
-            <input class="form-control" type="date" name="end_date">
-
-
-            <select class="form-control mx-3" name="state">
-                <option disabled>전체상태</option>
-                <option>배송완료</option>
-                <option>배송중</option>
-                <option>결제확인</option>
-                <option>주문보류</option>
-            </select>
-
-            <button class="btn btn-success mx-5" type="submit">조회
         </div>
-    </form>
+        <div class="border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">마이페이지 </div>
+            <div class="list-group list-group-flush">
+                <input href="#" type="button" class="list-group-item list-group-item-action">주문확인</a>
+                <input href="#" type="button" class="list-group-item list-group-item-action">지원이력</a>
+                <input href="#" type="button" class="list-group-item list-group-item-action">회원정보수정</a>
+                <input href="#" type="button" class="list-group-item list-group-item-action">질문조회</a>
+            </div>
+        </div>
 
-    <table class="table">
-        <thead>
-            <th>주문일/구매번호</th>
-            <th>상품정보</th>
-            <th>상태</th>
-            <th>확인/신청</th>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+        <form action="#" onsubmit="return checkValidity(this)">
+            <div class="form-inline row">
+                <span class="mx-5">조회기간</span>
+
+                <div class="btn-group" name="time_interval">
+                    <input type="button" class="btn border-dark bg-light" value="오늘"></button>
+                    <input type="button" class="btn border-dark bg-light" value="15일"></button>
+                    <input type="button" class="btn border-dark bg-light" value="1개월"></button>
+                </div>
+
+                <span class="mx-5"></span>
+                <input type="button" class="btn border-dark bg-light" value="5월"></button>
+                <input type="button" class="btn border-dark bg-light" value="6월"></button>
+                <input type="button" class="btn border-dark bg-light" value="7월"></button>
+                <input type="button" class="btn border-dark bg-light" value="8월"></button>
+
+
+                <span class="mx-2">날짜</span>
+                <input class="form-control" type="date" name="start_date">~
+                <input class="form-control" type="date" name="end_date">
+
+
+                <select class="form-control mx-3" name="state">
+                    <option disabled>전체상태</option>
+                    <option>배송완료</option>
+                    <option>배송중</option>
+                    <option>결제확인</option>
+                    <option>주문보류</option>
+                </select>
+
+                <button class="btn btn-success mx-5" type="submit">조회
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <th>주문일/구매번호</th>
+                <th>상품정보</th>
+                <th>상태</th>
+                <th>확인/신청</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </th:block>
 </body>
 
 </html>
