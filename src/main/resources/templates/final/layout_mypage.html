@@ -70,6 +70,12 @@
                     <input class="form-control" type="date" id="start_date">~
                     <input class="form-control" type="date" id="end_date">
 
+<<<<<<< HEAD
+=======
+                <span class="mx-2">날짜</span>
+                <input class="form-control" type="date" name="start_date">~
+                <input class="form-control" type="date" name="end_date">
+>>>>>>> 5c36ecef4c6ea8c8fdccc54db39d44953ac752b1
 
                     <select class="form-control mx-3" id="exampleFormControlSelect1">
                         <option disabled>전체상태</option>
@@ -79,6 +85,7 @@
                         <option>주문보류</option>
                     </select>
 
+<<<<<<< HEAD
                     <button class="btn btn-success mx-5" type="submit" onsubmit="checkValidity()">조회
                 </div>
             </form>
@@ -96,6 +103,31 @@
                  
     </th:block>
 
+=======
+                <select class="form-control mx-3" name="state">
+                    <option disabled>전체상태</option>
+                    <option>배송완료</option>
+                    <option>배송중</option>
+                    <option>결제확인</option>
+                    <option>주문보류</option>
+                </select>
+
+                <button class="btn btn-success mx-5" type="submit">조회
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <th>주문일/구매번호</th>
+                <th>상품정보</th>
+                <th>상태</th>
+                <th>확인/신청</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </th:block>
+>>>>>>> 5c36ecef4c6ea8c8fdccc54db39d44953ac752b1
 </body>
 
 </html>
