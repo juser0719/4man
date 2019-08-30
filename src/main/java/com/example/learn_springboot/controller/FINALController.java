@@ -18,14 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
     @Autowired
     private FINALService service;
-<<<<<<< HEAD
     @Autowired
     private ItemService service1;
     String hidden="";
     boolean A=true;
-=======
-    String hidden = "";
->>>>>>> 24249d2a8ae57ac84375adc7b85fb8690c2333fc
     int n = 1;
 
 
@@ -48,14 +44,8 @@ public class FINALController {
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
         }
-<<<<<<< HEAD
             modelandView.addObject("resultMap", resultMap);
             return modelandView;
-=======
-
-        modelandView.addObject("resultMap", resultMap);
-        return modelandView;
->>>>>>> 24249d2a8ae57ac84375adc7b85fb8690c2333fc
 
     }
 
@@ -104,7 +94,7 @@ public class FINALController {
             result11 = (Map<String,Object>) resultDB;
         }
 
-        } else if ("logout".equals(action)) {
+        else if ("logout".equals(action)) {
             n = 1;
             action = "home";
         }
