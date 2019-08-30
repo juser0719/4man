@@ -17,7 +17,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
     @Autowired
     private FINALService service;
+<<<<<<< HEAD
     String hidden = "";
+=======
+    @Autowired
+    private ItemService service1;
+    String hidden="";
+    boolean A=true;
+>>>>>>> e204e7cc56d0070567e51f88673443de9078441a
     int n = 1;
 
 
@@ -42,9 +49,8 @@ public class FINALController {
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("mypage", "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
         }
-
-        modelandView.addObject("resultMap", resultMap);
-        return modelandView;
+            modelandView.addObject("resultMap", resultMap);
+            return modelandView;
 
     }
 
@@ -88,6 +94,7 @@ public class FINALController {
             } else {
                 action = "SignIn";
             }
+<<<<<<< HEAD
 
         } else if ("logout".equals(action)) {
             n = 1;
@@ -95,18 +102,35 @@ public class FINALController {
         }
 
         if ((paramMap.get("ID") == null || paramMap.get("ID").equals("")) && n == 1) {// 로그인 전
+=======
+        } else if ("read".equals(action)) {
+            resultDB = service1.getObjectinfo(paramMap);
+            result11 = (Map<String, Object>) resultDB;
+            
+        }else if("logout".equals(action)){
+            n = 1;
+            action = "home";
+        }
+
+        if((paramMap.get("ID")==null||paramMap.get("ID").equals(""))&&n==1){// 로그인 전
+>>>>>>> e204e7cc56d0070567e51f88673443de9078441a
             resultMap.put("ID", "");
             resultMap.put("FORM1",
                     "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
             resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
             resultMap.put("SIGNOUT", "");
+<<<<<<< HEAD
             resultMap.put("mypage", "");
         } else {// 로그인 후
+=======
+        }else{// 로그인 후
+>>>>>>> e204e7cc56d0070567e51f88673443de9078441a
             resultMap.put("FORM1", "");
             resultMap.put("FORM2", "");
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
             resultMap.put("ID", hidden);
+<<<<<<< HEAD
             resultMap.put("mypage", "<button type='submit' name='mypage' class='text-muted bg-white border-0 b bg-white'>마이페이지</button>");
         }
 
@@ -118,5 +142,15 @@ public class FINALController {
     }
 
 }
+=======
+        }
+
+        viewName+=action;
+        modelandView.setViewName(viewName);
+        modelandView.addObject("paramMap",paramMap);
+        modelandView.addObject("resultMap",resultMap);
+        return modelandView;
+    }
+>>>>>>> e204e7cc56d0070567e51f88673443de9078441a
 
 
