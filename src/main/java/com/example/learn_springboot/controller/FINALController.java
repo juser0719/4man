@@ -51,7 +51,7 @@ public class FINALController {
     public ModelAndView action01(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
             ModelAndView modelandView) {
         String viewName = "/final/";
-        String idcheck, passcheck, serveridcheck = "", serverpasscheck = "", test;
+        String idcheck, passcheck, serveridcheck = "", serverpasscheck = "";
         Object resultDB;
         Map<String, Object> result11 = new HashMap<String, Object>();
         Map<String, Object> resultMap = new HashMap<String, Object>();
@@ -67,7 +67,7 @@ public class FINALController {
             idcheck = (String) paramMap.get("ID");// 아이디 비밀번호 변수선언
             passcheck = (String) paramMap.get("PASS");
 
-            if (result11 != null) {
+            if (result11 != null) {//로그인 확인
                 if (result11.get("ID") == null) {
                     serveridcheck = "";
                 } else {
@@ -88,7 +88,7 @@ public class FINALController {
                 action = "SignIn";
             }
 
-        } else if ("logout".equals(action)) {
+        } else if ("logout".equals(action)) {//로그아웃
             n = 1;
             action = "home";
         }
