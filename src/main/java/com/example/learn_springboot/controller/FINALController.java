@@ -91,7 +91,7 @@ public class FINALController {
         } else if ("read".equals(action)) {
             resultDB = service1.getObjectinfo(paramMap);
             result11 = (Map<String, Object>) resultDB;
-            
+
         }else if("logout".equals(action)){
             n = 1;
             action = "home";
