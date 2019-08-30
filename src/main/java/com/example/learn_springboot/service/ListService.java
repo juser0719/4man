@@ -19,10 +19,10 @@ public class ListService {
 
     @Autowired
 	private CommonUtil commonUtil;
-	
+
 	@Autowired
 	private ListRepository list_repository;
-	
+
     public Object getList(Object dataMap) {
 		String sqlMapId = "list.list";
 
