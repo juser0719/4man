@@ -24,18 +24,18 @@ public class ShareDao{
 
 	public Object saveObject(String sqlMapId, Object dataMap) {
 		Object resultObject = sqlSession.insert(sqlMapId, dataMap);
-		
+
 		return resultObject;
 	}
 
 	public Object updateObject(String sqlMapId, Object dataMap) {
 		Integer resultObject = sqlSession.update(sqlMapId, dataMap);
-		
+
 		return resultObject;
 	}
 
 	public Object deleteObject(String sqlMapId, Object dataMap) {
-		
+
 		Integer resultObject = sqlSession.delete(sqlMapId,dataMap);
 		return resultObject;
 	}
