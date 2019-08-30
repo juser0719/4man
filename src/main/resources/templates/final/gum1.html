@@ -15,76 +15,7 @@
 
 
 <head>
-  <!--JS-->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <!--CSS-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link
-    href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gothic+A1|Nanum+Gothic|Nanum+Gothic+Coding|Nanum+Myeongjo|Noto+Sans+KR|Noto+Serif+KR|Song+Myung&display=swap"
-    rel="stylesheet">
-  <style>
-    .color {
-      background-color: blueviolet;
-    }
 
-    .color:hover {
-      background-color: rebeccapurple;
-    }
-
-    .e {
-      font-family: 'Stylish', sans-serif;
-    }
-
-    .b {
-      font-family: 'Hi Melody', cursive;
-      font-size: 23px;
-    }
-
-    .c {
-      font-family: 'Gamja Flower', cursive;
-      font-size: 40px;
-    }
-
-    .d {
-      font-family: 'Cute Font', cursive;
-      font-size: 20px;
-    }
-
-    .e {
-      font-family: 'Poor Story', cursive;
-    }
-
-    .f {
-      font-family: 'Anton', sans-serif;
-    }
-
-    .g {
-      font-family: 'Sunflower', sans-serif;
-    }
-
-    .context_title {
-      margin: 70px 0 20px 0;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .word {
-      font-family: 'Nanum Myeongjo', serif;
-    }
-  </style>
-  <title></title>
   <script language="JavaScript">
     //1. 생길 때 수량, 가격 올리기
     //2. readonly 속성 넣기
@@ -267,41 +198,28 @@
             </table>
 
             <h2></h2>
-           
 
-              <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
 
-              <div id="item-area" class="bg-light p-3">
-              </div>
-              <div class="row justify-content-end mr-3">
-                <span class="ml-5">수량:</span>
-                <span name="amount" id="sell_amount_p"> </span>
-              </div>
+            <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
 
-              <input value="0" hidden id="sell_amount" type="number">
-<<<<<<< HEAD
-              <div><span style="font-size: 35px">총 금액 : </span><span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0"
-                  readonly>원</div>
-                  <div class = "mt-5 text-center">
-                    <button class="color btn text-white col-5">주문하기</button>
-                    <button class="color btn text-white col-5">장바구니</button>
-                  </div>
-=======
+            <div id="item-area" class="bg-light p-3">
+            </div>
+            <div class="row justify-content-end mr-3">
+              <span class="ml-5">수량:</span>
+              <span name="amount" id="sell_amount_p"> </span>
+            </div>
 
-              <div>총 금액 : <span id="sell_sum_p"></span><input type="number" name="sum" size="11" id="sell_sum" value="0"
-                  hidden>원</div>
-              <div class="mt-5 text-center">
-                <form >
+            <input value="0" hidden id="sell_amount" type="number">
+
+            <div>총 금액 : <span id="sell_sum_p"></span><input type="number" name="sum" size="11" id="sell_sum" value="0"
+                hidden>원</div>
+            <div class="mt-5 text-center">
+              <form method="POST" th:action="@{/final/order}" class="d" style="font-size: 30px;">
                 <button class="color btn text-white col-5">주문하기</button>
-                </form>
-                <button class="color btn text-white col-5">장바구니</button>
-              </div>
-<<<<<<< HEAD
->>>>>>> 1a46240b7e2477af0534c6381741229ed587b62b
-            </form>
-=======
-           
->>>>>>> zz
+              </form>
+              <button class="color btn text-white col-5">장바구니</button>
+            </div>
+
 
           </div>
         </div>
@@ -337,7 +255,7 @@
 
     </div>
     <!--body-->
-
+  </th:block>
 </body>
 
 </html>

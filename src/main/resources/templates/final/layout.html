@@ -1,92 +1,138 @@
-<!DOCTYPE html><!--layout 가운데 메인과 네비게이션-->
+<!DOCTYPE html>
+<!--layout 가운데 메인과 네비게이션-->
 <meta charset="UTF-8">
 <html xmlns:th="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head>
-        <!--JS-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!--CSS-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean" rel="stylesheet">
-        <style>
-            .color{
-                background-color :blueviolet;
-            }
-            .color:hover{
-                background-color: rebeccapurple;
-            }
-            .a { font-family: 'Stylish', sans-serif; }
-            .b { font-family: 'Hi Melody', cursive; font-size: 23px;}
-            .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
-            .d {font-family: 'Cute Font', cursive; font-size: 20px;}
-            .e {font-family: 'Poor Story', cursive;}
-            .f {font-family: 'Anton', sans-serif;}
-            .g{font-family: 'Sunflower', sans-serif;}
-        </style>
-        <title></title>
-        <script></script>
-    </head>
-    <body>
-        <!--Header-->
-        <header class = "blog-header py-3">
-            <!--제가 만든 제과  제목-->
-            <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
+
+<head>
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Anton|Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish|Sunflower:300&display=swap&subset=korean"
+        rel="stylesheet">
+    <style>
+        .color {
+            background-color: blueviolet;
+        }
+
+        .color:hover {
+            background-color: rebeccapurple;
+        }
+
+        .a {
+            font-family: 'Stylish', sans-serif;
+        }
+
+        .b {
+            font-family: 'Hi Melody', cursive;
+            font-size: 23px;
+        }
+
+        .c {
+            font-family: 'Gamja Flower', cursive;
+            font-size: 40px;
+        }
+
+        .d {
+            font-family: 'Cute Font', cursive;
+            font-size: 20px;
+        }
+
+        .e {
+            font-family: 'Poor Story', cursive;
+        }
+
+        .f {
+            font-family: 'Anton', sans-serif;
+        }
+
+        .g {
+            font-family: 'Sunflower', sans-serif;
+        }
+    </style>
+    <title></title>
+    <script></script>
+</head>
+
+<body>
+    <!--Header-->
+    <header class="blog-header py-3">
+        <!--제가 만든 제과  제목-->
+        <div class="jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
             style="background: url(/images/header/header.PNG) no-repeat; background-position: center center;">
-                <div class = "col-md-8 px-0">
-                    <form method="POST" th:action="@{/final/home}">
-                    <button class = "a bg-white border-0 text-dark text-decoration-none"><h1 class= "display-4" style="font-size: 70px;">제가 만든 제과 </h1></button>
+            <div class="col-md-8 px-0">
+                <form method="POST" th:action="@{/final/home}">
+                    <button class="a bg-white border-0 text-dark text-decoration-none">
+                        <h1 class="display-4" style="font-size: 70px;">제가 만든 제과 </h1>
+                    </button>
+                </form>
+                <p class="my-3 a">
+                    made by JPPK
+                </p>
+            </div>
+        </div>
+        <!--제가 만든 제과  제목-->
+        <!--nav bar-->
+        <div class="container b ">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="row col-8">
+                    <form method="POST" th:action="@{/final/company_info}">
+                        <button class="text-muted p-white border-0 bg-white" href="#">회사 소개</button>
                     </form>
-                    <p class = "my-3 a">
-                        made by JPPK
+                    <form method="POST" th:action="@{/final/Introduction_item}">
+                        <button type="submit" class="text-muted p-white border-0 bg-white">제품 소개</button>
+                    </form>
+
+                    <button class="text-muted p-white border-0 bg-white" href="#"> 이벤트 </button>
+                    <button class="text-muted p-white border-0 bg-white" href="#"> 고객센터 </button>
+                    <button class="text-muted p-white border-0 bg-white" href="#"> 인재채용 </button>
+                </div>
+
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <p>
+                        <form method="POST" th:action="@{/final/SignIn}">
+                            <!--SignIn/SignUP form-->
+                            <p th:utext="${resultMap.FORM1}">
+                                <!--로그인 팝업창-->
+                            </p>
+                        </form>
+
+                        <form method="POST" th:action="@{/final/SignUp}">
+                            <p th:utext="${resultMap.FORM2}">
+                                <!--계정생성 팝업창-->
+                            </p>
+                        </form>
+
+                        <form method="POST" th:action="@{/final/logout}">
+                            <p name="check" id="check" th:utext="${resultMap.SIGNOUT}"></p>
+                        </form>
+
+                        <form method="POST" th:action="@{/final/layout_mypage}">
+                            <p th:utext="${resultMap.mypage}"></p>
+                        </form>
                     </p>
+                    <input type="hidden" name="ID" value="${resultMap.ID}">
+                    <!--SignIn/SignUP form-->
+                    <!-- <button name="ID"></button> -->
                 </div>
+
             </div>
-            <!--제가 만든 제과  제목-->
-            <!--nav bar-->
-            <div class="container b ">
-                <div class = "row flex-nowrap justify-content-between align-items-center">
-                    <div class = "row col-8">
-                        <form method="POST" th:action="@{/final/company_info}">
-                            <button class = "text-muted p-white border-0 bg-white" href="#">회사 소개</button>
-                        </form>
-                        <form method="POST" th:action="@{/final/Introduction_item}">
-                            <button type="submit" class = "text-muted p-white border-0 bg-white">제품 소개</button>
-                        </form>
+        </div>
+        <!--nav bar-->
+    </header>
+    <th:block layout:fragment="layout.home"></th:block>
+    <!--layout-->
+</body>
 
-                        <button class = "text-muted p-white border-0 bg-white" href="#"> 이벤트 </button>
-                        <button class = "text-muted p-white border-0 bg-white" href="#"> 고객센터 </button>
-                        <button class = "text-muted p-white border-0 bg-white" href="#"> 인재채용 </button>
-                    </div>
-
-                    <div class = "col-4 d-flex justify-content-end align-items-center">
-                        <p>
-                            <form method="POST" th:action="@{/final/SignIn}"><!--SignIn/SignUP form-->
-                                <p th:utext="${resultMap.FORM1}"><!--로그인 팝업창--></p>
-                            </form>
-
-                            <form method="POST" th:action="@{/final/SignUp}">
-                                <p th:utext="${resultMap.FORM2}"><!--계정생성 팝업창--></p>
-                            </form>
-
-                            <form method="POST" th:action="@{/final/logout}">
-                                <p name="check" id="check" th:utext="${resultMap.SIGNOUT}"></p>
-                            </form>
-
-                            <form method="POST" th:action="@{/final/layout_mypage}">
-                                <p th:utext="${resultMap.mypage}"></p>
-                            </form>
-                        </p>
-                        <input type="hidden" name="ID" value ="${resultMap.ID}">
-                        <!--SignIn/SignUP form-->
-                        <!-- <button name="ID"></button> -->
-                    </div>
-
-                </div>
-            </div>
-            <!--nav bar-->
-        </header>
-        <th:block layout:fragment="layout.home"></th:block><!--layout-->
-    </body>
 </html>

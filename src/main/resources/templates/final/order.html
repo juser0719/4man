@@ -1,174 +1,129 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html >
-    <head>
-        <!--JS-->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!--CSS-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gothic+A1|Nanum+Gothic|Nanum+Gothic+Coding|Nanum+Myeongjo|Noto+Sans+KR|Poor+Story|Song+Myung&display=swap" rel="stylesheet">
-        <style>
-            .color{
-                background-color :blueviolet;
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="final/layout">
+< <body>
+    <th:block layout:fragment="layout.home">
 
-            }
-            .color:hover{
-                background-color: rebeccapurple;
-            }
-            .a { font-family: 'Stylish', sans-serif; }
-            .b { font-family: 'Hi Melody', cursive; font-size: 23px;}
-            .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
-            .d {font-family: 'Cute Font', cursive; font-size: 20px;}
-            .e {font-family: 'Poor Story', cursive;}
-            .order_info , .titleArea{margin: 100px 0 0 80px}
-            .th {width: 150px; height: 50px;}
-            .g {font-family: 'Nanum Myeongjo', serif;}
-            .f{font-family: 'Nanum Gothic', sans-serif;}
-            
-        </style>
-        <title></title>
-        <script></script>
-    </head>
-    <body>
 
-    <!--Header-->
-    <header class = "blog-header py-3">
-      <div class= "jumbotron d-flex p-3 p-md-5 text-dark rounded bg-white text-center justify-content-center border-bottom"
-      style="background: url(/study/public/images/header/header.PNG) no-repeat; background-position: center center;">
-          <div class = "col-md-8 px-0">
-                <a href="/" class = "a"><h1 class= "text-dark display-4" style="font-size: 70px;">제가 만든 제과 </h1></a>
-            <p class = "my-3 a">
-            made by JPPK
-            </p>
-          </div>
-      </div>
-      <div class="container b ">
-          <div class = "row flex-nowrap justify-content-between align-items-center">
-            <div class = "col-8">
-                <a class = "text-muted p-1 " href="#">회사 소개</a>
-                <a class = "text-muted p-1 " href="#">제품 소개</a>
-                <a class = "text-muted p-1 " href="#"> 이벤트 </a>
-                <a class = "text-muted p-1 " href="#"> 고객센터 </a>
-                <a class = "text-muted p-1 " href="#"> 인재채용 </a>
-            </div>
+        <h2 class="text-center f" style="margin: 100px 0 50px 0">주문서</h3>
+            <div class="container">
+                <div class="order_list row border-bottom pb-2 g">
+                    <div class="col-8">
+                        <h2 class="border-bottom text-center p-5">상품 정보</h2>
+                        <div class="row p-3">
+                            <img src="/study/public/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}"
+                                style="height: 350px; width: 250px;">
+                            <div class="text-center order_info">
+                                <h3 class="mb-5">천연 치클 껌 4종</h3>
+                                <div class="row mr-3">
+                                    <p class="ml-5">수량: 4</p>
 
-            <div class = "col-4 d-flex justify-content-end align-items-center">
-              <button class="text-muted bg-white border-0 b" data-toggle="modal" data-target = "#login">Sign In </button>/
-              <!--로그인 팝업창-->
-              <a class="text-muted bg-white border-0 b" href="/small_pro/SignUp" role="button">Sign Up</a>
-            </div>
-          </div>
-      </div>
-    </header>
+                                    <ul>
+                                        <li>후레시 민트 (+3,900)</li>
+                                        <li>후레시 레몬 (+3,900)</li>
+                                        <li>후레시 솔티 (+3,900)</li>
+                                        <li>후레시 펀치 (+3,900)</li>
+                                    </ul>
 
-    <h2 class = "text-center f" style="margin: 100px 0 50px 0">주문서</h3>
-    <div class = "container">
-        <div class= "order_list row border-bottom pb-2 g">
-            <div class= "col-8">
-                <h2 class= "border-bottom text-center p-5">상품 정보</h2>
-                <div class ="row p-3">
-                <img src="/study/public/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" style="height: 350px; width: 250px;">
-                <div class= "text-center order_info">
-                    <h3 class ="mb-5">천연 치클 껌 4종</h3>
-                    <div class="row mr-3">
-                        <span class="ml-5">수량:</span>
-                        <span name="amount" id="sell_amount_p"> </span>
+                                    <span name="amount" id="sell_amount_p"> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 border-left">
+                        <h2 class="border-bottom text-center p-5">상품 금액</h2>
+                        <div class="row  p-3">
+                            <h1 class="text-center  order_info">15,600원</h1>
+                        </div>
+                    </div>
+                    <div>
+
                     </div>
                 </div>
-                </div>
-            </div>
-            <div class= "col-4 border-left">
-                    <h2 class= "border-bottom text-center p-5">상품 금액</h2>
-                    <div class ="row  p-3">
-                    <h1 class= "text-center  order_info">3900원</h1>
+
+                <div class="data_order ">
+                    <div class="titleArea mb-5 border-bottom">
+                        <h2 class="text-center pb-3 f">주문자 정보입력</h2>
                     </div>
-            </div>
-            <div>
-
-            </div>
-        </div>
-
-       <div class = "data_order ">
-            <div class = "titleArea mb-5 border-bottom">
-                <h2 class= "text-center pb-3 f">주문자 정보입력</h2>
-            </div>
-            <table class ="goods_table d-flex justify-content-center g">
-                <tbody>
-                    <tr class ="send">
-                        <th class = "th">보내는 분</th>
-                        <td><input style="width: 162px" type ="text" name ="Ordername" value required = "required" msgr = "보내는 분의 이름을 적어주세요">
-                        </td>
-                    </tr>
-                    <tr class ="phone">
-                            <th class = "th">휴대폰 </th>
-                            <td>
-                                <span>
-                                    <select>
-                                        <option>010</option>
-                                        <option>011</option>
-                                        <option>019</option>
-                                    </select>
-                                    <input type="text">-<input type="text">
-                                </span>
-                            </td>
-                    </tr>
-                    <tr class ="email">
-                            <th class = "th">이메일</th>
-                            <td>
-                                <span>
-                                    <input type="text">@
+                    <table class="goods_table d-flex justify-content-center g">
+                        <tbody>
+                            <tr class="send">
+                                <th class="th">보내는 분</th>
+                                <td><input style="width: 162px" type="text" name="Ordername" value required="required"
+                                        msgr="보내는 분의 이름을 적어주세요">
+                                </td>
+                            </tr>
+                            <tr class="phone">
+                                <th class="th">휴대폰 </th>
+                                <td>
+                                    <span>
+                                        <select>
+                                            <option>010</option>
+                                            <option>011</option>
+                                            <option>019</option>
+                                        </select>
+                                        <input type="text">-<input type="text">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="email">
+                                <th class="th">이메일</th>
+                                <td>
+                                    <span>
+                                        <input type="text">@
                                         <select>
                                             <option>nate.com</option>
                                             <option>naver.com</option>
                                             <option>daum.net</option>
                                         </select>
-                                </span>
-                            </td>
-                    </tr>
-                    <tr class ="address">
-                        <th class = "th">배송주소</th>
-                        <td>
-                            <span>
-                                <input type="text"><input type="button" value="우편번호 검색">
-                                <input type="text" class="text2">
-                                <input type="text" class="text2">
-                            </span>
-                        </td>
-                    </tr>                    
-                       
-                </tbody>
-            </table>
-            
-           <p class= "text-center"> <button type="button" class="color btn text-white my-5 col-5 g" data-toggle="modal" data-target="#exampleModal"> 주문하기</button></p>
-                  
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title text-center" id="exampleModalLabel">주문 완료</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body text-center">
-                          주문이 성공적으로 완료 되었습니다. 감사합니다.
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="color btn text-white" data-dismiss="modal">Close</button>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        </div>
-    
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="address">
+                                <th class="th">배송주소</th>
+                                <td>
+                                    <span>
+                                        <input type="text"><input type="button" value="우편번호 검색">
+                                        <input type="text" class="text2">
+                                        <input type="text" class="text2">
+                                    </span>
+                                </td>
+                            </tr>
 
-            
-    </div>
+                        </tbody>
+                    </table>
+
+                    <p class="text-center"> <button type="button" class="color btn text-white my-5 col-5 g"
+                            data-toggle="modal" data-target="#exampleModal"> 주문하기</button></p>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">주문 완료</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    주문이 성공적으로 완료 되었습니다. 감사합니다.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="color btn text-white"
+                                        data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+    </th:block>
     </body>
+
 </html>
