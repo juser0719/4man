@@ -17,8 +17,8 @@
         <div class="sidebar-header">
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading m-5 display-2 text-center">마이페이지 </div>
-                <div class="list-group ml-3">
-                    <input href="#" type="button" class="list-group-item list-group-item-action">주문확인</a>
+                <div class="list-group">
+                    <div class="list-group-item my-5 ml-3">주문확인</div>
                     <div class="m-5">
                         <form action="#">
                             <div class="form-inline row">
@@ -66,64 +66,64 @@
                         </tbody>
                     </table>
 
-                    <input href="#" type="button" class="list-group-item list-group-item-action">지원이력</a>
-                    <div class="m-5">현재 발견된 지원 이력이 없습니다.</div>
-                    <input href="#" type="button" class="list-group-item list-group-item-action">회원정보수정</a>
-                    <div class="m-5">
-                        <div class="">이름:</div>
-                        <div class="">아이디:</div>
-                        <div class="">비밀번호: </div>
+                    <div class="list-group-item my-5">지원이력</a>
+                        <div class="m-5">현재 발견된 지원 이력이 없습니다.</div>
+                        <div href="#" type="button" class="list-group-item">회원정보수정</div>
+                        <div class="m-5">
+                            <div class="">이름:</div>
+                            <div class="">아이디:</div>
+                            <div class="">비밀번호: </div>
+                        </div>
+                        <input href="#" type="button" class="list-group-item list-group-item-action">질문조회</a>
+                        <div class="m-5">현재까지 발견된 질문이 없습니다.</div>
                     </div>
-                    <input href="#" type="button" class="list-group-item list-group-item-action">질문조회</a>
-                    <div class="m-5">현재까지 발견된 질문이 없습니다.</div>
                 </div>
             </div>
-        </div>
-        <form action="#">
-            <div class="form-inline row">
-                <span class="mx-5">조회기간</span>
+            <form action="#">
+                <div class="form-inline row">
+                    <span class="mx-5">조회기간</span>
 
-                <div class="btn-group">
-                    <input type="button" class="btn border-dark bg-light" value="오늘"></button>
-                    <input type="button" class="btn border-dark bg-light" value="15일"></button>
-                    <input type="button" class="btn border-dark bg-light" value="1개월"></button>
+                    <div class="btn-group">
+                        <input type="button" class="btn border-dark bg-light" value="오늘"></button>
+                        <input type="button" class="btn border-dark bg-light" value="15일"></button>
+                        <input type="button" class="btn border-dark bg-light" value="1개월"></button>
+                    </div>
+
+                    <span class="mx-5"></span>
+                    <input type="button" class="btn border-dark bg-light" value="5월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="6월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="7월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="8월"></button>
+
+
+                    <span class="mx-2">날짜</span>
+                    <input class="form-control" type="date" id="start_date">~
+                    <input class="form-control" type="date" id="end_date">
+
+
+                    <select class="form-control mx-3" id="exampleFormControlSelect1">
+                        <option disabled>전체상태</option>
+                        <option>배송완료</option>
+                        <option>배송중</option>
+                        <option>결제확인</option>
+                        <option>주문보류</option>
+                    </select>
+
+                    <button class="btn btn-success mx-5" type="submit" onsubmit="checkValidity()">조회
                 </div>
+            </form>
 
-                <span class="mx-5"></span>
-                <input type="button" class="btn border-dark bg-light" value="5월"></button>
-                <input type="button" class="btn border-dark bg-light" value="6월"></button>
-                <input type="button" class="btn border-dark bg-light" value="7월"></button>
-                <input type="button" class="btn border-dark bg-light" value="8월"></button>
-
-
-                <span class="mx-2">날짜</span>
-                <input class="form-control" type="date" id="start_date">~
-                <input class="form-control" type="date" id="end_date">
-
-
-                <select class="form-control mx-3" id="exampleFormControlSelect1">
-                    <option disabled>전체상태</option>
-                    <option>배송완료</option>
-                    <option>배송중</option>
-                    <option>결제확인</option>
-                    <option>주문보류</option>
-                </select>
-
-                <button class="btn btn-success mx-5" type="submit" onsubmit="checkValidity()">조회
-            </div>
-        </form>
-
-        <table class="table">
-            <thead>
-                <th>주문일/구매번호</th>
-                <th>상품정보</th>
-                <th>상태</th>
-                <th>확인/신청</th>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <!-- <p th:utext="${resultMap.ID}"></p>
+            <table class="table">
+                <thead>
+                    <th>주문일/구매번호</th>
+                    <th>상품정보</th>
+                    <th>상태</th>
+                    <th>확인/신청</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <!-- <p th:utext="${resultMap.ID}"></p>
             <p th:utext="${resultMap.mypage}"></p>
             <p>A1AA</p> -->
 
