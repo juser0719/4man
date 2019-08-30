@@ -10,6 +10,7 @@
         <!--CSS-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gothic+A1|Nanum+Gothic|Nanum+Gothic+Coding|Nanum+Myeongjo|Noto+Sans+KR|Poor+Story|Song+Myung&display=swap" rel="stylesheet">
         <style>
             .color{
                 background-color :blueviolet;
@@ -23,7 +24,10 @@
             .c {font-family: 'Gamja Flower', cursive; font-size: 40px;}
             .d {font-family: 'Cute Font', cursive; font-size: 20px;}
             .e {font-family: 'Poor Story', cursive;}
-            .order_info{margin: 100px 0 0 80px}
+            .order_info , .titleArea{margin: 100px 0 0 80px}
+            .th {width: 150px; height: 50px;}
+            .g {font-family: 'Nanum Myeongjo', serif;}
+            .f{font-family: 'Nanum Gothic', sans-serif;}
             
         </style>
         <title></title>
@@ -61,16 +65,19 @@
       </div>
     </header>
 
-    <h2 class = "text-center" style="margin: 100px 0 50px 0">주문서</h3>
+    <h2 class = "text-center f" style="margin: 100px 0 50px 0">주문서</h3>
     <div class = "container">
-        <div class= "order_list row">
+        <div class= "order_list row border-bottom pb-2 g">
             <div class= "col-8">
                 <h2 class= "border-bottom text-center p-5">상품 정보</h2>
                 <div class ="row p-3">
                 <img src="/study/public/image/상품/껌1.jpg" th:src="@{/image/상품/껌1.jpg}" style="height: 350px; width: 250px;">
                 <div class= "text-center order_info">
-                    <h3>천연 치클 껌 4종</h3>
-                    <p></p>
+                    <h3 class ="mb-5">천연 치클 껌 4종</h3>
+                    <div class="row mr-3">
+                        <span class="ml-5">수량:</span>
+                        <span name="amount" id="sell_amount_p"> </span>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -85,10 +92,83 @@
             </div>
         </div>
 
-        <div class = "data_order">
+       <div class = "data_order ">
+            <div class = "titleArea mb-5 border-bottom">
+                <h2 class= "text-center pb-3 f">주문자 정보입력</h2>
+            </div>
+            <table class ="goods_table d-flex justify-content-center g">
+                <tbody>
+                    <tr class ="send">
+                        <th class = "th">보내는 분</th>
+                        <td><input style="width: 162px" type ="text" name ="Ordername" value required = "required" msgr = "보내는 분의 이름을 적어주세요">
+                        </td>
+                    </tr>
+                    <tr class ="phone">
+                            <th class = "th">휴대폰 </th>
+                            <td>
+                                <span>
+                                    <select>
+                                        <option>010</option>
+                                        <option>011</option>
+                                        <option>019</option>
+                                    </select>
+                                    <input type="text">-<input type="text">
+                                </span>
+                            </td>
+                    </tr>
+                    <tr class ="email">
+                            <th class = "th">이메일</th>
+                            <td>
+                                <span>
+                                    <input type="text">@
+                                        <select>
+                                            <option>nate.com</option>
+                                            <option>naver.com</option>
+                                            <option>daum.net</option>
+                                        </select>
+                                </span>
+                            </td>
+                    </tr>
+                    <tr class ="address">
+                        <th class = "th">배송주소</th>
+                        <td>
+                            <span>
+                                <input type="text"><input type="button" value="우편번호 검색">
+                                <input type="text" class="text2">
+                                <input type="text" class="text2">
+                            </span>
+                        </td>
+                    </tr>                    
+                       
+                </tbody>
+            </table>
             
+           <p class= "text-center"> <button type="button" class="color btn text-white my-5 col-5 g" data-toggle="modal" data-target="#exampleModal"> 주문하기</button></p>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title text-center" id="exampleModalLabel">주문 완료</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body text-center">
+                          주문이 성공적으로 완료 되었습니다. 감사합니다.
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="color btn text-white" data-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </div>
-        
+    
+
+            
     </div>
     </body>
 </html>
