@@ -40,6 +40,7 @@
             </div>
 
             <div class="border-right" id="sidebar-wrapper">
+<<<<<<< HEAD
                 <div class="sidebar-heading m-5 display-2">마이페이지 </div>
                 <div class="list-group list-group-flush">
                     <input href="#" type="button" class="list-group-item list-group-item-action">주문확인</a>
@@ -107,6 +108,96 @@
 
 
     </th:block>
+=======
+                <div class="sidebar-heading">마이페이지 </div>
+                <div class="list-group list-group-flush">
+                    <input href="#" type="button" class="list-group-item list-group-item-action">주문확인</a>
+                    <input href="#" type="button" class="list-group-item list-group-item-action">지원이력</a>
+                    <input href="#" type="button" class="list-group-item list-group-item-action">회원정보수정</a>
+                    <input href="#" type="button" class="list-group-item list-group-item-action">질문조회</a>
+                </div>
+            </div>
+        </div>
+            <form action="#">
+                <div class="form-inline row">
+                    <span class="mx-5">조회기간</span>
+
+                    <div class="btn-group">
+                        <input type="button" class="btn border-dark bg-light" value="오늘"></button>
+                        <input type="button" class="btn border-dark bg-light" value="15일"></button>
+                        <input type="button" class="btn border-dark bg-light" value="1개월"></button>
+                    </div>
+
+                    <span class="mx-5"></span>
+                    <input type="button" class="btn border-dark bg-light" value="5월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="6월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="7월"></button>
+                    <input type="button" class="btn border-dark bg-light" value="8월"></button>
+
+
+                    <span class="mx-2">날짜</span>
+                    <input class="form-control" type="date" id="start_date">~
+                    <input class="form-control" type="date" id="end_date">
+
+<<<<<<< HEAD
+=======
+                <span class="mx-2">날짜</span>
+                <input class="form-control" type="date" name="start_date">~
+                <input class="form-control" type="date" name="end_date">
+>>>>>>> 5c36ecef4c6ea8c8fdccc54db39d44953ac752b1
+
+                    <select class="form-control mx-3" id="exampleFormControlSelect1">
+                        <option disabled>전체상태</option>
+                        <option>배송완료</option>
+                        <option>배송중</option>
+                        <option>결제확인</option>
+                        <option>주문보류</option>
+                    </select>
+
+<<<<<<< HEAD
+                    <button class="btn btn-success mx-5" type="submit" onsubmit="checkValidity()">조회
+                </div>
+            </form>
+
+            <table class="table">
+                <thead>
+                    <th>주문일/구매번호</th>
+                    <th>상품정보</th>
+                    <th>상태</th>
+                    <th>확인/신청</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+                 
+    </th:block>
+
+=======
+                <select class="form-control mx-3" name="state">
+                    <option disabled>전체상태</option>
+                    <option>배송완료</option>
+                    <option>배송중</option>
+                    <option>결제확인</option>
+                    <option>주문보류</option>
+                </select>
+
+                <button class="btn btn-success mx-5" type="submit">조회
+            </div>
+        </form>
+
+        <table class="table">
+            <thead>
+                <th>주문일/구매번호</th>
+                <th>상품정보</th>
+                <th>상태</th>
+                <th>확인/신청</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </th:block>
+>>>>>>> 5c36ecef4c6ea8c8fdccc54db39d44953ac752b1
+>>>>>>> d2315c25634da3e56fc488e3bd72575002f17ae9
 </body>
 
 </html>

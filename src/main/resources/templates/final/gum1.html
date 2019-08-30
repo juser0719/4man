@@ -122,13 +122,14 @@
 
         } else if (button_type == "plus_editItem_btn") {
           $("#sell_amount").val(parseInt($("#sell_amount").val()) + 1) //수량
-          console.log($("#sell_amount").val())
           $("#sell_amount_p").text($("#sell_amount").val().toString())
-          $("#sell_sum").val(parseInt($("#sell_amount").val()) * 3900)
+          $("#sell_sum").val((parseInt($("#sell_amount").val()) * 3900))
+          $("sell_sum_p").text($("#sell_sum").val().toString())
         } else if (button_type == "minus_editItem_btn") {
           $("#sell_amount").val(parseInt($("#sell_amount").val()) - 1)
           $("#sell_amount_p").text($("#sell_amount").val().toString())
           $("#sell_sum").val(parseInt($("#sell_amount").val()) * 3900)
+          $("sell_sum_p").text($("#sell_sum").val().toString())
         } else if (button_type == "remove_editItem_btn") {
           $("#sell_amount").val(parseInt($("#sell_amount").val()) - 1)
         }
@@ -140,6 +141,8 @@
         $("#sell_amount").val(parseInt($("#sell_amount").val() - $("#amount" + index).val()))
         $("#sell_sum").val($("#sell_amount").val() * price.toString())
         $("#sell_amount_p").text($("#sell_amount").val().toString())
+        $("sell_sum_p").text($("#sell_sum").val().toString())
+
         console.log($("#sell_amount").val())
         console.log($("#amount" + index).val())
         console.log($("#sell_amount").val())
@@ -264,7 +267,7 @@
             </table>
 
             <h2></h2>
-            <form name="form" method="get" th:action="@{final/gum1}">
+            <form name="form" method="POST" th:action="@{final/gum1}">
 
               <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
 
@@ -276,7 +279,7 @@
               </div>
 
               <input value="0" hidden id="sell_amount" type="number">
-              <div>총 금액 : <span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0"
+              <div><span style="font-size: 35px">총 금액 : </span><span id="sum"></span><input type="number" name="sum" size="11" id="sell_sum" value="0"
                   readonly>원</div>
                   <div class = "mt-5 text-center">
                     <button class="color btn text-white col-5">주문하기</button>

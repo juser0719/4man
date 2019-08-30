@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
     @Autowired
     private FINALService service;
-    String hidden="";
+    String hidden = "";
     int n = 1;
 
 
