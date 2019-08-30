@@ -18,16 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class FINALController {
     @Autowired
     private FINALService service;
-<<<<<<< HEAD
     @Autowired
     private ItemService service1;
-    String hidden="";
-    boolean A=true;
-=======
-    String hidden = "";
->>>>>>> 24249d2a8ae57ac84375adc7b85fb8690c2333fc
-    int n = 1;
 
+    String hidden = "";
+    boolean A = true;
+    int n = 1;
 
     @RequestMapping(value = "/final/home")
     public ModelAndView actionhome(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
@@ -48,14 +44,9 @@ public class FINALController {
             resultMap.put("SIGNOUT",
                     "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
         }
-<<<<<<< HEAD
-            modelandView.addObject("resultMap", resultMap);
-            return modelandView;
-=======
 
         modelandView.addObject("resultMap", resultMap);
         return modelandView;
->>>>>>> 24249d2a8ae57ac84375adc7b85fb8690c2333fc
 
     }
 
@@ -99,37 +90,31 @@ public class FINALController {
             } else {
                 action = "SignIn";
             }
-		}else if("read".equals(action)){
+        } else if ("read".equals(action)) {
             resultDB = service1.getObjectinfo(paramMap);
-            result11 = (Map<String,Object>) resultDB;
-        }
-
-        } else if ("logout".equals(action)) {
-            n = 1;
-            action = "home";
-        }
-
-        if ((paramMap.get("ID") == null || paramMap.get("ID").equals("")) && n == 1) {// 로그인 전
-            resultMap.put("ID", "");
-            resultMap.put("FORM1",
-                    "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
-            resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
-            resultMap.put("SIGNOUT", "");
-        } else {// 로그인 후
-            resultMap.put("FORM1", "");
-            resultMap.put("FORM2", "");
-            resultMap.put("SIGNOUT",
-                    "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
-            resultMap.put("ID", hidden);
-        }
-
-        viewName += action;
-        modelandView.setViewName(viewName);
-        modelandView.addObject("paramMap", paramMap);
-        modelandView.addObject("resultMap", resultMap);
-        return modelandView;
+            result11 = (Map<String, Object>) resultDB;
+        }else if("logout".equals(action)){
+        n = 1;
+        action = "home";
     }
 
+    if((paramMap.get("ID")==null||paramMap.get("ID").equals(""))&&n==1)
+    {// 로그인 전
+        resultMap.put("ID", "");
+        resultMap.put("FORM1",
+                "<button type='submit' name='ID' class='text-muted bg-white border-0 b'>Sign In</button>/");
+        resultMap.put("FORM2", "<button type='submit' class='text-muted bg-white border-0 b'>Sign Up</button>");
+        resultMap.put("SIGNOUT", "");
+    }else
+    {// 로그인 후
+        resultMap.put("FORM1", "");
+        resultMap.put("FORM2", "");
+        resultMap.put("SIGNOUT",
+                "<button type='submit' name='LOGOUT' class='text-muted bg-white border-0 b bg-white'>Sign Out</button>");
+        resultMap.put("ID", hidden);
+    }
+
+    viewName+=action;modelandView.setViewName(viewName);modelandView.addObject("paramMap",paramMap);modelandView.addObject("resultMap",resultMap);return modelandView;
 }
 
-
+}
