@@ -111,7 +111,9 @@
                     </form>
                     <!--SignIn/SignUP form-->
                     <!-- <button name="ID"></button> -->
-                    <a th:utext="${resultMap.VIEW}"></a>
+                    <form method="POST" th:action="@{/final/layout_mypage}">
+                    <a th:utext="${resultMap.mypage}"></a>
+                </form>
                 </div>
 
             </div>

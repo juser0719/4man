@@ -20,9 +20,9 @@ public class FINALService{
 
     @Autowired
 	private CommonUtil commonUtil;
-	
 
-	
+
+
     public Object getList(Object dataMap) {
 		String sqlMapId = "custom.list";
 
