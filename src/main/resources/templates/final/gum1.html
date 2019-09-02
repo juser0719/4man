@@ -41,7 +41,8 @@
           item_index_list.push(btn_index)
           btn_index += 1
           calculate("plus_editItem_btn")
-
+          create_element()
+          console.log("plus_button: \n" + plus_button)
         }
       })
       //분화시킬 필요가 있음, 가격
@@ -82,7 +83,21 @@
         console.log($("#sell_sum").val())
         $("#item_index" + index).remove() //항목 제거
       }
+      //edit start
+      function create_element(element) {
+        var element = {
+          tag: "input",
+          type: "button",
+          //value: "+",
+          id: "plus_editItem_btn1",
+          name: "plus_editItem_btn",
+          //readonly: "readonly"
+        }
 
+        var plus_button = `<${element.tag} type="${element.type}" value="${element.value}" id="${element.id}" name="${element.name}" ${element.readonly}>`
+        console.log("temporary button: \n" + plus_button)
+      }
+      //edit end
 
       //needs to be optimized
       $(document).ready(function () {
@@ -142,6 +157,8 @@
       })
     })
 
+
+
   </script>
 </head>
 
@@ -197,7 +214,7 @@
             </table>
 
             <h2></h2>
-           
+
             <form method="POST" th:action="@{/final/order}">
               <!--<input type="text" name="amount" value="1" size="3" onchange="change();">-->
 
