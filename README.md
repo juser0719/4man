@@ -23,7 +23,7 @@
 
 ### 주요 화면
 
-![메인 페이지1](./what/main.PNG)
+![메인 페이지1](./what/main.png)
 ![메인 페이지1](./what/base.PNG)
 ![메인 페이지1](./what/login.png)
 ![메인 페이지1](./what/123.png)
