@@ -12,18 +12,18 @@
 
 ### 화면 정의서
 
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/1.PNG">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/2.PNG">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/wire.png">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/wiee.png">
+![페이지1](./what/1.PNG)
+![페이지2](./what/2.PNG)
+![페이지3](./what/wire.png)
+![페이지4](./what/wiee.png)
 
 ### ERD
 
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/ERD.PNG">
+![ERD](./what/ERD.PNG)
 
 ### 주요 화면
 
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/main.png">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/base.PNG">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/login.png">
-<img src="https://github.com/minsu-zip/what_FINAL/blob/master/what/123.png">
+![메인 페이지1](./what/main.PNG)
+![메인 페이지1](./what/base.PNG)
+![메인 페이지1](./what/login.png)
+![메인 페이지1](./what/123.png)
